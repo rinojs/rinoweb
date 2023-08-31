@@ -1,0 +1,235 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        
+        
+        
+        <script type="text/javascript" src="/documents/system-main.js"></script>
+        <link rel="stylesheet" href="/documents/system-style.css">
+        
+<link rel="stylesheet" href="/bulma.min.css">
+<meta name="description" content="System of Rino.js. Documentation." />
+<meta name="og:site_name" content="Rino.js" />
+<meta name="og:title" content="System | Doc | Rino.js" />
+<meta name="og:description" content="System of Rino.js. Documentation." />
+<meta name="og:url" content="https://rinojs.org/documents/system.html" />
+<meta name="og:image" content="/assets/rino256.png"/>
+<meta name="naver-site-verification" content="0e2b53e8888e0e7cad3c37284482aa13ec402c44" />
+<link rel="icon" href="/assets/favicon.ico">
+
+        
+<link href='https://fonts.googleapis.com' rel='preconnect'/>
+<link crossorigin='crossorigin' href='https://fonts.gstatic.com' rel='preconnect'/>
+<link href='https://fonts.googleapis.com/css2?family=Noto+Sans&amp;family=Noto+Sans+Mono&amp;display=swap' rel='stylesheet'/>
+
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>System | Doc | Rino.js</title>
+    </head>
+    <body>
+        
+<div class="topHolder"></div>
+<header>
+    <nav class="navbar" role="navigation">
+        <div class="navbar-brand">
+            
+<a class="navbar-item" id="header-logo-link" href="/">
+    <img src="/assets/rino32.png" /><span id="header-logo-text">Rino.js</span>
+</a>
+
+            <a role="button" class="menubutton" id="menubutton" onclick="showMenu()" >
+                menu
+            </a>    
+            <a role="button" onclick="showNavBtns()" id="navButton" class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+        <div id="navMenu" class="navbar-menu">
+            <div class="navbar-end">
+                
+<a class="navbar-item" href="/documents/introduction.html">
+    Document
+</a>
+
+                
+<a class="navbar-item" href="/sponsor.html">
+    Sponsor
+</a>
+
+                
+<a class="navbar-item" href="/shop.html">
+    Shop
+</a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                    
+Languages
+
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="/">
+                            English
+                        </a>
+                        <a class="navbar-item" href="/ko/">
+                            한국어
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+    kofiWidgetOverlay.draw('opdev1004', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Support me',
+        'floating-chat.donateButton.background-color': '#5cb85c',
+        'floating-chat.donateButton.text-color': '#fff'
+    });
+    </script>
+
+    
+
+
+        <div class="mainview">
+            <div class="columns">
+                
+<div class="column" id="sidebar">
+    <aside class="menu">
+        
+<p class="menu-label">
+    Getting Started
+</p>
+<ul class="menu-list">
+    <li><a href="/documents/introduction.html">Intorduction</a></li>
+    <li><a href="/documents/installation.html">Installation & Setup</a></li>
+    <li><a href="/documents/system.html">System</a></li>
+</ul>
+<p class="menu-label">
+    Rino
+</p>
+<ul class="menu-list">
+    <li><a href="/documents/preprocessed-page.html">Page</a></li>
+    <li><a href="/documents/preprocessed-component.html">@component</a></li>
+    <li><a href="/documents/preprocessed-preload.html">@preload</a></li>
+    <li><a href="/documents/preprocessed-data.html">@data</a></li>
+    <li><a href="/documents/preprocessed-tot.html">@tot</a></li>
+    <li><a href="/documents/preprocessed-md.html">@md</a></li>
+    <li><a href="/documents/escape.html">Escape</a></li>
+    <li><a href="/documents/preprocessing-api.html">Rino API</a></li>
+</ul>
+<p class="menu-label">
+    Rinokit
+</p>
+<ul class="menu-list">
+    <li><a href="/documents/rinokit.html">Rinokit</a></li>
+    <li><a href="/documents/component.html">Component</a></li>
+    <li><a href="/documents/data.html">Data</a></li>
+    <li><a href="/documents/rinokit-api.html">Rinokit API</a></li>
+</ul>
+<p class="menu-label">
+    Extra
+</p>
+<ul class="menu-list">
+    <li><a href="/documents/preprocessed-event.html">@events</a></li>
+</ul>
+
+    </aside>
+</div>
+<div id="cover" onclick="showMenu()">
+</div>
+
+                <div class="column">
+                    <section class="section">
+                        <h1>System of Rino</h1>
+<h2>Whole Structure</h2>
+<pre><code>Preprocess the project files
+-&gt; static files or data
+-&gt; Rinokit componets and data during runtime
+</code></pre>
+<p><br>Instead of processing everything in the webpage, It is more efficient that we divide them into the things that need to be preprocessed and processed from client side.</p>
+<h2>Preprocessing strucutre</h2>
+<pre><code>Going through pages one by one
+-&gt; Syntax in a page in order
+-&gt; Syntax from Syntax(file or object) from page
+-&gt; Syntax from Syntax(file or object) if they have depth like @component
+</code></pre>
+<p>Rino preprocess files based on syntax in <code>&lt;d:html&gt;&lt;/d:html&gt;</code>. And preprocessing system follows the order of where the syntax is placed.</p>
+<p>Preload files will be placed at the top of the javascript and css files.
+Then components for client side will be placed. The last part will be the preprocessed components and pages.</p>
+<p>Some syntax, they are applied in the order: <code>@data, @tot</code>. You can try to do something with it. But it may not be safe because it is not like there&#39;s a rule <code>@data</code> or any others should be applied first.</p>
+<h2>Dev() Directory Structrue and System</h2>
+<pre><code>Project/src/index.js
+Project/src/pages.js
+Project/src/pages/
+Project/src/components/
+Project/src/preloads/
+Project/src/tots/
+Project/src/mds/
+Project/public/
+Project/dist/
+</code></pre>
+<p>It is totally up to you how you setup your project. But it is recommended to put everything well organized, just like the structure above.</p>
+<p><code>Project/src/index.js</code> is where you load <code>Project/src/pages.js</code> and run the code.</p>
+<p><code>Project/src/pages.js</code> is where you setup pages and run some code that you need.</p>
+<p><code>Project/src/pages/</code> is where you store .tot files for pages</p>
+<p><code>Project/src/components/</code> is where you store .tot files for preprocessed components</p>
+<p><code>Project/src/preloads/</code> is where you store .tot files for preloading.</p>
+<p><code>Project/src/tots/</code> is where you store .tot files for content and data storage. You can setup multilingual support using this.</p>
+<p><code>Project/src/mds/</code> is where you store .md files for content. You can setup multilingual support using this.</p>
+<p><code>Project/public/</code> is where you store asset files. They are going to be copied into <code>Project/dist/.</code> Rino use algorithm for checking when the files are updated. So it is quite efficient and fast enough.</p>
+<p><code>Project/dist/</code> is where Rino is going to put the result of development.</p>
+<h2>Extra stuffs</h2>
+<p>Anything that is preprocessed start with <code>@</code>. Runtime component is also actually preprocessed as well, but it is just a rule for where they are more used for building a page. This rule has made because we are going to support runtime tools in the future.</p>
+<p>It is good to understand <a href="https://github.com/opdev1004/totjs">Tot</a>. Because you can do many things with it. Tot is a good IO handler.</p>
+
+                    </section>
+                </div>
+            </div>
+        </div>
+        
+<footer class="footer">
+    <div class="content has-text-centered">
+        <div class="columns footer-content">
+            
+            <div class="column">
+                <h2 class="subtitle">Docs</h2>
+                <p><a href="/documents/introduction.html">Introduction</a></p>
+                <p><a href="/documents/installation.html">Installation & Setup</a></p>
+                <p><a href="/documents/preprocessing-api.html">Preprocessing API</a></p>
+            </div>
+            <div class="column">
+                <h2 class="subtitle">Support us</h2>
+                <p><a href="https://ko-fi.com/opdev1004" target="__blank">Ko-fi</a></p>
+                <p><a href="https://github.com/sponsors/opdev1004" target="__blank">Github Sponsor</a></p>
+                <p><a href="https://www.redbubble.com/shop/ap/149559711" target="__blank">RB Rino Shop</a></p>
+                <p><a href="https://www.redbubble.com/people/Geargom/shop" target="__blank">RB Geargom Shop</a></p>
+            </div>
+            <div class="column">
+                <h2 class="subtitle">Help</h2>
+                <p><a href="https://github.com/rinojs/rinojs/discussions" target="__blank">Github Discussions</a></p>
+            </div>
+
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <p>
+            <p><a href="https://github.com/rinojs/rinojs" target="__blank"><strong>Rino.js</strong></a> is Released under <a href="http://opensource.org/licenses/mit-license.php" target="__blank">MIT</a> license</p>
+            <p>Copyright © 2023-Present Year <a href="https://github.com/opdev1004" target="__blank">Victor Chanil Park</a></p>
+        </p>
+    </div>
+</footer>
+
+    </body>
+    </html>
