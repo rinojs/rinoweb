@@ -2,154 +2,178 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://rinojs.org/</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/sponsor.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/shop.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/documents/introduction.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/documents/installation.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/documents/system.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/documents/preprocessing-api.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/documents/preprocessed-page.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/documents/preprocessed-component.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/documents/preprocessed-preload.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/documents/preprocessed-data.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/documents/preprocessed-event.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/documents/preprocessed-tot.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/documents/preprocessed-md.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
+    </url>
+    <url>
+        <loc>https://rinojs.org/documents/preprocessed-props.html</loc>
+        <lastmod>2023-09-05</lastmod>
+    </url>
+    <url>
+        <loc>https://rinojs.org/documents/innerdata.html</loc>
+        <lastmod>2023-09-05</lastmod>
+    </url>
+    <url>
+        <loc>https://rinojs.org/documents/comment.html</loc>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/documents/escape.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/documents/rinokit.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/documents/component.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/documents/data.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/documents/rinokit-api.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/sponsor.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/shop.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/documents/introduction.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/documents/installation.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/documents/system.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/documents/preprocessing-api.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/documents/preprocessed-page.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/documents/preprocessed-component.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/documents/preprocessed-preload.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/documents/preprocessed-data.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/documents/preprocessed-event.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/documents/preprocessed-tot.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/documents/preprocessed-md.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
+    </url>
+    <url>
+        <loc>https://rinojs.org/ko/documents/preprocessed-props.html</loc>
+        <lastmod>2023-09-05</lastmod>
+    </url>
+    <url>
+        <loc>https://rinojs.org/ko/documents/innerdata.html</loc>
+        <lastmod>2023-09-05</lastmod>
+    </url>
+    <url>
+        <loc>https://rinojs.org/ko/documents/comment.html</loc>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/documents/escape.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/documents/rinokit.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/documents/component.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/documents/data.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
     <url>
         <loc>https://rinojs.org/ko/documents/rinokit-api.html</loc>
-        <lastmod>2023-08-30</lastmod>
+        <lastmod>2023-09-05</lastmod>
     </url>
 </urlset>

@@ -12,6 +12,9 @@ https://rinojs.org/documents/preprocessed-data.html
 https://rinojs.org/documents/preprocessed-event.html
 https://rinojs.org/documents/preprocessed-tot.html
 https://rinojs.org/documents/preprocessed-md.html
+https://rinojs.org/documents/preprocessed-props.html
+https://rinojs.org/documents/innerdata.html
+https://rinojs.org/documents/comment.html
 https://rinojs.org/documents/escape.html
 https://rinojs.org/documents/rinokit.html
 https://rinojs.org/documents/component.html
@@ -31,6 +34,9 @@ https://rinojs.org/ko/documents/preprocessed-data.html
 https://rinojs.org/ko/documents/preprocessed-event.html
 https://rinojs.org/ko/documents/preprocessed-tot.html
 https://rinojs.org/ko/documents/preprocessed-md.html
+https://rinojs.org/ko/documents/preprocessed-props.html
+https://rinojs.org/ko/documents/innerdata.html
+https://rinojs.org/ko/documents/comment.html
 https://rinojs.org/ko/documents/escape.html
 https://rinojs.org/ko/documents/rinokit.html
 https://rinojs.org/ko/documents/component.html

@@ -5,15 +5,15 @@
         
         
         
-        <script type="text/javascript" src="/documents/preprocessed-md-main.js"></script>
-        <link rel="stylesheet" href="/documents/preprocessed-md-style.css">
+        <script type="text/javascript" src="/documents/preprocessed-props-main.js"></script>
+        <link rel="stylesheet" href="/documents/preprocessed-props-style.css">
         
 <link rel="stylesheet" href="/bulma.min.css">
-<meta name="description" content="Preprocessed Markdown of Rino.js. Documentation." />
+<meta name="description" content="Preprocessed Props of Rino.js. Documentation." />
 <meta name="og:site_name" content="Rino.js" />
-<meta name="og:title" content="Preprocessed Markdown | Doc | Rino.js" />
-<meta name="og:description" content="Preprocessed Markdown of Rino.js. Documentation." />
-<meta name="og:url" content="https://rinojs.org/documents/preprocessed-md.html" />
+<meta name="og:title" content="Preprocessed Props | Doc | Rino.js" />
+<meta name="og:description" content="Preprocessed Props of Rino.js. Documentation." />
+<meta name="og:url" content="https://rinojs.org/documents/preprocessed-props.html" />
 <meta name="og:image" content="/assets/rino256.png"/>
 <meta name="naver-site-verification" content="0e2b53e8888e0e7cad3c37284482aa13ec402c44" />
 <link rel="icon" href="/assets/favicon.ico">
@@ -24,10 +24,10 @@
 <link href='https://fonts.googleapis.com/css2?family=Noto+Sans&amp;family=Noto+Sans+Mono&amp;display=swap' rel='stylesheet'/>
 
 
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Preprocessed Markdown | Doc | Rino.js</title>
+        <title>Preprocessed Props | Doc | Rino.js</title>
     </head>
     <body>
         
@@ -141,13 +141,48 @@
 
                 <div class="column">
                     <section class="section">
-                        <h1>@md</h1>
-<h2>Markdown for preprocessing</h2>
-<pre><code>some html content...
-{{ @md, ./src/mds/somecontent.md }}
+                        <h1>@props</h1>
+<h2>Properties for child component</h2>
+<p><code>@props</code> is the list of data that you can pass from parent.
+With this feature you can create a child component that is unique, even though you are using the template of component multiple times. You can build a UI Kit with this feature.</p>
+<p>./src/components/parent-component.tot:</p>
+<pre><code>&lt;d:html&gt;
+{{ @component, ./src/components/child-component.tot, props1 }}
+&lt;/d:html&gt;
+&lt;d:css&gt;
+&lt;/d:css&gt;
+&lt;d:js&gt;
+&lt;/d:js&gt;
+&lt;d:props1&gt;
+&lt;div&gt;
 some html content...
+&lt;/div&gt;
+&lt;/d:props1&gt;
+&lt;d:props2&gt;#222&lt;/d:props2&gt;
 </code></pre>
-<p>Markdown is really good when you write a content. And you can use this feature to create something that is reusable. Such as, code blocks instead of writing them with entities.</p>
+<p>./src/components/child-component.tot:</p>
+<pre><code>&lt;d:html&gt;
+{{ @props[0] }}
+&lt;/d:html&gt;
+&lt;d:css&gt;
+.some-elelent
+{
+    background-color: {{ @props[1] }};
+}
+&lt;/d:css&gt;
+</code></pre>
+<p>result:</p>
+<pre><code>html:
+&lt;div&gt;
+some html content...
+&lt;/div&gt;
+
+css:
+.some-elelent
+{
+    background-color: #222;
+}
+</code></pre>
 
                     </section>
                 </div>

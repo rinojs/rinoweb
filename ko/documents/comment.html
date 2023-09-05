@@ -5,15 +5,15 @@
         
         
         
-        <script type="text/javascript" src="/documents/preprocessed-event-main.js"></script>
-        <link rel="stylesheet" href="/documents/preprocessed-event-style.css">
+        <script type="text/javascript" src="/documents/comment-main.js"></script>
+        <link rel="stylesheet" href="/documents/comment-style.css">
         
 <link rel="stylesheet" href="/bulma.min.css">
-<meta name="description" content="Rino.js의 전처리용 이벤트. 문서." />
+<meta name="description" content="Rino.js의 주석. 문서." />
 <meta name="og:site_name" content="Rino.js" />
-<meta name="og:title" content="@events | 문서 | Rino.js" />
-<meta name="og:description" content="Rino.js의 전처리용 이벤트. 문서." />
-<meta name="og:url" content="https://rinojs.org/ko/documents/preprocessed-event.html" />
+<meta name="og:title" content="주석 | 문서 | Rino.js" />
+<meta name="og:description" content="Rino.js의 주석. 문서." />
+<meta name="og:url" content="https://rinojs.org/ko/documents/comment.html" />
 <meta name="og:image" content="/assets/rino256.png"/>
 <meta name="naver-site-verification" content="0e2b53e8888e0e7cad3c37284482aa13ec402c44" />
 <link rel="icon" href="/assets/favicon.ico">
@@ -27,7 +27,7 @@
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>@events | 문서 | Rino.js</title>
+        <title>주석 | 문서 | Rino.js</title>
     </head>
     <body>
         
@@ -141,35 +141,11 @@
 
                 <div class="column">
                     <section class="section">
-                        <h1>@events</h1>
-<h2>리노를 사용하면 HTML로 이벤트 속성을 짧게 작성할 수 있습니다.</h2>
-<pre><code>@click -&gt; onclick
-</code></pre>
-<p>리노는 <code>@</code>의 모든 이벤트를 전처리합니다. 그리고 여전히 <code>on</code> 또한 사용할 수 있습니다.</p>
-<h3>/src/pages/index.tot:</h3>
-<pre><code>&lt;d:html&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        {{ @preload, ./src/preloads/preload.tot }}
-        &lt;script type=&quot;text/javascript&quot; src=&quot;main.js&quot;&gt;&lt;/script&gt;
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
-
-        &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=utf-8&quot; /&gt;
-        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
-        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-        &lt;title&gt;{{ @data.title }}&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;button @click=&quot;someCode(event)&quot;&gt;&lt;/button&gt;
-        Some content..
-    &lt;/body&gt;
-&lt;/html&gt;
-&lt;/d:html&gt;
-&lt;d:js&gt;
-&lt;/d:js&gt;
-&lt;d:css&gt;
-&lt;/d:css&gt;
+                        <h1>주석</h1>
+<h2>주석을 전처리 구문에 넣는 것은 어떤가요?</h2>
+<pre><code>{{ //
+Some commment
+}}
 </code></pre>
 
                     </section>

@@ -5,15 +5,15 @@
         
         
         
-        <script type="text/javascript" src="/documents/preprocessed-event-main.js"></script>
-        <link rel="stylesheet" href="/documents/preprocessed-event-style.css">
+        <script type="text/javascript" src="/documents/preprocessed-props-main.js"></script>
+        <link rel="stylesheet" href="/documents/preprocessed-props-style.css">
         
 <link rel="stylesheet" href="/bulma.min.css">
-<meta name="description" content="Rino.js의 전처리용 이벤트. 문서." />
+<meta name="description" content="Rino.js의 @props. 문서." />
 <meta name="og:site_name" content="Rino.js" />
-<meta name="og:title" content="@events | 문서 | Rino.js" />
-<meta name="og:description" content="Rino.js의 전처리용 이벤트. 문서." />
-<meta name="og:url" content="https://rinojs.org/ko/documents/preprocessed-event.html" />
+<meta name="og:title" content="@props | 문서 | Rino.js" />
+<meta name="og:description" content="Rino.js의 @props. 문서." />
+<meta name="og:url" content="https://rinojs.org/ko/documents/preprocessed-props.html" />
 <meta name="og:image" content="/assets/rino256.png"/>
 <meta name="naver-site-verification" content="0e2b53e8888e0e7cad3c37284482aa13ec402c44" />
 <link rel="icon" href="/assets/favicon.ico">
@@ -27,7 +27,7 @@
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>@events | 문서 | Rino.js</title>
+        <title>@props | 문서 | Rino.js</title>
     </head>
     <body>
         
@@ -141,35 +141,47 @@
 
                 <div class="column">
                     <section class="section">
-                        <h1>@events</h1>
-<h2>리노를 사용하면 HTML로 이벤트 속성을 짧게 작성할 수 있습니다.</h2>
-<pre><code>@click -&gt; onclick
-</code></pre>
-<p>리노는 <code>@</code>의 모든 이벤트를 전처리합니다. 그리고 여전히 <code>on</code> 또한 사용할 수 있습니다.</p>
-<h3>/src/pages/index.tot:</h3>
+                        <h1>@props</h1>
+<h2>하위 컴포넌트의 속성</h2>
+<p><code>@props</code>는 부모로부터 전달할 수 있는 데이터 목록입니다.
+이 기능을 사용하면 동일한 컴포넌트 템플릿을 사용하더라도, 개성적인 컴포넌트를 만들 수 있습니다. 이 기능을 사용하여 UI 키트를 구축할 수 있습니다.</p>
+<p>./src/components/parent-component.tot:</p>
 <pre><code>&lt;d:html&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        {{ @preload, ./src/preloads/preload.tot }}
-        &lt;script type=&quot;text/javascript&quot; src=&quot;main.js&quot;&gt;&lt;/script&gt;
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
-
-        &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=utf-8&quot; /&gt;
-        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
-        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-        &lt;title&gt;{{ @data.title }}&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;button @click=&quot;someCode(event)&quot;&gt;&lt;/button&gt;
-        Some content..
-    &lt;/body&gt;
-&lt;/html&gt;
+{{ @component, ./src/components/child-component.tot, props1 }}
 &lt;/d:html&gt;
-&lt;d:js&gt;
-&lt;/d:js&gt;
 &lt;d:css&gt;
 &lt;/d:css&gt;
+&lt;d:js&gt;
+&lt;/d:js&gt;
+&lt;d:props1&gt;
+&lt;div&gt;
+some html content...
+&lt;/div&gt;
+&lt;/d:props1&gt;
+&lt;d:props2&gt;#222&lt;/d:props2&gt;
+</code></pre>
+<p>./src/components/child-component.tot:</p>
+<pre><code>&lt;d:html&gt;
+{{ @props[0] }}
+&lt;/d:html&gt;
+&lt;d:css&gt;
+.some-elelent
+{
+    background-color: {{ @props[1] }};
+}
+&lt;/d:css&gt;
+</code></pre>
+<p>result:</p>
+<pre><code>html:
+&lt;div&gt;
+some html content...
+&lt;/div&gt;
+
+css:
+.some-elelent
+{
+    background-color: #222;
+}
 </code></pre>
 
                     </section>
