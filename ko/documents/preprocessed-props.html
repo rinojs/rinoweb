@@ -174,7 +174,7 @@ some html content...
 }
 &lt;/d:css&gt;
 </code></pre>
-<p>result:</p>
+<p>결과:</p>
 <pre><code>html:
 &lt;div&gt;
 some html content...
@@ -184,6 +184,31 @@ css:
 .some-elelent
 {
     background-color: #222;
+}
+</code></pre>
+<h2>인라인으로 넘겨주는 방법</h2>
+<p>버전 v1.5.10 부터 인라인 기능을 사용할 수 있습니다.</p>
+<p>부모 컴포넌트:</p>
+<pre><code>&lt;d:html&gt;
+{{ @component, filename, (#222), (&lt;button&gt;&lt;/button&gt;) }}
+&lt;/d:html&gt;
+</code></pre>
+<p>자식 컴포넌트:</p>
+<pre><code>&lt;d:html&gt;
+{{ @props[1] }};
+&lt;/d:html&gt;
+&lt;d:css&gt;
+button {
+    color: {{ @props[0] }};
+}
+&lt;/d:css&gt;
+</code></pre>
+<p>결과:</p>
+<pre><code>html:
+&lt;button&gt;&lt;/button&gt;
+css:
+button {
+    color: #222;
 }
 </code></pre>
 
