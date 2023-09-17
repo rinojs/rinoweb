@@ -15,27 +15,25 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&family=Noto+Sans+Mono:wght@500&family=Noto+Sans:wght@500&display=swap" rel="stylesheet">
-<meta name="description" content="Rino.js
-빠른 학습, 전처리 방식의, 직관적인 웹 프레임워크
-npm create rino@latest
-
-또는
-npm i rinojs rinokit
-
-쉽다
-프론트엔드 개발자가 일반적으로 배우는 것들만으로 가능합니다. 표준 HTML, CSS, Javascript an" />
-<meta name="og:title" content="홈" />
-<meta name="og:description" content="Rino.js
-빠른 학습, 전처리 방식의, 직관적인 웹 프레임워크
-npm create rino@latest
-
-또는
-npm i rinojs rinokit
-
-쉽다
-프론트엔드 개발자가 일반적으로 배우는 것들만으로 가능합니다. 표준 HTML, CSS, Javascript an" />
+<meta name="description" content="페이지
+전처리가 시작되는 곳...
+/src/pages/index.tot:
+&lt;d:html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;script type=&quot;text/javascr" />
+<meta name="og:title" content="페이지" />
+<meta name="og:description" content="페이지
+전처리가 시작되는 곳...
+/src/pages/index.tot:
+&lt;d:html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;script type=&quot;text/javascr" />
 <meta name="og:site_name" content="Rino" />
-<meta name="og:url" content="https://rinojs.org/홈.html" />
+<meta name="og:url" content="https://rinojs.org/페이지.html" />
 <meta name="og:image" content=""/> 
 
 
@@ -43,7 +41,7 @@ npm i rinojs rinokit
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>홈</title>
+        <title>페이지</title>
     </head>
     <body>
         <div class="mainview columns">
@@ -156,43 +154,78 @@ npm i rinojs rinokit
 </div>
 <hr>
 
-                <h1>Rino.js</h1>
-<h2>빠른 학습, 전처리 방식의, 직관적인 웹 프레임워크</h2>
-<pre><code>npm create rino@latest
+                <h1>페이지</h1>
+<h2>전처리가 시작되는 곳...</h2>
+<h3>/src/pages/index.tot:</h3>
+<pre><code>&lt;d:html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;main.js&quot;&gt;&lt;/script&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+
+        &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=utf-8&quot; /&gt;
+        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+        &lt;title&gt;&#123;&#123; @data.title &#125;&#125;&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        Some content..
+    &lt;/body&gt;
+&lt;/html&gt;
+&lt;/d:html&gt;
+&lt;d:js&gt;
+&lt;/d:js&gt;
+&lt;d:css&gt;
+&lt;/d:css&gt;
 </code></pre>
-<p>또는</p>
-<pre><code>npm i rinojs rinokit
+<p>.tot 파일 형식의 단일 페이지 템플릿입니다. 보시다시피 구조는 <code>&lt;d:html&gt;&lt;/d:html&gt;&lt;d:js&gt;&lt;/d:js&gt;&lt;d:css&gt;&lt;/d:css&gt;</code>로 이해하기 쉽습니다. 태그 내부에 html, js, css만 넣으면 됩니다. <code>pages.js</code>에서 더 많은 페이지를 생성하고 파일에서 로드하면 웹사이트를 더 크게 구축할 수 있습니다.</p>
+<h3>/src/pages.js:</h3>
+<pre><code>const path = require(&#39;path&#39;);
+
+async function pages()
+{
+    return [
+        {
+            data: {
+                title: &quot;Rino.js&quot;,
+                desc: &quot;Fast learning, preprocessing, intuitive web framework. Rino.js&quot;,
+                url: &quot;&quot;
+            },
+            pageFilename: path.resolve(__dirname, &quot;./pages/index.tot&quot;),
+            distDirname: path.resolve(__dirname, &quot;../dist/&quot;),
+            filenames: {
+                css: &quot;style.css&quot;,
+                js: &quot;main.js&quot;
+            }
+        }
+    ]
+}
+
+module.exports = { pages }
 </code></pre>
-<h3>쉽다</h3>
-<p>프론트엔드 개발자가 일반적으로 배우는 것들만으로 가능합니다. 표준 HTML, CSS, Javascript and Node.js 그리고 전처리 시스템. 시간을 낭비할 필요가 없으며 바로 작동합니다.</p>
-<h3>성능이 좋다</h3>
-<p>가상 돔이 없습니다. 작은 크기의 파일들, 재사용이 가능한 컴포넌트, 페이지의 모든 게 조작이 가능합니다. 표준 SEO, 표준 웹 설정, 정적 사이트 생성으로 불필요한 문제들과 엮이지 마세요.</p>
-<h3>자유롭다</h3>
-<p>원하는 라이브러리를 사용하세요. 중요한 상태를 로컬 저장소에서 관리하세요. 그리고 나머지는 변수에 저장합니다. 좋아하는 것을 만들고 사용하면 됩니다.</p>
-<h2>후원자들</h2>
-<ul>
-<li><a href="https://ko-fi.com/opdev1004">Ko-fi Donation</a></li>
-<li><a href="https://github.com/sponsors/opdev1004">Github sponsor page</a></li>
-</ul>
-<p>후원자가 되어 이미지와 이름을 추가하세요!
-자세한 부분은 <a href="/%ED%9B%84%EC%9B%90%ED%95%98%EA%B8%B0.html">후원하기 페이지</a> 페이지를 확인해주세요.</p>
-<h3>🔥 불멸 서포터</h3>
-<h3>👼 디바인 서포터</h3>
-<h3>🎻 거장 서포터</h3>
-<h3>⚔ 전설 서포터</h3>
-<h3>🌲 집정관 서포터</h3>
-<h3>🍀 성전사 서포터</h3>
-<h3>☘ 수호자 서포터</h3>
-<h3>🌱 선구자 서포터</h3>
-<h2>상점</h2>
-<ul>
-<li><a href="https://www.redbubble.com/shop/ap/149559711">RB 리노 상점</a></li>
-<li><a href="https://www.redbubble.com/people/Geargom/shop">RB 기어곰 상점</a></li>
-</ul>
-<p>리노 상점이나 Geargom 상점에서 구매하시면 소프트웨어, 게임, 디자인 프로젝트를 계속하는데 도움이 됩니다. 우리는 전체 가격의 20~30% 정도를 받고 있습니다.</p>
-<p><img src="/assets/rino_bucket_hat.jpg" alt="image">
-<img src="/assets/rino_desk_mat.jpg" alt="image">
-<img src="/assets/rino_backpack.jpg" alt="image"></p>
+<p>Pages.js가 페이지를 로드하는 유일한 방법이 아닙니다. 왜냐하면 페이지 리스트를 <code>dev()</code> 함수에 전달하기만 하면 되기 때문입니다. 따라서 <code>pages.js</code>는 우리가 권장하는 방법일 뿐입니다. 왜냐하면 자바스크립트 코드를 적용할 수 있기 때문입니다.</p>
+<h3>/src/index.js:</h3>
+<pre><code>const Rino = require(&#39;rinojs&#39;);
+const path = require(&#39;path&#39;);
+const { pages } = require(&quot;./pages.js&quot;);
+
+async function dev()
+{
+    let rino = new Rino();
+
+    let args = {
+        pages: await pages(),
+        distRoot: path.resolve(__dirname, &quot;../dist/&quot;),
+        src: path.resolve(__dirname, &quot;./&quot;),
+        publicDirname: path.resolve(__dirname, &quot;../public/&quot;)
+    }
+
+    await rino.dev(args);
+}
+
+dev();
+</code></pre>
                 
 <hr>
 <div class="rino-footer">

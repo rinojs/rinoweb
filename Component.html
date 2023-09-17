@@ -15,27 +15,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&family=Noto+Sans+Mono:wght@500&family=Noto+Sans:wght@500&display=swap" rel="stylesheet">
-<meta name="description" content="Rino.js
-Fast learning, preprocessing, intuitive web framework
-npm create rino@latest
-
-Or
-npm i rinojs rinokit
-
-Easy
-Just common learnings that front-e" />
-<meta name="og:title" content="Home" />
-<meta name="og:description" content="Rino.js
-Fast learning, preprocessing, intuitive web framework
-npm create rino@latest
-
-Or
-npm i rinojs rinokit
-
-Easy
-Just common learnings that front-e" />
+<meta name="description" content="Component
+Component in runtime
+Rinokit just follows the standard of HTML and Web Component for building a component.
+So if you know how to use a web c" />
+<meta name="og:title" content="Component" />
+<meta name="og:description" content="Component
+Component in runtime
+Rinokit just follows the standard of HTML and Web Component for building a component.
+So if you know how to use a web c" />
 <meta name="og:site_name" content="Rino" />
-<meta name="og:url" content="https://rinojs.org/Home.html" />
+<meta name="og:url" content="https://rinojs.org/Component.html" />
 <meta name="og:image" content=""/> 
 
 
@@ -43,7 +33,7 @@ Just common learnings that front-e" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Home</title>
+        <title>Component</title>
     </head>
     <body>
         <div class="mainview columns">
@@ -156,43 +146,69 @@ Just common learnings that front-e" />
 </div>
 <hr>
 
-                <h1>Rino.js</h1>
-<h2>Fast learning, preprocessing, intuitive web framework</h2>
-<pre><code>npm create rino@latest
+                <h1>Component</h1>
+<h2>Component in runtime</h2>
+<p>Rinokit just follows the standard of HTML and Web Component for building a component.
+So if you know how to use a web component. You are having more advantages for building a web page with Rinokit.</p>
+<h2>Example:</h2>
+<p>/src/preloads/preload.tot:</p>
+<pre><code>&lt;d:js&gt;
+    import Rino from &#39;rinokit&#39;;
+
+    const rino = new Rino();
+&lt;d:js&gt;
+&lt;d:css&gt;
+&lt;/d:css&gt;
 </code></pre>
-<p>Or</p>
-<pre><code>npm i rinojs rinokit
+<h3>/src/components/component-name.tot:</h3>
+<p>You must use template tag <code>&lt;template&gt;&lt;/template&gt;</code> and id <code>component-name</code> for component.
+You don&#39;t have to place them multiple times. You only need one template for one component in a page.
+The template is going to be hidden by default.</p>
+<pre><code>&lt;d:html&gt;
+    &lt;template id=&quot;componentName&quot;&gt;
+        &#123;&#123; component, componentName2 &#125;&#125;
+
+        or
+
+        &#123;&#123; component, componentName2, someId2 &#125;&#125;
+    &lt;template&gt;
+    &lt;template id=&quot;componentName2&quot;&gt;
+    &lt;template&gt;
+&lt;/d:html&gt;
+&lt;d:css&gt;
+    some css...
+&lt;/d:css&gt;
+&lt;d:js&gt;
+    some Javascript...
+&lt;/d:js&gt;
 </code></pre>
-<h3>Easy</h3>
-<p>Just common learnings that front-end developers do. Standard HTML, CSS, Javascript and Node.js and preprocessing system. We don&#39;t need to waste our time and it just works.</p>
-<h3>Performant</h3>
-<p>No virtual dom, smaller files, reusable components with full control over the pages. Standard SEO, standard web setup, no more problems with static site generation</p>
-<h3>Freedom</h3>
-<p>Use libraries you like. Manage your important state in local storage. And store the others in variables. Create and use what you like.</p>
-<h2>Sponsors</h2>
-<ul>
-<li><a href="https://ko-fi.com/opdev1004">Ko-fi Donation</a></li>
-<li><a href="https://github.com/sponsors/opdev1004">Github sponsor page</a></li>
-</ul>
-<p>Become a monthly sponsor and put your image and name here!
-Have a look at our <a href="/Support%20us.html">Support us page</a> for details.</p>
-<h3>🔥 Immortal Supporter</h3>
-<h3>👼 Divine Supporter</h3>
-<h3>🎻 Ancient Supporter</h3>
-<h3>⚔ Legend Supporter</h3>
-<h3>🌲 Archon Supporter</h3>
-<h3>🍀 Crusader Supporter</h3>
-<h3>☘ Guardian Supporter</h3>
-<h3>🌱 Herald Supporter</h3>
-<h2>Shop</h2>
-<ul>
-<li><a href="https://www.redbubble.com/shop/ap/149559711">RB Rino Shop</a></li>
-<li><a href="https://www.redbubble.com/people/Geargom/shop">RB Geargom Shop</a></li>
-</ul>
-<p>Your purchase from Rino design or Geargom shop will help us to continue our projects for software, game and designs. We are receiving roughly 20~30% from the whole price.</p>
-<p><img src="/assets/rino_bucket_hat.jpg" alt="image">
-<img src="/assets/rino_desk_mat.jpg" alt="image">
-<img src="/assets/rino_backpack.jpg" alt="image"></p>
+<h3>In single page or single component:</h3>
+<pre><code>&lt;d:html&gt;
+    some html...
+&lt;/d:html&gt;
+&lt;d:js&gt;
+    some Javascript...
+
+    async function addSomeComponent(target)
+    {
+        const element = rino.buildComponent(&quot;componentName&quot;, &quot;someId&quot;);
+        target.append(element);
+    }
+
+&lt;/d:js&gt;
+&lt;d:css&gt;
+    some CSS...
+&lt;/d:css&gt;
+</code></pre>
+<p>In the example, from <code>&#123;&#123; component, componentName2, someId2 &#125;&#125;</code>,
+<code>component</code> indicates that it is a component, <code>componentName2</code> indicates the name of component,
+and <code>someId2</code> is id for component.
+You can skip id part then it will be <code>&#123;&#123; component, componentName2 &#125;&#125;</code>.</p>
+<p>Child component&#39;s ID is added like: <code>parentId-childId</code>.
+This feature help us to create a unique ID for all the component and we can manipulate them better.
+In case of example the id of <code>&#123;&#123; component, componentName2, someId2 &#125;&#125;</code> is <code>someId-someId2</code>.</p>
+<p>If you want to render a component again, you can just build the component again and replace the old component with a new one.
+And this is just efficient as you are controlling your page by small size, just like the popular web frameworks.</p>
                 
 <hr>
 <div class="rino-footer">

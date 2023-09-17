@@ -15,27 +15,23 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&family=Noto+Sans+Mono:wght@500&family=Noto+Sans:wght@500&display=swap" rel="stylesheet">
-<meta name="description" content="Rino.js
-Fast learning, preprocessing, intuitive web framework
-npm create rino@latest
+<meta name="description" content="System of Rino
+Whole Structure
+Preprocess the project files
+-&gt; static files or data
+-&gt; Rinokit componets and data during runtime
 
-Or
-npm i rinojs rinokit
+Instead of pro" />
+<meta name="og:title" content="System" />
+<meta name="og:description" content="System of Rino
+Whole Structure
+Preprocess the project files
+-&gt; static files or data
+-&gt; Rinokit componets and data during runtime
 
-Easy
-Just common learnings that front-e" />
-<meta name="og:title" content="Home" />
-<meta name="og:description" content="Rino.js
-Fast learning, preprocessing, intuitive web framework
-npm create rino@latest
-
-Or
-npm i rinojs rinokit
-
-Easy
-Just common learnings that front-e" />
+Instead of pro" />
 <meta name="og:site_name" content="Rino" />
-<meta name="og:url" content="https://rinojs.org/Home.html" />
+<meta name="og:url" content="https://rinojs.org/System.html" />
 <meta name="og:image" content=""/> 
 
 
@@ -43,7 +39,7 @@ Just common learnings that front-e" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Home</title>
+        <title>System</title>
     </head>
     <body>
         <div class="mainview columns">
@@ -156,43 +152,48 @@ Just common learnings that front-e" />
 </div>
 <hr>
 
-                <h1>Rino.js</h1>
-<h2>Fast learning, preprocessing, intuitive web framework</h2>
-<pre><code>npm create rino@latest
+                <h1>System of Rino</h1>
+<h2>Whole Structure</h2>
+<pre><code>Preprocess the project files
+-&gt; static files or data
+-&gt; Rinokit componets and data during runtime
 </code></pre>
-<p>Or</p>
-<pre><code>npm i rinojs rinokit
+<p><br>Instead of processing everything in the webpage, It is more efficient that we divide them into the things that need to be preprocessed and processed from client side.</p>
+<h2>Preprocessing strucutre</h2>
+<pre><code>Going through pages one by one
+-&gt; Syntax in a page in order
+-&gt; Syntax from Syntax(file or object) from page
+-&gt; Syntax from Syntax(file or object) if they have depth like @component
 </code></pre>
-<h3>Easy</h3>
-<p>Just common learnings that front-end developers do. Standard HTML, CSS, Javascript and Node.js and preprocessing system. We don&#39;t need to waste our time and it just works.</p>
-<h3>Performant</h3>
-<p>No virtual dom, smaller files, reusable components with full control over the pages. Standard SEO, standard web setup, no more problems with static site generation</p>
-<h3>Freedom</h3>
-<p>Use libraries you like. Manage your important state in local storage. And store the others in variables. Create and use what you like.</p>
-<h2>Sponsors</h2>
-<ul>
-<li><a href="https://ko-fi.com/opdev1004">Ko-fi Donation</a></li>
-<li><a href="https://github.com/sponsors/opdev1004">Github sponsor page</a></li>
-</ul>
-<p>Become a monthly sponsor and put your image and name here!
-Have a look at our <a href="/Support%20us.html">Support us page</a> for details.</p>
-<h3>🔥 Immortal Supporter</h3>
-<h3>👼 Divine Supporter</h3>
-<h3>🎻 Ancient Supporter</h3>
-<h3>⚔ Legend Supporter</h3>
-<h3>🌲 Archon Supporter</h3>
-<h3>🍀 Crusader Supporter</h3>
-<h3>☘ Guardian Supporter</h3>
-<h3>🌱 Herald Supporter</h3>
-<h2>Shop</h2>
-<ul>
-<li><a href="https://www.redbubble.com/shop/ap/149559711">RB Rino Shop</a></li>
-<li><a href="https://www.redbubble.com/people/Geargom/shop">RB Geargom Shop</a></li>
-</ul>
-<p>Your purchase from Rino design or Geargom shop will help us to continue our projects for software, game and designs. We are receiving roughly 20~30% from the whole price.</p>
-<p><img src="/assets/rino_bucket_hat.jpg" alt="image">
-<img src="/assets/rino_desk_mat.jpg" alt="image">
-<img src="/assets/rino_backpack.jpg" alt="image"></p>
+<p>Rino preprocess files based on syntax in <code>&lt;d:html&gt;&lt;/d:html&gt;</code>. And preprocessing system follows the order of where the syntax is placed.</p>
+<p>Preload files will be placed at the top of the javascript and css files.
+Then components for client side will be placed. The last part will be the preprocessed components and pages.</p>
+<p>Some syntax, they are applied in the order: <code>@data, @tot</code>. You can try to do something with it. But it may not be safe because it is not like there&#39;s a rule <code>@data</code> or any others should be applied first.</p>
+<h2>Dev() Directory Structrue and System</h2>
+<pre><code>Project/src/index.js
+Project/src/pages.js
+Project/src/pages/
+Project/src/components/
+Project/src/preloads/
+Project/src/tots/
+Project/src/mds/
+Project/public/
+Project/dist/
+</code></pre>
+<p>It is totally up to you how you setup your project. But it is recommended to put everything well organized, just like the structure above.</p>
+<p><code>Project/src/index.js</code> is where you load <code>Project/src/pages.js</code> and run the code.</p>
+<p><code>Project/src/pages.js</code> is where you setup pages and run some code that you need.</p>
+<p><code>Project/src/pages/</code> is where you store .tot files for pages</p>
+<p><code>Project/src/components/</code> is where you store .tot files for preprocessed components</p>
+<p><code>Project/src/preloads/</code> is where you store .tot files for preloading.</p>
+<p><code>Project/src/tots/</code> is where you store .tot files for content and data storage. You can setup multilingual support using this.</p>
+<p><code>Project/src/mds/</code> is where you store .md files for content. You can setup multilingual support using this.</p>
+<p><code>Project/public/</code> is where you store asset files. They are going to be copied into <code>Project/dist/.</code> Rino use algorithm for checking when the files are updated. So it is quite efficient and fast enough.</p>
+<p><code>Project/dist/</code> is where Rino is going to put the result of development.</p>
+<h2>Extra stuffs</h2>
+<p>If there&#39;s Rino syntax in <code>@props</code>, <code>@data</code> and <code>@tot</code>. They are going to be rendered. So you better use HTML entities if that&#39;s not what you want.</p>
+<p>Anything that is preprocessed start with <code>@</code>. Runtime component is also actually preprocessed as well, but it is just a rule for where they are more used for building a page. This rule has made because we are going to support runtime tools in the future.</p>
+<p>It is good to understand <a href="https://github.com/opdev1004/totjs">Tot</a>. Because you can do many things with it. Tot is a good IO handler.</p>
                 
 <hr>
 <div class="rino-footer">

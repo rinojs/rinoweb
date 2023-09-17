@@ -15,27 +15,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&family=Noto+Sans+Mono:wght@500&family=Noto+Sans:wght@500&display=swap" rel="stylesheet">
-<meta name="description" content="Rino.js
-빠른 학습, 전처리 방식의, 직관적인 웹 프레임워크
-npm create rino@latest
-
-또는
-npm i rinojs rinokit
-
-쉽다
-프론트엔드 개발자가 일반적으로 배우는 것들만으로 가능합니다. 표준 HTML, CSS, Javascript an" />
-<meta name="og:title" content="홈" />
-<meta name="og:description" content="Rino.js
-빠른 학습, 전처리 방식의, 직관적인 웹 프레임워크
-npm create rino@latest
-
-또는
-npm i rinojs rinokit
-
-쉽다
-프론트엔드 개발자가 일반적으로 배우는 것들만으로 가능합니다. 표준 HTML, CSS, Javascript an" />
+<meta name="description" content="내부 데이터
+내부 데이터는 구문 안에 데이터를 넣기 위한 구문입니다
+내부 데이터를 사용하여 사람들이 사용할 수 있는 소품을 선택하도록 할 수 있습니다. 중괄호 안에 &lt;&gt; 태그를 사용해야 합니다.
+./src/components/parent-component.t" />
+<meta name="og:title" content="내부 데이터" />
+<meta name="og:description" content="내부 데이터
+내부 데이터는 구문 안에 데이터를 넣기 위한 구문입니다
+내부 데이터를 사용하여 사람들이 사용할 수 있는 소품을 선택하도록 할 수 있습니다. 중괄호 안에 &lt;&gt; 태그를 사용해야 합니다.
+./src/components/parent-component.t" />
 <meta name="og:site_name" content="Rino" />
-<meta name="og:url" content="https://rinojs.org/홈.html" />
+<meta name="og:url" content="https://rinojs.org/내부 데이터.html" />
 <meta name="og:image" content=""/> 
 
 
@@ -43,7 +33,7 @@ npm i rinojs rinokit
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>홈</title>
+        <title>내부 데이터</title>
     </head>
     <body>
         <div class="mainview columns">
@@ -156,43 +146,32 @@ npm i rinojs rinokit
 </div>
 <hr>
 
-                <h1>Rino.js</h1>
-<h2>빠른 학습, 전처리 방식의, 직관적인 웹 프레임워크</h2>
-<pre><code>npm create rino@latest
+                <h1>내부 데이터</h1>
+<h2>내부 데이터는 구문 안에 데이터를 넣기 위한 구문입니다</h2>
+<p>내부 데이터를 사용하여 사람들이 사용할 수 있는 소품을 선택하도록 할 수 있습니다. 중괄호 안에 <code>&lt;&gt;</code> 태그를 사용해야 합니다.</p>
+<p>./src/components/parent-component.tot</p>
+<pre><code>&lt;d:html&gt;
+&#123;&#123; @component, ./src/components/child-component.tot, filename, childpropsname &#125;&#125;
+&lt;/d:html&gt;
+&lt;d:filename&gt;
+./src/components/some-component.tot
+&lt;/d:filename&gt;
+&lt;d:childpropsname&gt;
+someprop1
+&lt;/d:childpropsname&gt;
 </code></pre>
-<p>또는</p>
-<pre><code>npm i rinojs rinokit
+<p>./src/components/child-component.tot</p>
+<pre><code>&lt;d:html&gt;
+&#123;&#123; @component, &lt;@props[0]&gt;,  &lt;@props[1]&gt; &#125;&#125;
+&lt;/d:html&gt;
+&lt;d:someprop1&gt;
+somethig1
+&lt;/d:someprop1&gt;
+&lt;d:someprop2&gt;
+somethig2
+&lt;/d:someprop2&gt;
 </code></pre>
-<h3>쉽다</h3>
-<p>프론트엔드 개발자가 일반적으로 배우는 것들만으로 가능합니다. 표준 HTML, CSS, Javascript and Node.js 그리고 전처리 시스템. 시간을 낭비할 필요가 없으며 바로 작동합니다.</p>
-<h3>성능이 좋다</h3>
-<p>가상 돔이 없습니다. 작은 크기의 파일들, 재사용이 가능한 컴포넌트, 페이지의 모든 게 조작이 가능합니다. 표준 SEO, 표준 웹 설정, 정적 사이트 생성으로 불필요한 문제들과 엮이지 마세요.</p>
-<h3>자유롭다</h3>
-<p>원하는 라이브러리를 사용하세요. 중요한 상태를 로컬 저장소에서 관리하세요. 그리고 나머지는 변수에 저장합니다. 좋아하는 것을 만들고 사용하면 됩니다.</p>
-<h2>후원자들</h2>
-<ul>
-<li><a href="https://ko-fi.com/opdev1004">Ko-fi Donation</a></li>
-<li><a href="https://github.com/sponsors/opdev1004">Github sponsor page</a></li>
-</ul>
-<p>후원자가 되어 이미지와 이름을 추가하세요!
-자세한 부분은 <a href="/%ED%9B%84%EC%9B%90%ED%95%98%EA%B8%B0.html">후원하기 페이지</a> 페이지를 확인해주세요.</p>
-<h3>🔥 불멸 서포터</h3>
-<h3>👼 디바인 서포터</h3>
-<h3>🎻 거장 서포터</h3>
-<h3>⚔ 전설 서포터</h3>
-<h3>🌲 집정관 서포터</h3>
-<h3>🍀 성전사 서포터</h3>
-<h3>☘ 수호자 서포터</h3>
-<h3>🌱 선구자 서포터</h3>
-<h2>상점</h2>
-<ul>
-<li><a href="https://www.redbubble.com/shop/ap/149559711">RB 리노 상점</a></li>
-<li><a href="https://www.redbubble.com/people/Geargom/shop">RB 기어곰 상점</a></li>
-</ul>
-<p>리노 상점이나 Geargom 상점에서 구매하시면 소프트웨어, 게임, 디자인 프로젝트를 계속하는데 도움이 됩니다. 우리는 전체 가격의 20~30% 정도를 받고 있습니다.</p>
-<p><img src="/assets/rino_bucket_hat.jpg" alt="image">
-<img src="/assets/rino_desk_mat.jpg" alt="image">
-<img src="/assets/rino_backpack.jpg" alt="image"></p>
+<p><code>@props</code>, <code>@data</code> 그리고 <code>@tot</code>을 사용할 수 있습니다.</p>
                 
 <hr>
 <div class="rino-footer">
