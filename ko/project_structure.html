@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans+Mono:wght@100..900&display=swap"
+  rel="stylesheet"
+/>
+<script
+  type="module"
+  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+></script>
+<script
+  nomodule
+  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+></script>
+
+    <script type="text/javascript" src="/scripts/common.js"></script>
+    <link rel="stylesheet" href="/styles/common.css" />
+    <meta
+      name="description"
+      content="Rino.js 프로젝트의 폴더 구조"
+    />
+    <meta name="og:title" content="Rino.js 프로젝트 구조" />
+    <meta
+      name="og:description"
+      content="Rino.js 프로젝트의 폴더 구조"
+    />
+    <meta name="og:site_name" content="Rino.js" />
+    <meta name="og:url" content="https://rino.opdev1004.com/ko/project_structure" />
+    <meta name="og:image" content="https://rino.opdev1004.com/images/rino512.png" />
+    <title>Rino.js 프로젝트 구조</title>
+  </head>
+  <body>
+    <header>
+  <div class="header-content-wrapper">
+    <div>
+      <div>
+        <button id="sidebar-toggle" type="button" aria-label="Toggle Sidebar">
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
+      </div>
+      <img src="/images/rino32.png" width="32" height="32" alt="logo" />
+      <a href="/ko/">Rino</a>
+    </div>
+    <div id="header-right">
+      <a href="/ko/why_rino">Rino를 사용하는 이유</a>
+      <a href="/ko/installation">설치</a>
+      <a href="/ko/project_structure">학습하기</a>
+      <a href="/ko/donate">후원</a>
+    </div>
+  </div>
+</header>
+
+    <div class="content-container">
+        <div class="sidebar-wrapper" id="sidebar-wrapper">
+  <aside class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="/ko/">홈</a></li>
+      <li><a href="/ko/why_rino">Rino를 사용하는 이유</a></li>
+      <li><a href="/ko/installation">설치</a></li>
+      <li><a href="/ko/commands">명령어</a></li>
+      <li><a href="/ko/project_structure">프로젝트 구조</a></li>
+      <li><a href="/ko/donate">후원</a></li>
+    </ul>
+  </aside>
+</div>
+
+        <main>
+            <h1>프로젝트 구조</h1>
+            <p>
+                Rino 2는 버전 1과 다릅니다.
+                모든 것은 프로젝트 폴더와 파일 구조를 통한 자동화로 이루어집니다.
+            </p>
+            <p>
+                즉, 표준 HTML, CSS, Javascript, Node.js로 웹사이트를 쉽고 간단하게 제작할 수 있습니다.
+                프로젝트 구조를 이해하면 빠르게 작업이 가능합니다.
+            </p>
+            <pre><code>
+- pages
+- components
+- mds
+- public
+- scripts
+  - export
+- styles
+  - export
+rino-config.js
+image-compression.bat
+image-compression.sh
+image-compression.html
+image-compression.js
+            </code></pre>
+            <br />
+            <h2>/pages</h2>
+            <p>
+                <code>/pages</code> 폴더는 기본 HTML 파일을 넣는 공간입니다.
+                Rino는 이 폴더를 기반으로 웹 페이지를 생성합니다.
+                파일 및 폴더 구조는 그대로 유지됩니다.
+            </p>
+            <br />
+            <h2>/components</h2>
+            <p>
+                <code>/components</code> 폴더는 컴포넌트 HTML 파일을 넣는 공간입니다.
+                컴포넌트는 다른 컴포넌트를 포함할 수 있지만,
+                동일한 컴포넌트를 반복해서 사용하여 무한 루프 오류를 발생시키지 않도록 주의하세요.
+                컴포넌트는 다음과 같은 문법으로 사용할 수 있습니다:
+            </p>
+            <pre><code>&lt;component @name="" @type="" /&gt;</code></pre>
+            <p>
+                <code>@name</code>: 컴포넌트를 불러오기 위한 필수 속성입니다.
+                컴포넌트의 경로를 지정해야 합니다.
+                예: <code>@name="/header"</code> 또는 <code>@name="/ko/footer"</code>.
+            </p>
+            <p>
+                <code>@type</code>: 선택적 속성입니다.
+                컴포넌트 태그에서 HTML 속성을 사용하려면 HTML 요소 이름을 지정해야 합니다.
+                예: <code>@type="div"</code> 또는
+            </p>
+            <pre><code>&lt;component @name="/button" @type="button" onclick="myFunction()" /&gt;</code></pre>
+            <br />
+            <h2>/mds</h2>
+            <p>
+                <code>/mds</code> 폴더는 마크다운 파일을 넣는 공간입니다.
+                Rino는 요청 시 모든 마크다운 파일을 로드하고 HTML로 변환합니다.
+            </p>
+            <pre><code>&lt;md @name="" @type="" /&gt;</code></pre>
+            <p>
+                <code>@name</code>: 마크다운을 불러오기 위한 필수 속성입니다.
+                마크다운 파일의 경로를 지정해야 합니다.
+            </p>
+            <p>
+                <code>@type</code>: 선택적 속성입니다.
+                컴포넌트 태그에서 HTML 속성을 사용하려면 HTML 요소 이름을 지정해야 합니다.
+            </p>
+            <br />
+            <h2>/public</h2>
+            <p>
+                <code>/public</code> 폴더는 정적 파일을 넣는 공간입니다.
+                이미지, 외부 CSS, Javascript 라이브러리 및 기타 자산을 여기에 배치할 수 있습니다.
+            </p>
+            <br />
+            <h2>/scripts</h2>
+            <p>
+                <code>/scripts</code> 폴더는 Javascript 라이브러리를 빌드하는 공간입니다.
+                npm 패키지를 사용할 수 있으며, <code>/scripts/export/</code> 폴더에 Javascript 파일을 배치하여 내보낼 파일을 선택할 수 있습니다.
+                Rino는 Javascript를 빌드하고 <code>/scripts</code> 폴더에 내보냅니다.
+                이후 HTML에서 일반적으로 사용하는 방식으로 Javascript 파일을 사용할 수 있습니다.
+            </p>
+            <pre><code>&lt;script type="text/javascript" src="/scripts/example.js" /&gt;</code></pre>
+            <br />
+            <h2>/styles</h2>
+            <p>
+                <code>/styles</code> 폴더는 CSS 라이브러리를 빌드하는 공간입니다.
+                <code>/styles/export/</code> 폴더에 CSS 파일을 배치하여 내보낼 파일을 선택할 수 있습니다.
+                Rino는 로컬 CSS 파일을 가져와 CSS 라이브러리를 빌드하고 <code>/styles</code> 폴더에 내보냅니다.
+                이후 HTML에서 일반적으로 사용하는 방식으로 CSS 파일을 사용할 수 있습니다.
+            </p>
+            <pre><code>&lt;link rel="stylesheet" href="/styles/example.css" /&gt;</code></pre>
+            <p>
+                로컬 CSS 파일을 가져오는 예시:
+            </p>
+            <pre><code>
+@import "../header.css";
+@import "../sidebar.css";
+@import "../footer.css";
+            </code></pre>
+            <br />
+            <h2>rino-config.js</h2>
+            <p>
+                <code>rino-config.js</code>는 Rino의 설정 파일입니다.
+                <code>npm run generate</code> 명령을 위한 배포 폴더를 변경하거나,
+                <code>npm run dev</code>를 위한 개발 서버 포트 번호를 설정하고,
+                <code>npm run sitemap</code> 또는 <code>npm run generate-sitemap</code>를 위한 사이트 URL 및 사이트맵 설정을 할 수 있습니다.
+            </p>
+            <br />
+            <h2>image-compression 파일들</h2>
+            <p>
+                <code>image-compression</code> 파일들은 이미지 압축 앱을 실행하기 위한 것 입니다.
+                이는 다른 웹 프레임워크가 이미지 압축 문제를 제대로 처리하지 못한다는 점을 발견하고 개발되었습니다.
+                이 이미지 압축 앱을 실행하여 압축된 이미지를 public 폴더에 배치할 수 있습니다.
+            </p>
+        </main>
+    </div>
+    <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-nav">
+      <h3>링크</h3>
+      <ul>
+        <li><a href="/ko/">홈</a></li>
+        <li><a href="/ko/why_rino">Rino를 사용하는 이유</a></li>
+        <li><a href="/ko/installation">설치</a></li>
+        <li><a href="/ko/commands">명령어</a></li>
+        <li><a href="/ko/project_structure">프로젝트 구조</a></li>
+        <li><a href="/ko/donate">후원</a></li>
+      </ul>
+    </div>
+    <div class="footer-nav">
+      <h3>언어</h3>
+      <ul>
+        <li><a href="/">English</a></li>
+        <li><a href="/ko/">한국어</a></li>
+        <li><a href="/ja/">日本語</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <h3></h3>
+      <div class="social-icons">
+        <a href="https://github.com/rinojs" aria-label="GitHub" target="_blank">
+          <ion-icon name="logo-github"></ion-icon>
+        </a>
+        <a href="https://npmjs.com/package/rinojs" aria-label="NPM" target="_blank"><ion-icon name="logo-npm"></ion-icon></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Rino.js는 무료이며, MIT 라이선스의 오픈소스 프로젝트 입니다</p>
+    <br />
+    <p>&copy; 2024 Victor Chanil Park (opdev1004)</p>
+  </div>
+</footer>
+
+  </body>
+</html>
