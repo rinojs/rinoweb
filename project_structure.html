@@ -154,8 +154,16 @@ image-compression.js
                 You can use npm packages. And you can choose which one to be exported by placing javascript files in <code>/scripts/export/</code> directory.
                 Rino is going to build your javascript and export to <code>/scripts</code> directory.
                 So you can use the exported javascript file like how you normally would do in HTML.
+                From <code>version 2.1.1</code>, you can use typescript as well.
             </p>
-            <pre><code>&lt;script type="text/javascript" src="/scripts/example.js" /&gt;</code></pre>
+            <p>
+                We are handling script with <code>import/export</code>, the module type.
+                So the file name will be the name of script instance.
+                So if it is <code>hello.js</code> or <code>hello.ts</code>
+                Then you got to call the function from outside like <code>hello.FunctionName()</code>.
+                You can import them and do anything that is <code>javascript/typescript</code> browser development standard.
+            </p>
+            <pre><code>&lt;script src="/scripts/example.js" /&gt;</code></pre>
             <br />
             <h2>/styles</h2>
             <p>

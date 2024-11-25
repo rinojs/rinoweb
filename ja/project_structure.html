@@ -153,6 +153,13 @@ image-compression.js
                 npmパッケージを使用できます。そして、<code>/scripts/export/</code>ディレクトリにJavaScriptファイルを配置することで、エクスポートするものを選ぶことができます。
                 RinoはJavaScriptをビルドして<code>/scripts</code>ディレクトリにエクスポートします。
                 そのため、エクスポートされたJavaScriptファイルは通常のHTMLで使うように利用できます。
+                バージョン<code>2.1.1</code>から、TypeScriptも使用できるようになりました。
+            </p>
+            <p>
+                Rinoではスクリプトを<code>import/export</code>というモジュール形式で扱います。
+                そのため、ファイル名はスクリプトインスタンスの名前になります。
+                例えば、<code>hello.js</code>や<code>hello.ts</code>の場合、外部から関数を呼び出す際には<code>hello.FunctionName()</code>のように呼び出す必要があります。
+                これらをインポートして、<code>javascript/typescript</code>ブラウザー開発標準に基づいて自由に操作することができます。
             </p>
             <pre><code>&lt;script type="text/javascript" src="/scripts/example.js" /&gt;</code></pre>
             <br />
