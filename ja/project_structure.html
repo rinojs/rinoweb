@@ -24,18 +24,18 @@
 
     <script type="text/javascript" src="/scripts/common.js"></script>
     <link rel="stylesheet" href="/styles/common.css" />
-    <meta
-      name="description"
-      content="Rino.jsプロジェクト構造"
-    />
+    <meta name="description" content="Rino.jsプロジェクト構造" />
     <meta name="og:title" content="Rino.jsプロジェクト構造" />
-    <meta
-      name="og:description"
-      content="Rino.jsプロジェクト構造"
-    />
+    <meta name="og:description" content="Rino.jsプロジェクト構造" />
     <meta name="og:site_name" content="Rino.js" />
-    <meta name="og:url" content="https://rino.opdev1004.com/ja/project_structure" />
-    <meta name="og:image" content="https://rino.opdev1004.com/images/rino512.png" />
+    <meta
+      name="og:url"
+      content="https://rino.opdev1004.com/ja/project_structure"
+    />
+    <meta
+      name="og:image"
+      content="https://rino.opdev1004.com/images/rino512.png"
+    />
     <title>Rino.jsプロジェクト構造</title>
   </head>
   <body>
@@ -60,7 +60,7 @@
 </header>
 
     <div class="content-container">
-        <div class="sidebar-wrapper" id="sidebar-wrapper">
+      <div class="sidebar-wrapper" id="sidebar-wrapper">
   <aside class="sidebar" id="sidebar">
     <ul>
       <li><a href="/ja/">ホーム</a></li>
@@ -73,16 +73,16 @@
   </aside>
 </div>
 
-        <main>
-            <h1>プロジェクト構造</h1>
-            <p>
-                Rino 2はバージョン1と異なります。
-                すべてはプロジェクトディレクトリとファイル構造を自動化するだけです。
-            </p>
-            <p>
-                つまり、プロジェクト構造について学べば、標準のHTML、CSS、JavaScript、Node.jsでウェブサイトを簡単に作成できるようになります。
-            </p>
-            <pre><code>
+      <main>
+        <h1>プロジェクト構造</h1>
+        <p>
+          Rino 2はバージョン1と異なります。
+          すべてはプロジェクトディレクトリとファイル構造を自動化するだけです。
+        </p>
+        <p>
+          つまり、プロジェクト構造について学べば、標準のHTML、CSS、JavaScript、Node.jsでウェブサイトを簡単に作成できるようになります。
+        </p>
+        <pre><code>
 - pages
 - components
 - mds
@@ -97,104 +97,117 @@ image-compression.sh
 image-compression.html
 image-compression.js
             </code></pre>
-            <br />
-            <h2>/pages</h2>
-            <p>
-                <code>/pages</code>ディレクトリは基本的なHTMLファイルを配置するためのものです。
-                Rinoはこのディレクトリに基づいてウェブページを作成します。
-                ファイルとディレクトリ構造は完全に同じになります。
-            </p>
-            <br />
-            <h2>/components</h2>
-            <p>
-                <code>/components</code>ディレクトリはコンポーネントのHTMLファイルを配置するためのものです。
-                コンポーネントは他のコンポーネントを含むことができますが、同じコンポーネントで無限ループを引き起こさないように注意してください。
-                コンポーネントは次のような構文で使用できます：
-            </p>
-            <pre><code>&lt;component @name="" @type="" /&gt;</code></pre>
-            <p>
-                <code>@name</code>: この属性はコンポーネントをインポートするために必要です。
-                コンポーネントのパスを指定する必要があります。
-                例えば、<code>@name="/header"</code>や<code>@name="/ko/footer"</code>のように指定します。
-            </p>
-            <p>
-                <code>@type</code>: この属性はオプションです。
-                ただし、コンポーネントタグでHTML属性を使用したい場合は、
-                HTML要素の名前を指定する必要があります。
-                例えば、<code>@type="div"</code>などです。
-            </p>
-            <pre><code>&lt;component @name="/button" @type="button" onclick="myFunction()" /&gt;</code></pre>
-            <br />
-            <h2>/mds</h2>
-            <p>
-                <code>/mds</code>ディレクトリはMarkdownファイルを配置するためのものです。
-                Rinoはこれらすべてを読み込み、リクエストに応じてMarkdownをHTMLに変換します。
-            </p>
-            <pre><code>&lt;md @name="" @type="" /&gt;</code></pre>
-            <p>
-                <code>@name</code>: この属性はMarkdownをインポートするために必要です。
-                Markdownのパスを指定する必要があります。
-            </p>
-            <p>
-                <code>@type</code>: この属性はオプションです。
-                ただし、コンポーネントタグでHTML属性を使用したい場合は、
-                HTML要素の名前を指定する必要があります。
-            </p>
-            <br />
-            <h2>/public</h2>
-            <p>
-                <code>/public</code>ディレクトリは静的ファイルを配置するためのものです。
-                画像、外部CSS、JavaScriptライブラリ、およびその他のアセットをここに配置できます。
-            </p>
-            <br />
-            <h2>/scripts</h2>
-            <p>
-                <code>/scripts</code>ディレクトリはJavaScriptライブラリを作成するためのものです。
-                npmパッケージを使用できます。そして、<code>/scripts/export/</code>ディレクトリにJavaScriptファイルを配置することで、エクスポートするものを選ぶことができます。
-                RinoはJavaScriptをビルドして<code>/scripts</code>ディレクトリにエクスポートします。
-                そのため、エクスポートされたJavaScriptファイルは通常のHTMLで使うように利用できます。
-                バージョン<code>2.1.1</code>から、TypeScriptも使用できるようになりました。
-            </p>
-            <p>
-                Rinoではスクリプトを<code>import/export</code>というモジュール形式で扱います。
-                そのため、ファイル名はスクリプトインスタンスの名前になります。
-                例えば、<code>hello.js</code>や<code>hello.ts</code>の場合、外部から関数を呼び出す際には<code>hello.FunctionName()</code>のように呼び出す必要があります。
-                これらをインポートして、<code>javascript/typescript</code>ブラウザー開発標準に基づいて自由に操作することができます。
-            </p>
-            <pre><code>&lt;script type="text/javascript" src="/scripts/example.js" /&gt;</code></pre>
-            <br />
-            <h2>/styles</h2>
-            <p>
-                <code>/styles</code>ディレクトリはCSSライブラリを作成するためのものです。
-                そして、<code>/styles/export/</code>ディレクトリにCSSファイルを配置することで、エクスポートするものを選ぶことができます。
-                RinoはローカルのCSSファイルをインポートしてCSSライブラリを作成し、<code>/styles</code>ディレクトリにエクスポートします。
-                そのため、エクスポートされたCSSファイルは通常のHTMLで使うように利用できます。
-            </p>
-            <pre><code>&lt;link rel="stylesheet" href="/styles/example.css" /&gt;</code></pre>
-            <p>
-                ローカルのCSSファイルをインポートする例：
-            </p>
-            <pre><code>
+        <br />
+        <h2>/pages</h2>
+        <p>
+          <code>/pages</code
+          >ディレクトリは基本的なHTMLファイルを配置するためのものです。
+          Rinoはこのディレクトリに基づいてウェブページを作成します。
+          ファイルとディレクトリ構造は完全に同じになります。
+        </p>
+        <br />
+        <h2>/components</h2>
+        <p>
+          <code>/components</code
+          >ディレクトリはコンポーネントのHTMLファイルを配置するためのものです。
+          コンポーネントは他のコンポーネントを含むことができますが、同じコンポーネントで無限ループを引き起こさないように注意してください。
+          コンポーネントは次のような構文で使用できます：
+        </p>
+        <pre><code>&lt;component @path="" @tag="" /&gt;</code></pre>
+        <p>
+          <code>@path</code>:
+          この属性はコンポーネントをインポートするために必要です。
+          コンポーネントのパスを指定する必要があります。
+          例えば、<code>@path="/header"</code>や<code>@path="/ko/footer"</code>のように指定します。
+        </p>
+        <p>
+          <code>@tag</code>: この属性はオプションです。
+          ただし、コンポーネントタグでHTML属性を使用したい場合は、
+          HTML要素の名前を指定する必要があります。
+          例えば、<code>@tag="div"</code>などです。
+        </p>
+        <pre><code>&lt;component @path="/button" @tag="button" onclick="myFunction()" /&gt;</code></pre>
+        <br />
+        <h2>/mds</h2>
+        <p>
+          <code>/mds</code
+          >ディレクトリはMarkdownファイルを配置するためのものです。
+          Rinoはこれらすべてを読み込み、リクエストに応じてMarkdownをHTMLに変換します。
+        </p>
+        <pre><code>&lt;script @type="md" @path="" @tag="" type="text/markdowns"&gt;&lt;/script&gt;</code></pre>
+        <p>
+          <code>@type</code>: この属性はMarkdownを使用するために必須です。
+          <code>md</code>または<code>markdown</code> を指定してください。
+        </p>
+        <p>
+          <code>@path</code>: この属性はMarkdownをインポートするために必要です。
+          Markdownのパスを指定する必要があります。
+        </p>
+        <p>
+          <code>@tag</code>: この属性はオプションです。
+          ただし、コンポーネントタグでHTML属性を使用したい場合は、
+          HTML要素の名前を指定する必要があります。
+        </p>
+        <br />
+        <h2>/public</h2>
+        <p>
+          <code>/public</code
+          >ディレクトリは静的ファイルを配置するためのものです。
+          画像、外部CSS、JavaScriptライブラリ、およびその他のアセットをここに配置できます。
+        </p>
+        <br />
+        <h2>/scripts</h2>
+        <p>
+          <code>/scripts</code
+          >ディレクトリはJavaScriptライブラリを作成するためのものです。
+          npmパッケージを使用できます。そして、<code>/scripts/export/</code>ディレクトリにJavaScriptファイルを配置することで、エクスポートするものを選ぶことができます。
+          RinoはJavaScriptをビルドして<code>/scripts</code>ディレクトリにエクスポートします。
+          そのため、エクスポートされたJavaScriptファイルは通常のHTMLで使うように利用できます。
+          バージョン<code>2.1.1</code>から、TypeScriptも使用できるようになりました。
+        </p>
+        <p>
+          Rinoではスクリプトを<code>import/export</code>というモジュール形式で扱います。
+          そのため、ファイル名はスクリプトインスタンスの名前になります。
+          例えば、<code>hello.js</code>や<code>hello.ts</code>の場合、外部から関数を呼び出す際には<code>hello.FunctionName()</code>のように呼び出す必要があります。
+          これらをインポートして、<code>javascript/typescript</code>ブラウザー開発標準に基づいて自由に操作することができます。
+        </p>
+        <pre><code>&lt;script type="text/javascript" src="/scripts/example.js" /&gt;</code></pre>
+        <br />
+        <h2>/styles</h2>
+        <p>
+          <code>/styles</code
+          >ディレクトリはCSSライブラリを作成するためのものです。
+          そして、<code>/styles/export/</code>ディレクトリにCSSファイルを配置することで、エクスポートするものを選ぶことができます。
+          RinoはローカルのCSSファイルをインポートしてCSSライブラリを作成し、<code>/styles</code>ディレクトリにエクスポートします。
+          そのため、エクスポートされたCSSファイルは通常のHTMLで使うように利用できます。
+        </p>
+        <pre><code>&lt;link rel="stylesheet" href="/styles/example.css" /&gt;</code></pre>
+        <p>ローカルのCSSファイルをインポートする例：</p>
+        <pre><code>
 @import "../header.css";
 @import "../sidebar.css";
 @import "../footer.css";
             </code></pre>
-            <br />
-            <h2>rino-config.js</h2>
-            <p>
-                <code>rino-config.js</code>はRinoの設定ファイルです。
-                <code>npm run generate</code>コマンドのための出力ディレクトリの変更や、
-                <code>npm run dev</code>の開発サーバーのポート番号の変更、
-                サイトURLの設定や、<code>npm run sitemap</code>または<code>npm run generate-sitemap</code>でサイトマップを追加する設定ができます。
-            </p>
-            <br />
-            <h2>image-compressionファイル</h2>
-            <p>
-                <code>image-compression</code>ファイルは画像圧縮アプリを実行するためのものです。
-                他のウェブフレームワークでは画像圧縮問題をうまく扱えないことが分かり、このアプリが開発されました。
-                この画像圧縮アプリを実行して、画像を圧縮し、publicディレクトリに配置することができます。
-            </p>
-        </main>
+        <br />
+        <h2>rino-config.js</h2>
+        <p>
+          <code>rino-config.js</code>はRinoの設定ファイルです。
+          <code>npm run generate</code
+          >コマンドのための出力ディレクトリの変更や、
+          <code>npm run dev</code>の開発サーバーのポート番号の変更、
+          サイトURLの設定や、<code>npm run sitemap</code>または<code
+            >npm run generate-sitemap</code
+          >でサイトマップを追加する設定ができます。
+        </p>
+        <br />
+        <h2>image-compressionファイル</h2>
+        <p>
+          <code>image-compression</code
+          >ファイルは画像圧縮アプリを実行するためのものです。
+          他のウェブフレームワークでは画像圧縮問題をうまく扱えないことが分かり、このアプリが開発されました。
+          この画像圧縮アプリを実行して、画像を圧縮し、publicディレクトリに配置することができます。
+        </p>
+      </main>
     </div>
     <footer class="footer">
   <div class="footer-container">
