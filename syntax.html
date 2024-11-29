@@ -24,16 +24,22 @@
 
     <script type="text/javascript" src="/scripts/common.js"></script>
     <link rel="stylesheet" href="/styles/common.css" />
-    <meta name="description" content="Commands of Rino.js Project" />
-    <meta name="og:title" content="Rino.js Commands" />
-    <meta name="og:description" content="Commands of Rino.js Project" />
+    <meta
+      name="description"
+      content="From Rino.js 2, its syntax has become based on standard HTML. You will find that it is so easy to learn."
+    />
+    <meta name="og:title" content="Rino.js Syntax" />
+    <meta
+      name="og:description"
+      content="From Rino.js 2, its syntax has become based on standard HTML. You will find that it is so easy to learn."
+    />
     <meta name="og:site_name" content="Rino.js" />
-    <meta name="og:url" content="https://rino.opdev1004.com/commands" />
+    <meta name="og:url" content="https://rino.opdev1004.com/syntax" />
     <meta
       name="og:image"
       content="https://rino.opdev1004.com/images/rino512.png"
     />
-    <title>Rino.js Commands</title>
+    <title>Rino.js Syntax</title>
   </head>
   <body>
     <header>
@@ -72,17 +78,51 @@
 </div>
 
       <main>
-        <h1>Commands</h1>
-        <h3>For development:</h3>
-        <pre><code>npm run dev</code></pre>
-        <h3>For generating a static website:</h3>
-        <pre><code>npm run generate</code></pre>
-        <p>Or</p>
-        <pre><code>npm run generate-sitemap</code></pre>
-        <h3>For sitemap generation:</h3>
-        <pre><code>npm run sitemap</code></pre>
-        <h3>For running image compression app:</h3>
-        <pre><code>npm run image</code></pre>
+        <div type="text/markdown"><h1>Syntax</h1>
+<p>Starting from Rino.js 2, the syntax is based on standard HTML,
+making it intuitive and easy to learn.
+For example, the component would be like this
+(Read <a href="/project_structure">Project Structure</a> for more information):</p>
+<pre><code class="language-html">&lt;component @path=&quot;/header&quot; @tag=&quot;header&quot; /&gt;
+</code></pre>
+<p>In this page, we are going to cover Rino.js syntax that is not covered in the project structure.</p>
+<h2>Templating HTML with Javascript / Typescript</h2>
+<p>Rino.js supports powerful templating capabilities using JavaScript or TypeScript.
+This feature allows dynamic creation of HTML content,
+such as integrating npm packages, reading files, or programmatically generating content.</p>
+<h3>Key Points:</h3>
+<ul>
+<li>Use the <code>@type</code> attribute to specify the language (js, javascript, ts, typescript).</li>
+<li>Assign the resulting string to the global <code>result</code> variable (no need to declare <code>result</code> explicitly).</li>
+<li>All templating code runs in the Node.js VM.</li>
+<li>Currently, <code>import/export</code> statements are not supported.</li>
+</ul>
+<h3>Examples:</h3>
+<p>Using JavaScript:</p>
+<pre><code class="language-javascript">&lt;script @type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
+result = &quot;&lt;div&gt;Hello, Rino.js!&lt;/div&gt;&quot;;
+&lt;/script&gt;
+</code></pre>
+<p>Using TypeScript:</p>
+<pre><code class="language-typescript">&lt;script @type=&quot;ts&quot; type=&quot;text/typescript&quot;&gt;
+result = &quot;&lt;div&gt;Hello, Rino.js with TypeScript!&lt;/div&gt;&quot;;
+&lt;/script&gt;
+</code></pre>
+<h2>Markdown</h2>
+<p>Rino.js allows embedding Markdown directly within an HTML file.
+This complements the option to load Markdown from an external file using the <code>@path</code> attribute.</p>
+<h3>Key Points:</h3>
+<ul>
+<li>Use the <code>@type</code> attribute with values md or markdown.</li>
+<li>Escape the closing <code>&lt;/script&gt;</code> tag by adding a backslash <code>&lt;\/</code>.</li>
+</ul>
+<h3>Example:</h3>
+<pre><code>&lt;script @type=&quot;md&quot; type=&quot;text/markdown&quot;&gt;
+# Markdown Title
+This is Markdown content inside an HTML file.
+&lt;/script&gt;
+</code></pre>
+</div>
       </main>
     </div>
     <footer class="footer">

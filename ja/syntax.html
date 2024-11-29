@@ -26,23 +26,20 @@
     <link rel="stylesheet" href="/styles/common.css" />
     <meta
       name="description"
-      content="なぜReactやVueよりも静的なウェブサイトを構築するためにRino.jsを選ぶべきか？"
+      content="Rino.js 2 から、文法が標準HTMLベースになり、学習が非常に簡単になりました。"
     />
-    <meta
-      name="og:title"
-      content="なぜあなたのウェブサイトにRino.jsを選ぶべきか？"
-    />
+    <meta name="og:title" content="Rino.js 文法" />
     <meta
       name="og:description"
-      content="なぜReactやVueよりも静的なウェブサイトを構築するためにRino.jsを選ぶべきか？"
+      content="Rino.js 2 から、文法が標準HTMLベースになり、学習が非常に簡単になりました。"
     />
     <meta name="og:site_name" content="Rino.js" />
-    <meta name="og:url" content="https://rino.opdev1004.com/ja/why_rino" />
+    <meta name="og:url" content="https://rino.opdev1004.com/ja/syntax" />
     <meta
       name="og:image"
       content="https://rino.opdev1004.com/images/rino512.png"
     />
-    <title>なぜあなたのウェブサイトにRino.jsを選ぶべきか？</title>
+    <title>Rino.js 文法</title>
   </head>
   <body>
     <header>
@@ -81,37 +78,51 @@
 </div>
 
       <main>
-        <h1>なぜあなたのウェブサイトにRino.jsを選ぶべきか？</h1>
-        <p>
-          Webアプリケーション技術は、オンライン体験の構築方法に革命をもたらし、強力なツールとフレームワークを提供しています。
-        </p>
-        <p>
-          <b>しかし</b>、
-          Angular、React、Next.js、Vue、Nuxtなどの人気フレームワークには、しばしば大きな欠点があります。これには、ホスティング、トラフィック管理、メンテナンスのコストが高く、ビルド速度が遅く、計算リソースの要求が増加することが含まれます。
-        </p>
-        <p>
-          さらに、これらの技術は独自の複雑なルールと学習曲線を導入します。開発者はこれらのフレームワークを習得し、その更新に適応し、互換性を維持するために多くの時間を投資しなければならず、これがプロジェクトの完了を遅らせることがあります。
-        </p>
-        <p>
-          ここで<b>Rino.js</b>が登場します。シンプルさを念頭に置いて構築され、標準的なWeb技術（HTML、CSS、JavaScript）を活用して開発を効率化します。
-        </p>
-        <p>
-          Rino.jsを使えば、HTMLコンポーネントを使用してウェブサイトを簡単に作成したり、npmパッケージを統合したり、JavaScriptおよびCSS用のライブラリを作成したりできます。また、サイトマップ生成や画像圧縮のツールも含まれています。
-        </p>
-        <p>
-          基本的なHTML、CSS、JavaScriptに慣れている開発者なら、Rino.jsを使ってわずか30分でウェブサイトを作り始めることができます。簡単な紹介については
-          <a href="/ja/project_structure.html"> プロジェクト構造 </a>
-          ガイドをご覧ください。
-        </p>
-        <p>
-          Rino.jsは不必要な複雑さを避けます。例えば、以前のバージョンにはカスタムファイル形式がありましたが、シンプルさが重要であるため、これが削除されました。
-        </p>
-        <p>
-          さらに印象的なのは、Rino.jsが柔軟であることです。必要であれば、ReactやVueなどのフレームワークを統合することもできます。必要な場合にのみ使用してください。
-        </p>
-        <p>
-          結論として、Rino.jsはReact、Next.js、Vue、Nuxtなどの重いフレームワークに対する効率的な代替手段を提供します。あなたのWeb開発ニーズに対する実用的で直接的な解決策です。
-        </p>
+        <div type="text/markdown"><h1>文法</h1>
+<p>Rino.js 2 から、文法が標準 HTML ベースになり、
+直感的で学習しやすいものになりました。
+例えば、コンポーネントは次のように定義できます
+（詳しくは<a href="/project_structure">プロジェクト構造</a>をご参照ください）:</p>
+<pre><code class="language-html">&lt;component @path=&quot;/header&quot; @tag=&quot;header&quot; /&gt;
+</code></pre>
+<p>このページでは、プロジェクト構造でカバーされていない Rino.js の文法について説明します。</p>
+<h2>JavaScript/TypeScript を使用した HTML テンプレート</h2>
+<p>Rino.js は JavaScript または TypeScript を使用した強力なテンプレート機能をサポートしています。
+この機能を使用して、npm パッケージの統合、ファイルの読み込み、
+またはプログラム的に HTML コンテンツを生成することができます。</p>
+<h3>主なポイント:</h3>
+<ul>
+<li><code>@type</code>属性を使用して、言語（js, javascript, ts, typescript）を指定します。</li>
+<li>結果の文字列をグローバル変数<code>result</code>に代入します（<code>result</code>を明示的に宣言する必要はありません）。</li>
+<li>すべてのテンプレートコードは Node.js の VM 内で実行されます。</li>
+<li>現在、<code>import/export</code>文はサポートされていません。</li>
+</ul>
+<h3>例:</h3>
+<p>JavaScript の使用例:</p>
+<pre><code class="language-javascript">&lt;script @type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
+result = &quot;&lt;div&gt;こんにちは、Rino.js!&lt;/div&gt;&quot;;
+&lt;/script&gt;
+</code></pre>
+<p>TypeScript の使用例:</p>
+<pre><code class="language-typescript">&lt;script @type=&quot;ts&quot; type=&quot;text/typescript&quot;&gt;
+result = &quot;&lt;div&gt;こんにちは、Rino.js TypeScript!&lt;/div&gt;&quot;;
+&lt;/script&gt;
+</code></pre>
+<h2>Markdown</h2>
+<p>Rino.js では、Markdown を HTML ファイル内に直接埋め込むことができます。
+これは、<code>@path</code>属性を使用して外部ファイルから Markdown を読み込むオプションを補完します。</p>
+<h3>主なポイント:</h3>
+<ul>
+<li><code>@type</code>属性に md または markdown の値を使用します。</li>
+<li>閉じタグ<code>&lt;/script&gt;</code>は、バックスラッシュ<code>&lt;\/</code>を追加してエスケープ処理を行います。</li>
+</ul>
+<h3>例:</h3>
+<pre><code>&lt;script @type=&quot;md&quot; type=&quot;text/markdown&quot;&gt;
+# Markdownタイトル
+このHTMLファイル内に埋め込まれたMarkdownコンテンツです。
+&lt;/script&gt;
+</code></pre>
+</div>
       </main>
     </div>
     <footer class="footer">

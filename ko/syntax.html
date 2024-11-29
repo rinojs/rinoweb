@@ -24,16 +24,22 @@
 
     <script type="text/javascript" src="/scripts/common.js"></script>
     <link rel="stylesheet" href="/styles/common.css" />
-    <meta name="description" content="Rino.js 프로젝트 후원" />
-    <meta name="og:title" content="Rino.js 후원" />
-    <meta name="og:description" content="Rino.js 프로젝트 후원" />
+    <meta
+      name="description"
+      content="Rino.js 2부터, Rino.js의 구문은 표준 HTML을 기반으로 변경되어 직관적이고 배우기 쉽습니다."
+    />
+    <meta name="og:title" content="Rino.js 구문" />
+    <meta
+      name="og:description"
+      content="Rino.js 2부터, Rino.js의 구문은 표준 HTML을 기반으로 변경되어 직관적이고 배우기 쉽습니다."
+    />
     <meta name="og:site_name" content="Rino.js" />
-    <meta name="og:url" content="https://rino.opdev1004.com/ko/donate" />
+    <meta name="og:url" content="https://rino.opdev1004.com/ko/syntax" />
     <meta
       name="og:image"
       content="https://rino.opdev1004.com/images/rino512.png"
     />
-    <title>Rino.js 후원</title>
+    <title>Rino.js 구문</title>
   </head>
   <body>
     <header>
@@ -72,23 +78,50 @@
 </div>
 
       <main>
-        <h1>Rino.js를 위한 후원!</h1>
-        <p>
-          Rino.js는 완전히 무료이며, MIT 라이선스를 따르는 오픈소스
-          프로젝트입니다. 후원을 통해 Rino.js를 더욱 개선하거나 사용자에게
-          서비스를 제공할 수 있습니다.
-        </p>
-        <p>Rino.js가 마음에 드셨다면, 작은 후원을 고려해주세요!</p>
-        <p>
-          Ko-fi 후원:<br />
-          <a href="https://ko-fi.com/opdev1004">https://ko-fi.com/opdev1004</a>
-        </p>
-        <p>
-          Github 스폰서:<br />
-          <a href="https://github.com/sponsors/opdev1004">
-            https://github.com/sponsors/opdev1004
-          </a>
-        </p>
+        <div type="text/markdown"><h1>구문</h1>
+<p>Rino.js 2부터, Rino.js의 구문은 표준 HTML을 기반으로 변경되어 직관적이고 배우기 쉽습니다.
+예를 들어, 컴포넌트는 다음과 같이 정의됩니다
+(<a href="/ko/project_structure">프로젝트 구조</a>를 참조하세요):</p>
+<pre><code class="language-html">&lt;component @path=&quot;/header&quot; @tag=&quot;header&quot; /&gt;
+</code></pre>
+<p>이 페이지에서는 프로젝트 구조에서 다루지 않은 Rino.js 구문을 설명합니다.</p>
+<h2>자바스크립트 / 타입스크립트를 이용한 HTML 템플릿</h2>
+<p>Rino.js는 JavaScript나 TypeScript를 활용한 강력한 템플릿 기능을 지원합니다.
+이 기능을 통해 npm 패키지를 통합하거나, 파일을 읽고,
+프로그래밍적으로 HTML 콘텐츠를 생성할 수 있습니다.</p>
+<h3>주요 포인트:</h3>
+<ul>
+<li><code>@type</code> 속성을 사용해 언어(js, javascript, ts, typescript)를 지정하세요.</li>
+<li>결과 문자열을 전역 <code>result</code> 변수에 할당하세요(<code>result</code>를 명시적으로 선언할 필요 없음).</li>
+<li>모든 템플릿 코드는 Node.js VM에서 실행됩니다.</li>
+<li>현재 <code>import/export</code> 문은 지원되지 않습니다.</li>
+</ul>
+<h3>예시:</h3>
+<p>자바스크립트 사용:</p>
+<pre><code class="language-javascript">&lt;script @type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
+result = &quot;&lt;div&gt;안녕하세요, Rino.js!&lt;/div&gt;&quot;;
+&lt;/script&gt;
+</code></pre>
+<p>타입스크립트 사용:</p>
+<pre><code class="language-typescript">&lt;script @type=&quot;ts&quot; type=&quot;text/typescript&quot;&gt;
+result = &quot;&lt;div&gt;안녕하세요, Rino.js TypeScript!&lt;/div&gt;&quot;;
+&lt;/script&gt;
+</code></pre>
+<h2>마크다운</h2>
+<p>Rino.js는 HTML 파일 내에 마크다운을 직접 포함할 수 있습니다.
+이는 <code>@path</code> 속성을 사용해 외부 파일에서 Markdown을 로드하는 옵션을 보완합니다.</p>
+<h3>주요 포인트:</h3>
+<ul>
+<li><code>@type</code> 속성에 md 또는 markdown 값을 사용하세요.</li>
+<li>닫는 <code>&lt;/script&gt;</code> 태그는 백슬래시(<code>&lt;\/</code>)를 추가해 이스케이프 처리하세요.</li>
+</ul>
+<h3>예시:</h3>
+<pre><code>&lt;script @type=&quot;md&quot; type=&quot;text/markdown&quot;&gt;
+  # 마크다운 제목
+  HTML 파일에 포함된 마크다운 콘텐츠입니다.
+&lt;/script&gt;
+</code></pre>
+</div>
       </main>
     </div>
     <footer class="footer">
