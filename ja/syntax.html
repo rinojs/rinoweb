@@ -57,6 +57,7 @@
       <a href="/ja/why_rino">なぜRino.js</a>
       <a href="/ja/installation">インストール</a>
       <a href="/ja/project_structure">勉強</a>
+      <a href="/ja/contact">連絡先</a>
       <a href="/ja/donate">寄付</a>
     </div>
   </div>
@@ -72,6 +73,7 @@
       <li><a href="/ja/commands">コマンド</a></li>
       <li><a href="/ja/project_structure">プロジェクト構造</a></li>
       <li><a href="/ja/syntax">構文</a></li>
+      <li><a href="/ja/contact">連絡先&ヘルプ</a></li>
       <li><a href="/ja/donate">寄付</a></li>
     </ul>
   </aside>
@@ -93,20 +95,24 @@
 <h3>主なポイント:</h3>
 <ul>
 <li><code>@type</code>属性を使用して、言語（js, javascript, ts, typescript）を指定します。</li>
-<li>結果の文字列をグローバル変数<code>result</code>に代入します（<code>result</code>を明示的に宣言する必要はありません）。</li>
-<li>すべてのテンプレートコードは Node.js の VM 内で実行されます。</li>
-<li>現在、<code>import/export</code>文はサポートされていません。</li>
+<li>console.log() を通じて任意のコンテンツを出力します。</li>
+<li>Javascript/Typescript パッケージを使用できます。</li>
+<li>HTML ページ パスはプロセス引数として渡されるため、共有コンポーネントで HTML ページ パスに基づいてページ テンプレートを生成できます。</li>
 </ul>
 <h3>例:</h3>
 <p>JavaScript の使用例:</p>
 <pre><code class="language-javascript">&lt;script @type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
-result = &quot;&lt;div&gt;こんにちは、Rino.js!&lt;/div&gt;&quot;;
-&lt;/script&gt;
+import os from &quot;os&quot;;
+console.log(os.type());
+console.log(&quot;&lt;div&gt;Hello, Rino.js!&lt;/div&gt;&quot;);
+&lt;\/script&gt;
 </code></pre>
 <p>TypeScript の使用例:</p>
 <pre><code class="language-typescript">&lt;script @type=&quot;ts&quot; type=&quot;text/typescript&quot;&gt;
-result = &quot;&lt;div&gt;こんにちは、Rino.js TypeScript!&lt;/div&gt;&quot;;
-&lt;/script&gt;
+import os from &quot;os&quot;;
+console.log(os.type());
+console.log(&quot;&lt;div&gt;Hello, Rino.js with TypeScript!&lt;/div&gt;&quot;);
+&lt;\/script&gt;
 </code></pre>
 <h2>Markdown</h2>
 <p>Rino.js では、Markdown を HTML ファイル内に直接埋め込むことができます。
@@ -114,13 +120,13 @@ result = &quot;&lt;div&gt;こんにちは、Rino.js TypeScript!&lt;/div&gt;&quot
 <h3>主なポイント:</h3>
 <ul>
 <li><code>@type</code>属性に md または markdown の値を使用します。</li>
-<li>閉じタグ<code>&lt;/script&gt;</code>は、バックスラッシュ<code>&lt;\/</code>を追加してエスケープ処理を行います。</li>
+<li>閉じタグ<code>&lt;\/script&gt;</code>は、バックスラッシュ<code>&lt;\/</code>を追加してエスケープ処理を行います。</li>
 </ul>
 <h3>例:</h3>
 <pre><code>&lt;script @type=&quot;md&quot; type=&quot;text/markdown&quot;&gt;
 # Markdownタイトル
 このHTMLファイル内に埋め込まれたMarkdownコンテンツです。
-&lt;/script&gt;
+&lt;\/script&gt;
 </code></pre>
 </div>
       </main>
@@ -137,6 +143,7 @@ result = &quot;&lt;div&gt;こんにちは、Rino.js TypeScript!&lt;/div&gt;&quot
         <li><a href="/ja/project_structure">プロジェクト構造</a></li>
         <li><a href="/ja/syntax">構文</a></li>
         <li><a href="/ja/donate">寄付</a></li>
+        <li><a href="/ja/contact">連絡先&ヘルプ</a></li>
       </ul>
     </div>
     <div class="footer-nav">

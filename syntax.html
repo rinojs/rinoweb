@@ -57,6 +57,7 @@
       <a href="/why_rino">Why Rino?</a>
       <a href="/installation">Install</a>
       <a href="/project_structure">Learn</a>
+      <a href="/contact">Contact</a>
       <a href="/donate">Donate</a>
     </div>
   </div>
@@ -72,6 +73,7 @@
       <li><a href="/commands">Commands</a></li>
       <li><a href="/project_structure">Project Structure</a></li>
       <li><a href="/syntax">Syntax</a></li>
+      <li><a href="/contact">Contact</a></li>
       <li><a href="/donate">Donate</a></li>
     </ul>
   </aside>
@@ -93,20 +95,24 @@ such as integrating npm packages, reading files, or programmatically generating 
 <h3>Key Points:</h3>
 <ul>
 <li>Use the <code>@type</code> attribute to specify the language (js, javascript, ts, typescript).</li>
-<li>Assign the resulting string to the global <code>result</code> variable (no need to declare <code>result</code> explicitly).</li>
-<li>All templating code runs in the Node.js VM.</li>
-<li>Currently, <code>import/export</code> statements are not supported.</li>
+<li>Print any content through console.log().</li>
+<li>Javascript/Typescript packages can be used.</li>
+<li>Since the HTML page path is passed as a process argument, you can generate page templates based on the HTML page path in shared components.</li>
 </ul>
 <h3>Examples:</h3>
 <p>Using JavaScript:</p>
 <pre><code class="language-javascript">&lt;script @type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
-result = &quot;&lt;div&gt;Hello, Rino.js!&lt;/div&gt;&quot;;
-&lt;/script&gt;
+import os from &quot;os&quot;;
+console.log(os.type());
+console.log(&quot;&lt;div&gt;Hello, Rino.js!&lt;/div&gt;&quot;);
+&lt;\/script&gt;
 </code></pre>
 <p>Using TypeScript:</p>
 <pre><code class="language-typescript">&lt;script @type=&quot;ts&quot; type=&quot;text/typescript&quot;&gt;
-result = &quot;&lt;div&gt;Hello, Rino.js with TypeScript!&lt;/div&gt;&quot;;
-&lt;/script&gt;
+import os from &quot;os&quot;;
+console.log(os.type());
+console.log(&quot;&lt;div&gt;Hello, Rino.js with TypeScript!&lt;/div&gt;&quot;);
+&lt;\/script&gt;
 </code></pre>
 <h2>Markdown</h2>
 <p>Rino.js allows embedding Markdown directly within an HTML file.
@@ -114,13 +120,13 @@ This complements the option to load Markdown from an external file using the <co
 <h3>Key Points:</h3>
 <ul>
 <li>Use the <code>@type</code> attribute with values md or markdown.</li>
-<li>Escape the closing <code>&lt;/script&gt;</code> tag by adding a backslash <code>&lt;\/</code>.</li>
+<li>Escape the closing <code>&lt;\/script&gt;</code> tag by adding a backslash <code>&lt;\/</code>.</li>
 </ul>
 <h3>Example:</h3>
 <pre><code>&lt;script @type=&quot;md&quot; type=&quot;text/markdown&quot;&gt;
 # Markdown Title
 This is Markdown content inside an HTML file.
-&lt;/script&gt;
+&lt;\/script&gt;
 </code></pre>
 </div>
       </main>
@@ -137,6 +143,7 @@ This is Markdown content inside an HTML file.
         <li><a href="/project_structure">Project Structure</a></li>
         <li><a href="/syntax">Syntax</a></li>
         <li><a href="/donate">Donate</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
     </div>
     <div class="footer-nav">
