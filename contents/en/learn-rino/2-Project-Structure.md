@@ -82,7 +82,7 @@ Example of importing local css files:
 ## contents
 `/contents` is for storing markdown contents for blogging. The file path/url structure is based on `/contents/theme/category/markdownfile.md`. So you have to place markdown files and directory based on that.
 
-At the top of markdown file you can pass data of content in JSON test format with html commented like this:
+At the top of markdown file you can pass data of content in JSON text format with html commented like this:
 ```
 <!--
 {

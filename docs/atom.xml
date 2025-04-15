@@ -2,49 +2,49 @@
     <feed xmlns="http://www.w3.org/2005/Atom">
       <title>https://rinojs.org Atom Feed</title>
       <link href="https://rinojs.org" />
-      <updated>2025-04-15T04:51:38.902Z</updated>
+      <updated>2025-04-15T10:39:42.969Z</updated>
       <id>https://rinojs.org/feed</id>
       
       <entry>
         <title>Extra syntax</title>
         <link href="https://rinojs.org/contents/en/learn-rino/1-Extra-syntax" />
         <id>https://rinojs.org/contents/en/learn-rino/1-Extra-syntax</id>
-        <updated>2025-04-15T04:51:38.902Z</updated>
+        <updated>2025-04-15T10:39:42.969Z</updated>
       </entry>
     
       <entry>
         <title>Project Structure</title>
         <link href="https://rinojs.org/contents/en/learn-rino/2-Project-Structure" />
         <id>https://rinojs.org/contents/en/learn-rino/2-Project-Structure</id>
-        <updated>2025-04-15T04:51:38.902Z</updated>
+        <updated>2025-04-15T10:39:42.969Z</updated>
       </entry>
     
       <entry>
         <title>Installation and Commands</title>
         <link href="https://rinojs.org/contents/en/learn-rino/3-Installation-and-Commands" />
         <id>https://rinojs.org/contents/en/learn-rino/3-Installation-and-Commands</id>
-        <updated>2025-04-15T04:51:38.902Z</updated>
+        <updated>2025-04-15T10:39:42.969Z</updated>
       </entry>
     
       <entry>
         <title>추가 구문</title>
         <link href="https://rinojs.org/contents/ko/%EB%A6%AC%EB%85%B8-%EB%B0%B0%EC%9A%B0%EA%B8%B0/1-%EC%B6%94%EA%B0%80-%EA%B5%AC%EB%AC%B8" />
         <id>https://rinojs.org/contents/ko/%EB%A6%AC%EB%85%B8-%EB%B0%B0%EC%9A%B0%EA%B8%B0/1-%EC%B6%94%EA%B0%80-%EA%B5%AC%EB%AC%B8</id>
-        <updated>2025-04-15T04:51:38.902Z</updated>
+        <updated>2025-04-15T10:39:42.969Z</updated>
       </entry>
     
       <entry>
         <title>프로젝트 구조</title>
         <link href="https://rinojs.org/contents/ko/%EB%A6%AC%EB%85%B8-%EB%B0%B0%EC%9A%B0%EA%B8%B0/2-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B5%AC%EC%A1%B0" />
         <id>https://rinojs.org/contents/ko/%EB%A6%AC%EB%85%B8-%EB%B0%B0%EC%9A%B0%EA%B8%B0/2-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B5%AC%EC%A1%B0</id>
-        <updated>2025-04-15T04:51:38.902Z</updated>
+        <updated>2025-04-15T10:39:42.969Z</updated>
       </entry>
     
       <entry>
         <title>설치와 명령어</title>
         <link href="https://rinojs.org/contents/ko/%EB%A6%AC%EB%85%B8-%EB%B0%B0%EC%9A%B0%EA%B8%B0/3-%EC%84%A4%EC%B9%98%EC%99%80-%EB%AA%85%EB%A0%B9%EC%96%B4" />
         <id>https://rinojs.org/contents/ko/%EB%A6%AC%EB%85%B8-%EB%B0%B0%EC%9A%B0%EA%B8%B0/3-%EC%84%A4%EC%B9%98%EC%99%80-%EB%AA%85%EB%A0%B9%EC%96%B4</id>
-        <updated>2025-04-15T04:51:38.902Z</updated>
+        <updated>2025-04-15T10:39:42.969Z</updated>
       </entry>
     
     </feed>
