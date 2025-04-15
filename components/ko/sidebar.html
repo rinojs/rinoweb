@@ -1,0 +1,42 @@
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-icon-content">
+        <a href="https://github.com/rinojs" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+        <a href="https://www.npmjs.com/package/rinojs" target="_blank"><ion-icon name="logo-npm"></ion-icon></a>
+    </div>
+    <div class="sidebar-text-content">
+        <h4>메인</h4>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/ko/">홈</a>
+                </li>
+                <li>
+                    <a href="/ko/contact">연락처</a>
+                </li>
+                <li>
+                    <a href="https://github.com/sponsors/opdev1004" target="_blank">후원하기</a>
+                </li>
+            </ul>
+        </nav>
+        <script @type="js" type="text/javascript">
+            const args = JSON.parse(process.argv[1]);
+            const categoryLinks = args.categoryLinks;
+            if (categoryLinks && Object.keys(categoryLinks).length > 0)
+            {
+                console.log("<h4>콘텐츠</h4><nav><ul>");
+                for (const [category, link] of Object.entries(categoryLinks))
+                {
+                    const [theme] = category.split("/");
+                    if (theme !== "ko") continue;
+                    console.log(`<li><a href="${link}">${category.replace("ko/", "").replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}</a></li>`);
+                }
+                console.log("</ul></nav>");
+            }
+        </script>
+        <h4>라이선스</h4>
+        <p>
+            Rino.js는 무료, MIT 라이선스의 오픈소스 프로젝트 입니다.
+        </p>
+    </div>
+    <div class="sidebar-empty-zone" id="sidebar-empty-zone" onclick="main.runContentTab()"></div>
+</aside>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <component @path="/en/head"></component>
+    <meta name="description" content="The page you are looking for is either unavailable or has been relocated." />
+    <meta property="og:title" content="Rino.js 404: File not found" />
+    <meta property="og:description"
+        content="The page you are looking for is either unavailable or has been relocated." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rinojs.org/404" />
+    <title>Rino.js 404: File not found</title>
+</head>
+
+<body>
+    <div class="top">
+        <component @path="/en/sidebar"></component>
+        <div class="top-right">
+            <component @path="/en/header"></component>
+            <main>
+                <div class="content-container">
+                    <div class="content" id="content">
+                        <h1>404: File not found</h1>
+                        <img src="/images/404.png" alt="404 image">
+                        <p>
+                            The page you are looking for is either unavailable or has been relocated.
+                        </p>
+                        <p>
+                            Try return to <a href="/">Home</a>
+                        </p>
+                    </div>
+                    <div class="tab2-content tab2-content--invisible" id="tab2-content">
+                        <component @path="/en/tab2-content"></component>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <component @path="/en/footer"></component>
+</body>
+
+</html>

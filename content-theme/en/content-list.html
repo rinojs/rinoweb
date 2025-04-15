@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <component @path="/en/head"></component>
+  <meta name="description" content="This is a page for navigating contents." />
+  <meta property="og:title" content="Content List" />
+  <meta property="og:description" content="This is a page for navigating contents." />
+  <meta property="og:type" content="website" />
+
+  <title>Content List</title>
+</head>
+
+<body>
+  <div class="top">
+    <component @path="/en/sidebar"></component>
+    <div class="top-right">
+      <component @path="/en/header"></component>
+      <main>
+        <div class="content-container">
+          <div class="content" id="content">
+            <article>
+              <ol>
+                <script @type="js" type="text/javascript">
+                  var args = process.argv;
+                  var contentListDataString = args[args.length - 1];
+                  var contentListData = JSON.parse(contentListDataString);
+                  var contentList = contentListData.contentList;
+
+                  for (let i = 0; i < contentList.length; i++)
+                  {
+                    const item = contentList[i];
+                    if (item?.title && item?.link)
+                    {
+                      console.log(`<li><a href="${item.link}">${item.title}</a></li>`);
+                    }
+                  }
+                </script>
+              </ol>
+            </article>
+          </div>
+          <div class="tab2-content tab2-content--invisible" id="tab2-content">
+            <component @path="/en/tab2-content"></component>
+          </div>
+          <hr />
+          <nav class="content-list-navigation">
+            <script @type="js" type="text/javascript">
+              var args = process.argv;
+              var contentListDataString = args[args.length - 1];
+              var contentListData = JSON.parse(contentListDataString);
+              var pagination = contentListData.pagination;
+
+              if (pagination.prevLink)
+              {
+                console.log(`
+                  <div>
+                    <a href="${pagination.prevLink}">Previous List</a>
+                  </div>
+                `);
+              }
+              if (pagination.nextLink)
+              {
+                console.log(`
+                  <div>
+                    <a href="${pagination.nextLink}">Next List</a>
+                  </div>
+                `);
+              }
+            </script>
+          </nav>
+        </div>
+      </main>
+    </div>
+  </div>
+  <component @path="/en/footer"></component>
+</body>
+
+</html>

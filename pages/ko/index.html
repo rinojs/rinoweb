@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <component @path="/ko/head"></component>
+  <meta name="description" content="Rino.js, 빠르게 배울 수 있는 사전 처리, 직관적인 웹 프레임워크." />
+  <meta property="og:title" content="Rino.js 홈" />
+  <meta property="og:description" content="Rino.js, 빠르게 배울 수 있는 사전 처리, 직관적인 웹 프레임워크." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rinojs.org/ko" />
+  <title>Rino.js 홈</title>
+</head>
+
+<body>
+  <div class="top">
+    <component @path="/ko/sidebar"></component>
+    <div class="top-right">
+      <component @path="/ko/header"></component>
+      <main>
+        <div class="content-container">
+          <div class="content" id="content">
+            <script @path="/ko/index" @type="md" @tag="article"></script>
+          </div>
+          <div class="tab2-content tab2-content--invisible" id="tab2-content">
+            <component @path="/ko/tab2-content"></component>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <component @path="/ko/footer"></component>
+</body>
+
+</html>

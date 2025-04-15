@@ -1,0 +1,23 @@
+{
+  "name": "rinojs",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node dev.js",
+    "generate": "node generate.js",
+    "generate-all": "node generate.js && node sitemap.js && node feed.js",
+    "generate-sitemap": "node generate.js && node sitemap.js",
+    "sitemap": "node sitemap.js",
+    "feed": "node feed.js",
+    "backoffice": "node backoffice.js",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "rinojs": "^2.17.0"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "typescript": "^5.8.2"
+  }
+}

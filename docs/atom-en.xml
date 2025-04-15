@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <feed xmlns="http://www.w3.org/2005/Atom">
+      <title>https://rinojs.org Atom Feed</title>
+      <link href="https://rinojs.org" />
+      <updated>2025-04-15T04:38:55.773Z</updated>
+      <id>https://rinojs.org/feed</id>
+      
+      <entry>
+        <title>Extra syntax</title>
+        <link href="https://rinojs.org/contents/en/learn-rino/1-Extra-syntax" />
+        <id>https://rinojs.org/contents/en/learn-rino/1-Extra-syntax</id>
+        <updated>2025-04-15T04:38:55.773Z</updated>
+      </entry>
+    
+      <entry>
+        <title>Project Structure</title>
+        <link href="https://rinojs.org/contents/en/learn-rino/2-Project-Structure" />
+        <id>https://rinojs.org/contents/en/learn-rino/2-Project-Structure</id>
+        <updated>2025-04-15T04:38:55.773Z</updated>
+      </entry>
+    
+      <entry>
+        <title>Installation</title>
+        <link href="https://rinojs.org/contents/en/learn-rino/3-Installation" />
+        <id>https://rinojs.org/contents/en/learn-rino/3-Installation</id>
+        <updated>2025-04-15T04:38:55.773Z</updated>
+      </entry>
+    
+    </feed>

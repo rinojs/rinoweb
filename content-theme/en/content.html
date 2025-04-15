@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <component @path="/en/head"></component>
+  <meta name="description" content="{{content.description}}" />
+  <meta property="og:title" content="{{ content.title }}" />
+  <meta property="og:description" content="{{ content.description }}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://rinojs.org{{ content.urlPath }}" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss-en.xml">
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="/atom-en.xml">
+  <title>{{ content.title }}</title>
+</head>
+
+<body>
+  <div class="top">
+    <component @path="/en/sidebar"></component>
+    <div class="top-right">
+      <component @path="/en/header"></component>
+      <main>
+        <div class="content-container">
+          <div class="content" id="content">
+            <article>
+              <p class="published-time">
+                Published:
+                <span id="published-time" data-raw-time="{{ content.time }}">
+                  {{ content.time }}
+                </span>
+              </p>
+              {{ content.body }}
+            </article>
+            <hr />
+            <h3>Content Navigation:</h3>
+            <nav class="content-navigation">
+              <script @type="js" type="text/javascript">
+                const args = process.argv;
+                const contentDataString = args[args.length - 1];
+                const contentData = JSON.parse(contentDataString);
+
+                if (Array.isArray(contentData.nearby))
+                {
+                  const nearby = contentData.nearby;
+                  const currentIndex = nearby.findIndex(post => post.link === contentData.urlPath);
+                  let start = 0;
+                  let end = nearby.length;
+
+                  if (currentIndex !== -1)
+                  {
+                    const maxItems = 5;
+                    const before = Math.min(2, currentIndex);
+                    const after = Math.min(2, nearby.length - currentIndex - 1);
+                    let total = 1 + before + after;
+
+                    if (total < maxItems)
+                    {
+                      const extra = maxItems - total;
+                      const moreBefore = Math.min(extra, currentIndex - before);
+                      const moreAfter = Math.min(extra - moreBefore, nearby.length - currentIndex - 1 - after);
+
+                      start = currentIndex - (before + moreBefore);
+                      end = currentIndex + 1 + after + moreAfter;
+                    }
+                    else
+                    {
+                      start = currentIndex - before;
+                      end = currentIndex + 1 + after;
+                    }
+
+                    const sliced = nearby.slice(start, end);
+                    console.log(`<ul>`);
+                    sliced.forEach(post =>
+                    {
+                      if (post.link === contentData.urlPath)
+                      {
+                        console.log(`<li><span>${post.title}</span></li>`);
+                      }
+                      else
+                      {
+                        console.log(`<li><a href="${post.link}">${post.title}</a></li>`);
+                      }
+                    });
+                    console.log(`</ul>`);
+                  }
+                }
+              </script>
+            </nav>
+          </div>
+          <div class="tab2-content tab2-content--invisible" id="tab2-content">
+            <component @path="/en/tab2-content"></component>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <component @path="/en/footer"></component>
+</body>
+
+</html>

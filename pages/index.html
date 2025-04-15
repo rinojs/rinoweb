@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <component @path="/en/head"></component>
+  <meta name="description" content="Rino.js, Fast learning, preprocessing, intuitive web framework" />
+  <meta property="og:title" content="Rino.js Home" />
+  <meta property="og:description" content="Rino.js, Fast learning, preprocessing, intuitive web framework" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rinojs.org/" />
+  <title>Rino.js Home</title>
+</head>
+
+<body>
+  <div class="top">
+    <component @path="/en/sidebar"></component>
+    <div class="top-right">
+      <component @path="/en/header"></component>
+      <main>
+        <div class="content-container">
+          <div class="content" id="content">
+            <script @path="/en/index" @type="md" @tag="article"></script>
+          </div>
+          <div class="tab2-content tab2-content--invisible" id="tab2-content">
+            <component @path="/en/tab2-content"></component>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <component @path="/en/footer"></component>
+</body>
+
+</html>

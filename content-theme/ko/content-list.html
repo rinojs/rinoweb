@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <component @path="/ko/head"></component>
+  <meta name="description" content="콘텐츠를 탐색하는 페이지 입니다." />
+  <meta property="og:title" content="콘텐츠 리스트" />
+  <meta property="og:description" content="콘텐츠를 탐색하는 페이지 입니다." />
+  <meta property="og:type" content="website" />
+
+  <title>콘텐츠 리스트</title>
+</head>
+
+<body>
+  <div class="top">
+    <component @path="/ko/sidebar"></component>
+    <div class="top-right">
+      <component @path="/ko/header"></component>
+      <main>
+        <div class="content-container">
+          <div class="content" id="content">
+            <article>
+              <ol>
+                <script @type="js" type="text/javascript">
+                  var args = process.argv;
+                  var contentListDataString = args[args.length - 1];
+                  var contentListData = JSON.parse(contentListDataString);
+                  var contentList = contentListData.contentList;
+
+                  for (let i = 0; i < contentList.length; i++)
+                  {
+                    const item = contentList[i];
+                    if (item?.title && item?.link)
+                    {
+                      console.log(`<li><a href="${item.link}">${item.title}</a></li>`);
+                    }
+                  }
+                </script>
+              </ol>
+            </article>
+          </div>
+          <div class="tab2-content tab2-content--invisible" id="tab2-content">
+            <component @path="/ko/tab2-content"></component>
+          </div>
+          <hr />
+          <nav class="content-list-navigation">
+            <script @type="js" type="text/javascript">
+              var args = process.argv;
+              var contentListDataString = args[args.length - 1];
+              var contentListData = JSON.parse(contentListDataString);
+              var pagination = contentListData.pagination;
+
+              if (pagination.prevLink)
+              {
+                console.log(`
+                  <div>
+                    <a href="${pagination.prevLink}">이전 리스트</a>
+                  </div>
+                `);
+              }
+              if (pagination.nextLink)
+              {
+                console.log(`
+                  <div>
+                    <a href="${pagination.nextLink}">다음 리스트</a>
+                  </div>
+                `);
+              }
+            </script>
+          </nav>
+        </div>
+      </main>
+    </div>
+  </div>
+  <component @path="/ko/footer"></component>
+</body>
+
+</html>

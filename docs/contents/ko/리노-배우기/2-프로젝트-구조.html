@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.js"></script>
+<script type="text/javascript" src="/scripts/main.js"></script>
+<link rel="stylesheet" href="/styles/style.css" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<meta property="og:image" content="https://rinojs.org/images/rino512.png" />
+<meta property="og:site_name" content="Rino.js website" />
+  <meta name="description" content="프로젝트 구조 Rino는 프로젝트 디렉토리와 파일 구조를 기반으로 웹사이트를 빌드합니다. 이는 표준 HTML, CSS, Javascript, Node.js를 사용하여 웹사이트 제작을 쉽게 학습하고 구축할 수 있다는 의미입니다. pages components mds public scripts export styles export rinoconfig.js contents contenttheme backoffice.bat&backoffice.sh /pages /pages 디렉토리는 기본 HTML 파일을 넣는 공간입니다. Rino는 이 디렉토리를 기준으로 웹..." />
+  <meta property="og:title" content="프로젝트 구조" />
+  <meta property="og:description" content="프로젝트 구조 Rino는 프로젝트 디렉토리와 파일 구조를 기반으로 웹사이트를 빌드합니다. 이는 표준 HTML, CSS, Javascript, Node.js를 사용하여 웹사이트 제작을 쉽게 학습하고 구축할 수 있다는 의미입니다. pages components mds public scripts export styles export rinoconfig.js contents contenttheme backoffice.bat&backoffice.sh /pages /pages 디렉토리는 기본 HTML 파일을 넣는 공간입니다. Rino는 이 디렉토리를 기준으로 웹..." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://rinojs.org/contents/ko/리노-배우기/2-프로젝트-구조" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss-ko.xml">
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="/atom-ko.xml">
+  <title>프로젝트 구조</title>
+</head>
+
+<body>
+  <div class="top">
+    <aside class="sidebar" id="sidebar">
+    <div class="sidebar-icon-content">
+        <a href="https://github.com/rinojs" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+        <a href="https://www.npmjs.com/package/rinojs" target="_blank"><ion-icon name="logo-npm"></ion-icon></a>
+    </div>
+    <div class="sidebar-text-content">
+        <h4>메인</h4>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/ko/">홈</a>
+                </li>
+                <li>
+                    <a href="/ko/contact">연락처</a>
+                </li>
+                <li>
+                    <a href="https://github.com/sponsors/opdev1004" target="_blank">후원하기</a>
+                </li>
+            </ul>
+        </nav>
+        <h4>콘텐츠</h4><nav><ul>
+<li><a href="/contents-list/ko/리노-배우기/리노-배우기-1">리노 배우기</a></li>
+</ul></nav>
+        <h4>라이선스</h4>
+        <p>
+            Rino.js는 무료, MIT 라이선스의 오픈소스 프로젝트 입니다.
+        </p>
+    </div>
+    <div class="sidebar-empty-zone" id="sidebar-empty-zone" onclick="main.runContentTab()"></div>
+</aside>
+    <div class="top-right">
+      <header>
+    <div class="menu-tab tab" id="menu-tab" onclick="main.switchTab('sidebar')">
+        <ion-icon name="menu-outline"></ion-icon>
+        <span>메뉴</span>
+    </div>
+    <div class="content-tab tab active" id="content-tab" onclick="main.switchTab('content')">
+        <ion-icon name="code-outline"></ion-icon>
+        <span>Rino.js<span>
+    </div>
+    <div class="tab2 tab" id="tab2" onclick="main.switchTab('tab2-content')">
+        <ion-icon name="language-outline"></ion-icon>
+        <span>언어</spans>
+    </div>
+</header>
+      <main>
+        <div class="content-container">
+          <div class="content" id="content">
+            <article>
+              <p class="published-time">
+                발행 시간:
+                <span id="published-time" data-raw-time="2025-04-15T01:21:00.000Z">
+                  2025-04-15T01:21:00.000Z
+                </span>
+              </p>
+              <h1>프로젝트 구조</h1>
+<p>Rino는 프로젝트 디렉토리와 파일 구조를 기반으로 웹사이트를 빌드합니다. 이는 표준 HTML, CSS, Javascript, Node.js를 사용하여 웹사이트 제작을 쉽게 학습하고 구축할 수 있다는 의미입니다.</p>
+<pre><code>- pages
+- components
+- mds
+- public
+- scripts
+    - export
+- styles
+    - export
+- rino-config.js
+- contents
+- content-theme
+- backoffice.bat&amp;backoffice.sh
+</code></pre>
+<h2>/pages</h2>
+<p><code>/pages</code> 디렉토리는 기본 HTML 파일을 넣는 공간입니다. Rino는 이 디렉토리를 기준으로 웹 페이지를 빌드합니다. 파일 및 디렉토리 구조는 그대로 유지됩니다.</p>
+<h2>/components</h2>
+<p><code>/components</code> 디렉토리는 컴포넌트 HTML 파일을 넣는 공간입니다. 컴포넌트는 다른 컴포넌트를 포함할 수 있습니다. 그러나 동일한 컴포넌트를 순환 호출하여 무한 루프 오류를 발생시키지 않도록 주의하세요. 컴포넌트는 아래와 같은 문법으로 사용할 수 있습니다:</p>
+<pre><code>&lt;component @path=&quot;&quot; @tag=&quot;&quot; /&gt;
+</code></pre>
+<ul>
+<li>
+<p><code>@path</code>: 컴포넌트를 불러오기 위해 필요한 속성입니다. 예: <code>@path=&quot;/header&quot;</code> 또는 <code>@path=&quot;/ko/footer&quot;</code></p>
+</li>
+<li>
+<p><code>@tag</code>: 선택 속성입니다. 컴포넌트 태그에 HTML 속성을 사용하려면 HTML 태그 이름을 지정해야 합니다. 예: <code>@tag=&quot;div&quot;</code> 또는</p>
+</li>
+</ul>
+<pre><code>&lt;component @path=&quot;/button&quot; @tag=&quot;button&quot; onclick=&quot;myFunction()&quot; /&gt;
+</code></pre>
+<h2>/mds</h2>
+<p><code>/mds</code> 디렉토리는 마크다운 파일을 넣는 공간입니다. Rino는 이 디렉토리의 모든 마크다운을 로드하고 요청 시 HTML로 변환합니다.</p>
+<pre><code>&lt;script @type=&quot;md&quot; @path=&quot;&quot; @tag=&quot;&quot; type=&quot;text/markdowns&quot;&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li><code>@type</code>: 마크다운을 사용하려면 이 속성에 <code>md</code> 또는 <code>markdown</code>을 지정해야 합니다.</li>
+<li><code>@path</code>: 마크다운을 불러오기 위한 경로를 지정합니다.</li>
+<li><code>@tag</code>: 선택 속성입니다. HTML 속성을 사용하려면 HTML 태그 이름을 지정해야 합니다.</li>
+</ul>
+<h2>/public</h2>
+<p><code>/public</code> 디렉토리는 이미지, 외부 CSS, 자바스크립트 라이브러리 등 정적 파일을 넣는 공간입니다.</p>
+<h2>/scripts</h2>
+<p><code>/scripts</code> 디렉토리는 자바스크립트 라이브러리를 작성하는 공간입니다. npm 패키지를 사용할 수 있으며, <code>/scripts/export/</code> 디렉토리에 자바스크립트 파일을 넣으면 Rino가 빌드하여 <code>/scripts</code> 디렉토리에 출력합니다. HTML에서 일반적으로 사용하는 방식으로 사용할 수 있습니다. 타입스크립트도 지원됩니다.</p>
+<p>스크립트는 <code>import/export</code> 모듈 방식으로 처리됩니다. 파일 이름이 스크립트 인스턴스 이름이 되며, 예를 들어 <code>hello.js</code> 또는 <code>hello.ts</code>인 경우, 외부에서는 <code>hello.FunctionName()</code>으로 호출합니다.</p>
+<pre><code>&lt;script src=&quot;/scripts/example.js&quot; /&gt;
+</code></pre>
+<h2>/styles</h2>
+<p><code>/styles</code> 디렉토리는 CSS 라이브러리를 작성하는 공간입니다. <code>/styles/export/</code> 디렉토리에 CSS 파일을 넣으면 Rino가 빌드하여 <code>/styles</code> 디렉토리에 출력합니다. HTML에서 일반적으로 사용하는 방식으로 사용할 수 있습니다.</p>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/styles/example.css&quot; /&gt;
+</code></pre>
+<p>로컬 CSS 파일을 불러오는 예시:</p>
+<pre><code>@import &quot;../header.css&quot;;
+@import &quot;../sidebar.css&quot;;
+@import &quot;../footer.css&quot;;            
+</code></pre>
+<h2>rino-config.js</h2>
+<p><code>rino-config.js</code>는 Rino의 설정 파일입니다. 배포 디렉토리 변경, 개발 서버 포트 변경, 사이트 URL 설정 및 사이트맵 추가 등을 설정할 수 있습니다.</p>
+<h2>contents</h2>
+<p><code>/contents</code>는 블로그용 마크다운 콘텐츠를 저장하는 디렉토리입니다. 파일 경로 및 URL 구조는 <code>/contents/theme/category/markdownfile.md</code> 형식을 따릅니다. 마크다운 파일 상단에는 아래와 같이 HTML 주석 형태로 JSON 데이터를 작성할 수 있습니다:</p>
+<pre><code>&lt;!--
+{
+  &quot;title&quot;: &quot;Project Structure&quot;,
+  &quot;time&quot;: &quot;2025-04-15T01:21:00.000Z&quot;,
+  &quot;description&quot;: &quot;Project Structure Rino build website based on project directory and file structure. Which means it is easy to learn and build a website with standard HTML, CSS, Javascript and Node.js. pages components mds public scripts export styles export contents contenttheme rinoconfig.js backoffice.bat &amp; backoffice.sh...&quot;
+}
+--&gt;
+</code></pre>
+<p>이 데이터는 콘텐츠 테마 페이지에서 <code>{{ content.title }}</code> 등의 문법으로 사용할 수 있습니다.</p>
+<h2>content-theme</h2>
+<p><code>/content-theme</code>는 콘텐츠 템플릿 페이지를 저장하는 디렉토리입니다. 파일 경로 및 URL 구조는 <code>/content-theme/theme/content.html</code> 및 <code>/content-theme/theme/content-list.html</code>을 따릅니다. <code>/contents</code> 디렉토리 안의 같은 테마 이름의 콘텐츠 파일들과 매칭됩니다.</p>
+<p>예: 아래는 해당 웹사이트에서 사용하는 템플릿 페이지입니다:</p>
+<ul>
+<li><code>/content-theme/en/content.html</code>:</li>
+</ul>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;component @path=&quot;/en/head&quot;&gt;&lt;/component&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;{{content.description}}&quot; /&gt;
+  &lt;meta property=&quot;og:title&quot; content=&quot;{{ content.title }}&quot; /&gt;
+  &lt;meta property=&quot;og:description&quot; content=&quot;{{ content.description }}&quot; /&gt;
+  &lt;meta property=&quot;og:type&quot; content=&quot;article&quot; /&gt;
+  &lt;meta property=&quot;og:url&quot; content=&quot;https://rinojs.org{{ content.urlPath }}&quot; /&gt;
+  &lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;RSS&quot; href=&quot;/rss.xml&quot;&gt;
+  &lt;link rel=&quot;alternate&quot; type=&quot;application/atom+xml&quot; title=&quot;Atom&quot; href=&quot;/atom.xml&quot;&gt;
+  &lt;title&gt;{{ content.title }}&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div class=&quot;top&quot;&gt;
+    &lt;component @path=&quot;/en/sidebar&quot;&gt;&lt;/component&gt;
+    &lt;div class=&quot;top-right&quot;&gt;
+      &lt;component @path=&quot;/en/header&quot;&gt;&lt;/component&gt;
+      &lt;main&gt;
+        &lt;div class=&quot;content-container&quot;&gt;
+          &lt;div class=&quot;content&quot; id=&quot;content&quot;&gt;
+            &lt;article&gt;
+              &lt;p class=&quot;published-time&quot;&gt;
+                Published:
+                &lt;span id=&quot;published-time&quot; data-raw-time=&quot;{{ content.time }}&quot;&gt;
+                  {{ content.time }}
+                &lt;/span&gt;
+              &lt;/p&gt;
+              {{ content.body }}
+            &lt;/article&gt;
+            &lt;hr /&gt;
+            &lt;h3&gt;Content Navigation:&lt;/h3&gt;
+            &lt;nav class=&quot;content-navigation&quot;&gt;
+              &lt;script @type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
+                const args = process.argv;
+                const contentDataString = args[args.length - 1];
+                const contentData = JSON.parse(contentDataString);
+
+                if (Array.isArray(contentData.nearby))
+                {
+                  const nearby = contentData.nearby;
+                  const currentIndex = nearby.findIndex(post =&gt; post.link === contentData.urlPath);
+                  let start = 0;
+                  let end = nearby.length;
+
+                  if (currentIndex !== -1)
+                  {
+                    const maxItems = 5;
+                    const before = Math.min(2, currentIndex);
+                    const after = Math.min(2, nearby.length - currentIndex - 1);
+                    let total = 1 + before + after;
+
+                    if (total &lt; maxItems)
+                    {
+                      const extra = maxItems - total;
+                      const moreBefore = Math.min(extra, currentIndex - before);
+                      const moreAfter = Math.min(extra - moreBefore, nearby.length - currentIndex - 1 - after);
+
+                      start = currentIndex - (before + moreBefore);
+                      end = currentIndex + 1 + after + moreAfter;
+                    }
+                    else
+                    {
+                      start = currentIndex - before;
+                      end = currentIndex + 1 + after;
+                    }
+
+                    const sliced = nearby.slice(start, end);
+                    console.log(`&lt;ul&gt;`);
+                    sliced.forEach(post =&gt;
+                    {
+                      if (post.link === contentData.urlPath)
+                      {
+                        console.log(`&lt;li&gt;&lt;span&gt;${post.title}&lt;/span&gt;&lt;/li&gt;`);
+                      }
+                      else
+                      {
+                        console.log(`&lt;li&gt;&lt;a href=&quot;${post.link}&quot;&gt;${post.title}&lt;/a&gt;&lt;/li&gt;`);
+                      }
+                    });
+                    console.log(`&lt;/ul&gt;`);
+                  }
+                }
+              &lt;/script&gt;
+            &lt;/nav&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;tab2-content tab2-content--invisible&quot; id=&quot;tab2-content&quot;&gt;
+            &lt;component @path=&quot;/en/tab2-content&quot;&gt;&lt;/component&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/main&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;component @path=&quot;/en/footer&quot;&gt;&lt;/component&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li><code>/content-theme/en/content-list.html</code>:</li>
+</ul>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;component @path=&quot;/en/head&quot;&gt;&lt;/component&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;This is a page for navigating contents.&quot; /&gt;
+  &lt;meta property=&quot;og:title&quot; content=&quot;Content List&quot; /&gt;
+  &lt;meta property=&quot;og:description&quot; content=&quot;This is a page for navigating contents.&quot; /&gt;
+  &lt;meta property=&quot;og:type&quot; content=&quot;website&quot; /&gt;
+
+  &lt;title&gt;Content List&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div class=&quot;top&quot;&gt;
+    &lt;component @path=&quot;/en/sidebar&quot;&gt;&lt;/component&gt;
+    &lt;div class=&quot;top-right&quot;&gt;
+      &lt;component @path=&quot;/en/header&quot;&gt;&lt;/component&gt;
+      &lt;main&gt;
+        &lt;div class=&quot;content-container&quot;&gt;
+          &lt;div class=&quot;content&quot; id=&quot;content&quot;&gt;
+            &lt;article&gt;
+              &lt;ol&gt;
+                &lt;script @type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
+                  var args = process.argv;
+                  var contentListDataString = args[args.length - 1];
+                  var contentListData = JSON.parse(contentListDataString);
+                  var contentList = contentListData.contentList;
+
+                  for (let i = 0; i &lt; contentList.length; i++)
+                  {
+                    const item = contentList[i];
+                    if (item?.title &amp;&amp; item?.link)
+                    {
+                      console.log(`&lt;li&gt;&lt;a href=&quot;${item.link}&quot;&gt;${item.title}&lt;/a&gt;&lt;/li&gt;`);
+                    }
+                  }
+                &lt;/script&gt;
+              &lt;/ol&gt;
+            &lt;/article&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;tab2-content tab2-content--invisible&quot; id=&quot;tab2-content&quot;&gt;
+            &lt;component @path=&quot;/en/tab2-content&quot;&gt;&lt;/component&gt;
+          &lt;/div&gt;
+          &lt;hr /&gt;
+          &lt;nav class=&quot;content-list-navigation&quot;&gt;
+            &lt;script @type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
+              var args = process.argv;
+              var contentListDataString = args[args.length - 1];
+              var contentListData = JSON.parse(contentListDataString);
+              var pagination = contentListData.pagination;
+
+              if (pagination.prevLink)
+              {
+                console.log(`
+                  &lt;div&gt;
+                    &lt;a href=&quot;${pagination.prevLink}&quot;&gt;Previous List&lt;/a&gt;
+                  &lt;/div&gt;
+                `);
+              }
+              if (pagination.nextLink)
+              {
+                console.log(`
+                  &lt;div&gt;
+                    &lt;a href=&quot;${pagination.nextLink}&quot;&gt;Next List&lt;/a&gt;
+                  &lt;/div&gt;
+                `);
+              }
+            &lt;/script&gt;
+          &lt;/nav&gt;
+        &lt;/div&gt;
+      &lt;/main&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;component @path=&quot;/en/footer&quot;&gt;&lt;/component&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2>backoffice.bat &amp; backoffice .sh</h2>
+<p><code>backoffice.bat</code>과 <code>backoffice.sh</code>는 콘텐츠 관리 및 이미지 압축을 위한 백오피스 서버를 실행하는 스크립트입니다. 이 파일을 더블 클릭하면 <code>npm run backoffice</code> 명령을 실행하게 되어 웹사이트 관리자가 편리하게 웹사이트를 유지 관리할 수 있도록 돕습니다.</p>
+
+            </article>
+            <hr />
+            <h3>콘텐츠 네비게이션:</h3>
+            <nav class="content-navigation">
+              <ul>
+<li><a href="/contents/ko/리노-배우기/3-설치">설치</a></li>
+<li><span>프로젝트 구조</span></li>
+<li><a href="/contents/ko/리노-배우기/1-추가-구문">추가 구문</a></li>
+</ul>
+            </nav>
+          </div>
+          <div class="tab2-content tab2-content--invisible" id="tab2-content">
+            <div>
+    <div type="text/markdown"><ul>
+<li><a href="/">English</a></li>
+<li><a href="/ko/">한국어</a></li>
+</ul>
+</div>
+</div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <footer>
+    (c) <span id="year">2025</span> opdev1004. All rights reserved.
+</footer>
+</body>
+
+</html>

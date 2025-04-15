@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <component @path="/ko/head"></component>
+  <meta name="description" content="Rino.js 프로젝트의 연락처와 도움받기" />
+  <meta property="og:title" content="Rino.js 연락처 & 도움받기" />
+  <meta property="og:description" content="Rino.js 프로젝트의 연락처와 도움받기" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rinojs.org/ko/contact" />
+  <title>Rino.js 연락처 & 도움받기</title>
+</head>
+
+<body>
+  <div class="top">
+    <component @path="/ko/sidebar"></component>
+    <div class="top-right">
+      <component @path="/ko/header"></component>
+      <main>
+        <div class="content-container">
+          <div class="content" id="content">
+            <script @type="md" type="text/markdown">
+                    # 연락처 & 도움받기
+        
+                    이메일: opdev1004@gmail.com
+        
+                    깃헙 디스커션: https://github.com/orgs/rinojs/discussions
+            </script>
+          </div>
+          <div class="tab2-content tab2-content--invisible" id="tab2-content">
+            <component @path="/ko/tab2-content"></component>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <component @path="/ko/footer"></component>
+</body>
+
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.js"></script>
+<script type="text/javascript" src="/scripts/main.js"></script>
+<link rel="stylesheet" href="/styles/style.css" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<meta property="og:image" content="https://rinojs.org/images/rino512.png" />
+<meta property="og:site_name" content="Rino.js website" />
+  <meta name="description" content="Project Structure Rino build website based on project directory and file structure. Which means it is easy to learn and build a website with standard HTML, CSS, Javascript and Node.js. pages components mds public scripts export styles export rinoconfig.js contents contenttheme backoffice.bat&backoffice.sh /pages /pages directory is for putting base HTML..." />
+  <meta property="og:title" content="Project Structure" />
+  <meta property="og:description" content="Project Structure Rino build website based on project directory and file structure. Which means it is easy to learn and build a website with standard HTML, CSS, Javascript and Node.js. pages components mds public scripts export styles export rinoconfig.js contents contenttheme backoffice.bat&backoffice.sh /pages /pages directory is for putting base HTML..." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://rinojs.org/contents/en/learn-rino/2-Project-Structure" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss-en.xml">
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="/atom-en.xml">
+  <title>Project Structure</title>
+</head>
+
+<body>
+  <div class="top">
+    <aside class="sidebar" id="sidebar">
+    <div class="sidebar-icon-content">
+        <a href="https://github.com/rinojs" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+        <a href="https://www.npmjs.com/package/rinojs" target="_blank"><ion-icon name="logo-npm"></ion-icon></a>
+    </div>
+    <div class="sidebar-text-content">
+        <h4>Main</h4>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/contact">Contact</a>
+                </li>
+                <li>
+                    <a href="https://github.com/sponsors/opdev1004" target="_blank">Support my project</a>
+                </li>
+            </ul>
+        </nav>
+        <h4>Contents</h4><nav><ul>
+<li><a href="/contents-list/en/learn-rino/learn-rino-1">Learn Rino</a></li>
+</ul></nav>
+        <h4>License</h4>
+        <p>
+            Rino.js is Free, MIT licensed opensource project
+        </p>
+    </div>
+    <div class="sidebar-empty-zone" id="sidebar-empty-zone" onclick="main.runContentTab()"></div>
+</aside>
+    <div class="top-right">
+      <header>
+    <div class="menu-tab tab" id="menu-tab" onclick="main.switchTab('sidebar')">
+        <ion-icon name="menu-outline"></ion-icon>
+        <span>Menu</span>
+    </div>
+    <div class="content-tab tab active" id="content-tab" onclick="main.switchTab('content')">
+        <ion-icon name="code-outline"></ion-icon>
+        <span>Rino.js<span>
+    </div>
+    <div class="tab2 tab" id="tab2" onclick="main.switchTab('tab2-content')">
+        <ion-icon name="language-outline"></ion-icon>
+        <span>Language</spans>
+    </div>
+</header>
+      <main>
+        <div class="content-container">
+          <div class="content" id="content">
+            <article>
+              <p class="published-time">
+                Published:
+                <span id="published-time" data-raw-time="2025-04-14T01:21:00.000Z">
+                  2025-04-14T01:21:00.000Z
+                </span>
+              </p>
+              <h1>Project Structure</h1>
+<p>Rino build website based on project directory and file structure. Which means it is easy to learn and build a website with standard HTML, CSS, Javascript and Node.js.</p>
+<pre><code>- pages
+- components
+- mds
+- public
+- scripts
+    - export
+- styles
+    - export
+- rino-config.js
+- contents
+- content-theme
+- backoffice.bat&amp;backoffice.sh
+</code></pre>
+<h2>/pages</h2>
+<p><code>/pages</code> directory is for putting base HTML files. So Rino is going to build your web pages based on this directory. File and directory structure is going to be exactly same.</p>
+<h2>/components</h2>
+<p><code>/components</code> directory is for putting component HTML files. Component can contain other components. But don’t try to cause infinite error by looping with the same component. You can use component by syntax like this:</p>
+<pre><code>&lt;component @path=&quot;&quot; @tag=&quot;&quot; /&gt;
+</code></pre>
+<p><code>@path</code>: This attribute is required for importing a component. You need to place a path of component. For example, <code>@path=&quot;/header&quot;</code> or <code>@path=&quot;/ko/footer&quot;</code>.</p>
+<p><code>@tag</code>: This attribute is optional. However if you want to use HTML attribute on component tag, then you need to place a name of html element. For example, <code>@tag=&quot;div&quot;</code> or</p>
+<pre><code>&lt;component @path=&quot;/button&quot; @tag=&quot;button&quot; onclick=&quot;myFunction()&quot; /&gt;
+</code></pre>
+<h2>/mds</h2>
+<p><code>/mds</code> directory is for putting markdown files. Rino is going to load all of them and parse Markdown to HTML on request.</p>
+<pre><code>&lt;script @type=&quot;md&quot; @path=&quot;&quot; @tag=&quot;&quot; type=&quot;text/markdowns&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p><code>@type</code>: This attribute is required for using a markdown. You need to place <code>md</code> or <code>markdown</code>.</p>
+<p><code>@path</code>: This attribute is required for importing a markdown. You need to place a path of markdown.</p>
+<p><code>@tag</code>: This attribute is optional. However if you want to use HTML attribute on component tag, then you need to place a name of html element.</p>
+<h2>/public</h2>
+<p><code>/public</code> directory is for putting any static files. Images, external css, javascript library and any other assets can be placed here.</p>
+<h2>/scripts</h2>
+<p><code>/scripts</code> directory is for building your javascript library. You can use npm packages. And you can choose which one to be exported by placing javascript files in <code>/scripts/export/</code> directory. Rino is going to build your javascript and export to <code>/scripts</code> directory. So you can use the exported javascript file like how you normally would do in HTML. You can use typescript as well.</p>
+<p>We are handling script with <code>import/export</code>, the module type. So the file name will be the name of script instance. So if it is <code>hello.js</code> or <code>hello.ts</code>. Then you got to call the function from outside like <code>hello.FunctionName()</code>. You can import them and do anything that is <code>javascript/typescript</code> browser development standard.</p>
+<pre><code>&lt;script src=&quot;/scripts/example.js&quot; /&gt;
+</code></pre>
+<h2>/styles</h2>
+<p><code>/styles</code> directory is for building your css library. And you can choose which one to be exported by placing css files in <code>/styles/export/</code> directory. Rino is going to import local css files and build your css library and export to <code>/styles</code> directory. So you can use the exported css file like how you normally would do in HTML.</p>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/styles/example.css&quot; /&gt;
+</code></pre>
+<p>Example of importing local css files:</p>
+<pre><code>@import &quot;../header.css&quot;;
+@import &quot;../sidebar.css&quot;;
+@import &quot;../footer.css&quot;;            
+</code></pre>
+<h2>rino-config.js</h2>
+<p><code>rino-config.js</code> is for confiuration of Rino. You can change distribution directory, change port number for development server, set site url for sitemap and adding sitemap.</p>
+<h2>contents</h2>
+<p><code>/contents</code> is for storing markdown contents for blogging. The file path/url structure is based on <code>/contents/theme/category/markdownfile.md</code>. So you have to place markdown files and directory based on that.</p>
+<p>At the top of markdown file you can pass data of content in JSON test format with html commented like this:</p>
+<pre><code>&lt;!--
+{
+  &quot;title&quot;: &quot;Project Structure&quot;,
+  &quot;time&quot;: &quot;2025-04-15T01:21:00.000Z&quot;,
+  &quot;description&quot;: &quot;Project Structure Rino build website based on project directory and file structure. Which means it is easy to learn and build a website with standard HTML, CSS, Javascript and Node.js. pages components mds public scripts export styles export contents contenttheme rinoconfig.js backoffice.bat &amp; backoffice.sh...&quot;
+}
+--&gt;
+</code></pre>
+<p>These data is available with syntax like <code>{{ content.tiitle }}</code> within content theme pages.</p>
+<h2>content-theme</h2>
+<p><code>/content-theme</code> is for storing content template pages. The file path/url structure is based on <code>/contents-theme/theme/content.html</code> and <code>/contents-theme/theme/content-list.html</code>. The markdown contents is collected from same theme directory name from <code>/contents</code>.</p>
+<p>For example, this website is using template page like this:</p>
+<ul>
+<li><code>/content-theme/en/content.html</code>:</li>
+</ul>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;component @path=&quot;/en/head&quot;&gt;&lt;/component&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;{{content.description}}&quot; /&gt;
+  &lt;meta property=&quot;og:title&quot; content=&quot;{{ content.title }}&quot; /&gt;
+  &lt;meta property=&quot;og:description&quot; content=&quot;{{ content.description }}&quot; /&gt;
+  &lt;meta property=&quot;og:type&quot; content=&quot;article&quot; /&gt;
+  &lt;meta property=&quot;og:url&quot; content=&quot;https://rinojs.org{{ content.urlPath }}&quot; /&gt;
+  &lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;RSS&quot; href=&quot;/rss.xml&quot;&gt;
+  &lt;link rel=&quot;alternate&quot; type=&quot;application/atom+xml&quot; title=&quot;Atom&quot; href=&quot;/atom.xml&quot;&gt;
+  &lt;title&gt;{{ content.title }}&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div class=&quot;top&quot;&gt;
+    &lt;component @path=&quot;/en/sidebar&quot;&gt;&lt;/component&gt;
+    &lt;div class=&quot;top-right&quot;&gt;
+      &lt;component @path=&quot;/en/header&quot;&gt;&lt;/component&gt;
+      &lt;main&gt;
+        &lt;div class=&quot;content-container&quot;&gt;
+          &lt;div class=&quot;content&quot; id=&quot;content&quot;&gt;
+            &lt;article&gt;
+              &lt;p class=&quot;published-time&quot;&gt;
+                Published:
+                &lt;span id=&quot;published-time&quot; data-raw-time=&quot;{{ content.time }}&quot;&gt;
+                  {{ content.time }}
+                &lt;/span&gt;
+              &lt;/p&gt;
+              {{ content.body }}
+            &lt;/article&gt;
+            &lt;hr /&gt;
+            &lt;h3&gt;Content Navigation:&lt;/h3&gt;
+            &lt;nav class=&quot;content-navigation&quot;&gt;
+              &lt;script @type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
+                const args = process.argv;
+                const contentDataString = args[args.length - 1];
+                const contentData = JSON.parse(contentDataString);
+
+                if (Array.isArray(contentData.nearby))
+                {
+                  const nearby = contentData.nearby;
+                  const currentIndex = nearby.findIndex(post =&gt; post.link === contentData.urlPath);
+                  let start = 0;
+                  let end = nearby.length;
+
+                  if (currentIndex !== -1)
+                  {
+                    const maxItems = 5;
+                    const before = Math.min(2, currentIndex);
+                    const after = Math.min(2, nearby.length - currentIndex - 1);
+                    let total = 1 + before + after;
+
+                    if (total &lt; maxItems)
+                    {
+                      const extra = maxItems - total;
+                      const moreBefore = Math.min(extra, currentIndex - before);
+                      const moreAfter = Math.min(extra - moreBefore, nearby.length - currentIndex - 1 - after);
+
+                      start = currentIndex - (before + moreBefore);
+                      end = currentIndex + 1 + after + moreAfter;
+                    }
+                    else
+                    {
+                      start = currentIndex - before;
+                      end = currentIndex + 1 + after;
+                    }
+
+                    const sliced = nearby.slice(start, end);
+                    console.log(`&lt;ul&gt;`);
+                    sliced.forEach(post =&gt;
+                    {
+                      if (post.link === contentData.urlPath)
+                      {
+                        console.log(`&lt;li&gt;&lt;span&gt;${post.title}&lt;/span&gt;&lt;/li&gt;`);
+                      }
+                      else
+                      {
+                        console.log(`&lt;li&gt;&lt;a href=&quot;${post.link}&quot;&gt;${post.title}&lt;/a&gt;&lt;/li&gt;`);
+                      }
+                    });
+                    console.log(`&lt;/ul&gt;`);
+                  }
+                }
+              &lt;/script&gt;
+            &lt;/nav&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;tab2-content tab2-content--invisible&quot; id=&quot;tab2-content&quot;&gt;
+            &lt;component @path=&quot;/en/tab2-content&quot;&gt;&lt;/component&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/main&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;component @path=&quot;/en/footer&quot;&gt;&lt;/component&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li><code>/content-theme/en/content-list.html</code>:</li>
+</ul>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;component @path=&quot;/en/head&quot;&gt;&lt;/component&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;This is a page for navigating contents.&quot; /&gt;
+  &lt;meta property=&quot;og:title&quot; content=&quot;Content List&quot; /&gt;
+  &lt;meta property=&quot;og:description&quot; content=&quot;This is a page for navigating contents.&quot; /&gt;
+  &lt;meta property=&quot;og:type&quot; content=&quot;website&quot; /&gt;
+
+  &lt;title&gt;Content List&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div class=&quot;top&quot;&gt;
+    &lt;component @path=&quot;/en/sidebar&quot;&gt;&lt;/component&gt;
+    &lt;div class=&quot;top-right&quot;&gt;
+      &lt;component @path=&quot;/en/header&quot;&gt;&lt;/component&gt;
+      &lt;main&gt;
+        &lt;div class=&quot;content-container&quot;&gt;
+          &lt;div class=&quot;content&quot; id=&quot;content&quot;&gt;
+            &lt;article&gt;
+              &lt;ol&gt;
+                &lt;script @type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
+                  var args = process.argv;
+                  var contentListDataString = args[args.length - 1];
+                  var contentListData = JSON.parse(contentListDataString);
+                  var contentList = contentListData.contentList;
+
+                  for (let i = 0; i &lt; contentList.length; i++)
+                  {
+                    const item = contentList[i];
+                    if (item?.title &amp;&amp; item?.link)
+                    {
+                      console.log(`&lt;li&gt;&lt;a href=&quot;${item.link}&quot;&gt;${item.title}&lt;/a&gt;&lt;/li&gt;`);
+                    }
+                  }
+                &lt;/script&gt;
+              &lt;/ol&gt;
+            &lt;/article&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;tab2-content tab2-content--invisible&quot; id=&quot;tab2-content&quot;&gt;
+            &lt;component @path=&quot;/en/tab2-content&quot;&gt;&lt;/component&gt;
+          &lt;/div&gt;
+          &lt;hr /&gt;
+          &lt;nav class=&quot;content-list-navigation&quot;&gt;
+            &lt;script @type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
+              var args = process.argv;
+              var contentListDataString = args[args.length - 1];
+              var contentListData = JSON.parse(contentListDataString);
+              var pagination = contentListData.pagination;
+
+              if (pagination.prevLink)
+              {
+                console.log(`
+                  &lt;div&gt;
+                    &lt;a href=&quot;${pagination.prevLink}&quot;&gt;Previous List&lt;/a&gt;
+                  &lt;/div&gt;
+                `);
+              }
+              if (pagination.nextLink)
+              {
+                console.log(`
+                  &lt;div&gt;
+                    &lt;a href=&quot;${pagination.nextLink}&quot;&gt;Next List&lt;/a&gt;
+                  &lt;/div&gt;
+                `);
+              }
+            &lt;/script&gt;
+          &lt;/nav&gt;
+        &lt;/div&gt;
+      &lt;/main&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;component @path=&quot;/en/footer&quot;&gt;&lt;/component&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2>backoffice.bat&amp;backoffice .sh</h2>
+<p><code>backoffice.bat</code> and <code>backoffice.sh</code> is for running a backoffice server for content management and image compression. This is built to help a website maintainer to maintain their website. They let you run <code>npm run backoffice</code> by double click on the file.</p>
+
+            </article>
+            <hr />
+            <h3>Content Navigation:</h3>
+            <nav class="content-navigation">
+              <ul>
+<li><a href="/contents/en/learn-rino/3-Installation">Installation</a></li>
+<li><span>Project Structure</span></li>
+<li><a href="/contents/en/learn-rino/1-Extra-syntax">Extra syntax</a></li>
+</ul>
+            </nav>
+          </div>
+          <div class="tab2-content tab2-content--invisible" id="tab2-content">
+            <div>
+    <div type="text/markdown"><ul>
+<li><a href="/">English</a></li>
+<li><a href="/ko/">한국어</a></li>
+</ul>
+</div>
+</div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <footer>
+    (c) <span id="year">2025</span> opdev1004. All rights reserved.
+</footer>
+</body>
+
+</html>

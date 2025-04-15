@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <component @path="/en/head"></component>
+  <meta name="description" content="Contact of Rino.js Project" />
+  <meta property="og:title" content="Rino.js Contact" />
+  <meta property="og:description" content="Contact of Rino.js Project" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rinojs.org/contact" />
+  <title>Rino.js Contact</title>
+</head>
+
+<body>
+  <div class="top">
+    <component @path="/en/sidebar"></component>
+    <div class="top-right">
+      <component @path="/en/header"></component>
+      <main>
+        <div class="content-container">
+          <div class="content" id="content">
+            <script @type="md" type="text/markdown">
+                # Contact & Help
+    
+                E-mail: opdev1004@gmail.com
+    
+                Github Discussion: https://github.com/orgs/rinojs/discussions
+            </script>
+          </div>
+          <div class="tab2-content tab2-content--invisible" id="tab2-content">
+            <component @path="/en/tab2-content"></component>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <component @path="/en/footer"></component>
+</body>
+
+</html>
