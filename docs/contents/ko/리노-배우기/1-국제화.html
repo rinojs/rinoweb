@@ -10,11 +10,11 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <meta property="og:image" content="https://rinojs.org/images/rino512.png" />
 <meta property="og:site_name" content="Rino.js website" />
-    <meta name="description" content="설치와 명령어 설치 최신 버전의 Node.js가 설치되어 있어야 합니다. 그 다음 터미널에서 다음 명령어를 입력하세요: npm create rino@latest 이 명령어는 웹사이트 빌드를 위한 프로젝트를 설정합니다. 그 후, 개발 서버를 시작하려면 아래 명령어를 입력하세요: npm run dev 수동으로 사용하려는 경우에는 다음과 같이 설치할 수도 있습니다: npm i rinojs@latest 명령어 개발 서버..." />
-    <meta property="og:title" content="설치와 명령어" />
-    <meta property="og:description" content="설치와 명령어 설치 최신 버전의 Node.js가 설치되어 있어야 합니다. 그 다음 터미널에서 다음 명령어를 입력하세요: npm create rino@latest 이 명령어는 웹사이트 빌드를 위한 프로젝트를 설정합니다. 그 후, 개발 서버를 시작하려면 아래 명령어를 입력하세요: npm run dev 수동으로 사용하려는 경우에는 다음과 같이 설치할 수도 있습니다: npm i rinojs@latest 명령어 개발 서버..." />
+    <meta name="description" content="Rino.js는 개발 서버와 정적 생성 모두에서 사용할 수 있는 완전한 기능을 갖춘 유연하고 개발자 친화적인 JSON 기반 국제화 시스템을 제공합니다..." />
+    <meta property="og:title" content="국제화" />
+    <meta property="og:description" content="Rino.js는 개발 서버와 정적 생성 모두에서 사용할 수 있는 완전한 기능을 갖춘 유연하고 개발자 친화적인 JSON 기반 국제화 시스템을 제공합니다..." />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://rinojs.org/contents/ko/리노-배우기/3-설치와-명령어" />
+    <meta property="og:url" content="https://rinojs.org/contents/ko/리노-배우기/1-국제화" />
     <link
       rel="alternate"
       type="application/rss+xml"
@@ -27,7 +27,7 @@
       title="Atom"
       href="/atom-ko.xml"
     />
-    <title>설치와 명령어</title>
+    <title>국제화</title>
   </head>
 
   <body>
@@ -93,41 +93,80 @@
               <nav class="content-navigation">
                 <ul>
 <li><a href="/contents/ko/리노-배우기/4-프로젝트-구조">프로젝트 구조</a></li>
-<li><span>설치와 명령어</span></li>
+<li><a href="/contents/ko/리노-배우기/3-설치와-명령어">설치와 명령어</a></li>
 <li><a href="/contents/ko/리노-배우기/2-추가-구문">추가 구문</a></li>
-<li><a href="/contents/ko/리노-배우기/1-국제화">국제화</a></li>
+<li><span>국제화</span></li>
 </ul>
               </nav>
               <br />
               <article>
                 <p class="published-time">
                   발행 시간:
-                  <span id="published-time" data-raw-time="2025-04-14T01:21:00.000Z">
-                    2025-04-14T01:21:00.000Z
+                  <span id="published-time" data-raw-time="2026-01-24T10:30:00.000Z">
+                    2026-01-24T10:30:00.000Z
                   </span>
                 </p>
-                <h1>설치와 명령어</h1>
-<h2>설치</h2>
-<p>최신 버전의 Node.js가 설치되어 있어야 합니다.</p>
-<p>그 다음 터미널에서 다음 명령어를 입력하세요:</p>
-<pre><code>npm create rino@latest
+                <h1>국제화 (i18n)</h1>
+<p>Rino.js는 개발 서버와 정적 생성 모두에서 사용할 수 있는 완전한 기능을 갖춘 유연하고 개발자 친화적인 JSON 기반 국제화 시스템을 제공합니다.
+로컬라이제이션은 컴파일러 파이프라인에 깊이 통합되어 있으면서도, 사용 방식은 단순하고 직관적으로 유지됩니다.</p>
+<h2>예시:</h2>
+<h3>구조:</h3>
+<pre><code>pages/
+  index.html
+  about.html
+
+i18n/
+  en/
+    index.json
+    about.json
+  ko/
+    index.json
+    about.json
 </code></pre>
-<p>이 명령어는 웹사이트 빌드를 위한 프로젝트를 설정합니다.</p>
-<p>그 후, 개발 서버를 시작하려면 아래 명령어를 입력하세요:</p>
-<pre><code>npm run dev
+<p>HTML 안의 각 <lang>…</lang> 태그는 해당 페이지에 대응되는 JSON 파일의 키와 매핑됩니다.</p>
+<h3>index.html:</h3>
+<pre><code>&lt;h1&gt;&lt;lang&gt;header.title&lt;/lang&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;lang&gt;body.content.top[0]&lt;/lang&gt;&lt;/p&gt;
 </code></pre>
-<p>수동으로 사용하려는 경우에는 다음과 같이 설치할 수도 있습니다:</p>
-<pre><code>npm i rinojs@latest
+<h3>i18n/en/index.json:</h3>
+<pre><code>{
+  &quot;header&quot;: { &quot;title&quot;: &quot;Welcome&quot; },
+  &quot;body&quot;: {
+    &quot;content&quot;: { &quot;top&quot;: [&quot;First content block&quot;] }
+  }
+}
 </code></pre>
-<h2>명령어</h2>
+<h3>rino-config:</h3>
+<p>어떤 로케일을 빌드하고 서비스할지 명시적으로 정의할 수 있습니다.
+<code>/i18n/</code> 아래의 &quot;en&quot;과 “ko” 디렉터리만 사용되며,
+그 외의 로케일 폴더는 무시됩니다 (안전하고 예측 가능한 결과 보장).</p>
+<p>defaultLocale는 루트 페이지(예: <code>/index.html</code>)에 적용됩니다.
+로컬라이즈된 페이지는 자동으로 <code>/dist/&lt;locale&gt;/</code> 경로에 생성됩니다.</p>
+<pre><code>i18n: {
+    defaultLocale: &quot;en&quot;,
+    locales: [&quot;en&quot;, &quot;ko&quot;]
+}
+</code></pre>
+<h3>예외 적용법</h3>
+<h4>입력:</h4>
+<p>&lt;lang&gt;head.title&lt;/lang&gt;</p>
+<p><lang>head.title</lang></p>
+<p><lang>missing.value</lang></p>
+<h4>출력:</h4>
+<p><lang>head.title</lang></p>
+<p>Translated Title Here</p>
+<p><lang>missing.value</lang></p>
+<h3>i18n 기능 관련 추가 사항:</h3>
 <ul>
-<li>개발 서버 실행: <code>npm run dev</code></li>
-<li>웹사이트, 사이트맵, 피드 빌드: <code>npm run generate-all</code></li>
-<li>웹사이트 빌드: <code>npm run generate</code></li>
-<li>웹사이트, 사이트맵 빌드: <code>npm run generate-sitemap</code></li>
-<li>사이트맵 빌드: <code>npm run sitemap</code></li>
-<li>피드 빌드: <code>npm run feed</code></li>
-<li>백오피스 서버 실행: <code>npm run backoffice</code></li>
+<li>
+<p>중첩된 객체 구조 지원</p>
+</li>
+<li>
+<p>배열 인덱싱 지원 (예: <code>items[0].label</code>)</p>
+</li>
+<li>
+<p>키가 누락된 경우, 설정되어 있다면 기본 로케일로 자연스럽게 폴백 처리됨</p>
+</li>
 </ul>
 
               </article>

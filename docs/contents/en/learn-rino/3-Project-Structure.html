@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.esm.js"></script>
+  <head>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.js"></script>
 <script type="text/javascript" src="/scripts/main.js"></script>
 <link rel="stylesheet" href="/styles/style.css" />
@@ -11,50 +10,69 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <meta property="og:image" content="https://rinojs.org/images/rino512.png" />
 <meta property="og:site_name" content="Rino.js website" />
-  <meta name="description" content="Project Structure Rino build website based on project directory and file structure. Which means it is easy to learn and build a website with standard HTML, CSS, Javascript and Node.js. pages components mds public scripts export styles export rinoconfig.js contents contenttheme backoffice.bat&backoffice.sh /pages /pages directory is for putting base HTML..." />
-  <meta property="og:title" content="Project Structure" />
-  <meta property="og:description" content="Project Structure Rino build website based on project directory and file structure. Which means it is easy to learn and build a website with standard HTML, CSS, Javascript and Node.js. pages components mds public scripts export styles export rinoconfig.js contents contenttheme backoffice.bat&backoffice.sh /pages /pages directory is for putting base HTML..." />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://rinojs.org/contents/en/learn-rino/2-Project-Structure" />
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss-en.xml">
-  <link rel="alternate" type="application/atom+xml" title="Atom" href="/atom-en.xml">
-  <title>Project Structure</title>
-</head>
+    <meta name="description" content="Project Structure Rino build website based on project directory and file structure. Which means it is easy to learn and build a website with standard HTML, CSS, Javascript and Node.js. pages components mds public scripts export styles export rinoconfig.js contents contenttheme backoffice.bat&backoffice.sh /pages /pages directory is for putting base HTML..." />
+    <meta property="og:title" content="Project Structure" />
+    <meta property="og:description" content="Project Structure Rino build website based on project directory and file structure. Which means it is easy to learn and build a website with standard HTML, CSS, Javascript and Node.js. pages components mds public scripts export styles export rinoconfig.js contents contenttheme backoffice.bat&backoffice.sh /pages /pages directory is for putting base HTML..." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://rinojs.org/contents/en/learn-rino/3-Project-Structure" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS"
+      href="/rss-en.xml"
+    />
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      title="Atom"
+      href="/atom-en.xml"
+    />
+    <title>Project Structure</title>
+  </head>
 
-<body>
-  <div class="top">
-    <aside class="sidebar" id="sidebar">
-    <div class="sidebar-icon-content">
-        <a href="https://github.com/rinojs" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
-        <a href="https://www.npmjs.com/package/rinojs" target="_blank"><ion-icon name="logo-npm"></ion-icon></a>
-    </div>
-    <div class="sidebar-text-content">
-        <h4>Main</h4>
-        <nav>
-            <ul>
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/contact">Contact</a>
-                </li>
-                <li>
-                    <a href="https://github.com/sponsors/opdev1004" target="_blank">Support my project</a>
-                </li>
-            </ul>
-        </nav>
-        <h4>Contents</h4><nav><ul>
+  <body>
+    <div class="top">
+      <aside class="sidebar" id="sidebar">
+  <div class="sidebar-icon-content">
+    <a href="https://github.com/rinojs" target="_blank"
+      ><ion-icon name="logo-github"></ion-icon
+    ></a>
+    <a href="https://www.npmjs.com/package/rinojs" target="_blank"
+      ><ion-icon name="logo-npm"></ion-icon
+    ></a>
+  </div>
+  <div class="sidebar-text-content">
+    <h4>Main</h4>
+    <nav>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/contact">Contact</a>
+        </li>
+        <li>
+          <a href="https://github.com/sponsors/opdev1004" target="_blank"
+            >Support my project</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <h4>Contents</h4><nav><ul>
 <li><a href="/contents-list/en/learn-rino/learn-rino-1">Learn Rino</a></li>
 </ul></nav>
-        <h4>License</h4>
-        <p>
-            Rino.js is Free, MIT licensed opensource project
-        </p>
-    </div>
-    <div class="sidebar-empty-zone" id="sidebar-empty-zone" onclick="main.runContentTab()"></div>
+    <h4>License</h4>
+    <p>Rino.js is Free, MIT licensed opensource project</p>
+  </div>
+  <div
+    class="sidebar-empty-zone"
+    id="sidebar-empty-zone"
+    onclick="main.runContentTab()"
+  ></div>
 </aside>
-    <div class="top-right">
-      <header>
+
+      <div class="top-right">
+        <header>
     <div class="menu-tab tab" id="menu-tab" onclick="main.switchTab('sidebar')">
         <ion-icon name="menu-outline"></ion-icon>
         <span>Menu</span>
@@ -68,17 +86,27 @@
         <span>Language</spans>
     </div>
 </header>
-      <main>
-        <div class="content-container">
-          <div class="content" id="content">
-            <article>
-              <p class="published-time">
-                Published:
-                <span id="published-time" data-raw-time="2025-04-14T01:21:00.000Z">
-                  2025-04-14T01:21:00.000Z
-                </span>
-              </p>
-              <h1>Project Structure</h1>
+        <main>
+          <div class="content-container">
+            <div class="content" id="content">
+              <h3>Content Navigation:</h3>
+              <nav class="content-navigation">
+                <ul>
+<li><a href="/contents/en/learn-rino/4-Installation-and-Commands">Installation and Commands</a></li>
+<li><span>Project Structure</span></li>
+<li><a href="/contents/en/learn-rino/2-Extra-syntax">Extra syntax</a></li>
+<li><a href="/contents/en/learn-rino/1-Internationalization">Internationalization</a></li>
+</ul>
+              </nav>
+              <br />
+              <article>
+                <p class="published-time">
+                  Published:
+                  <span id="published-time" data-raw-time="2025-04-14T01:21:00.000Z">
+                    2025-04-14T01:21:00.000Z
+                  </span>
+                </p>
+                <h1>Project Structure</h1>
 <p>Rino build website based on project directory and file structure. Which means it is easy to learn and build a website with standard HTML, CSS, Javascript and Node.js.</p>
 <pre><code>- pages
 - components
@@ -97,19 +125,19 @@
 <p><code>/pages</code> directory is for putting base HTML files. So Rino is going to build your web pages based on this directory. File and directory structure is going to be exactly same.</p>
 <h2>/components</h2>
 <p><code>/components</code> directory is for putting component HTML files. Component can contain other components. But don’t try to cause infinite error by looping with the same component. You can use component by syntax like this:</p>
-<pre><code>&lt;component @path=&quot;&quot; @tag=&quot;&quot; /&gt;
+<pre><code>&lt;component rino-path=&quot;&quot; rino-tag=&quot;&quot; /&gt;
 </code></pre>
-<p><code>@path</code>: This attribute is required for importing a component. You need to place a path of component. For example, <code>@path=&quot;/header&quot;</code> or <code>@path=&quot;/ko/footer&quot;</code>.</p>
-<p><code>@tag</code>: This attribute is optional. However if you want to use HTML attribute on component tag, then you need to place a name of html element. For example, <code>@tag=&quot;div&quot;</code> or</p>
-<pre><code>&lt;component @path=&quot;/button&quot; @tag=&quot;button&quot; onclick=&quot;myFunction()&quot; /&gt;
+<p><code>rino-path</code>: This attribute is required for importing a component. You need to place a path of component. For example, <code>rino-path=&quot;/header&quot;</code> or <code>rino-path=&quot;/ko/footer&quot;</code>.</p>
+<p><code>rino-tag</code>: This attribute is optional. However if you want to use HTML attribute on component tag, then you need to place a name of html element. For example, <code>rino-tag=&quot;div&quot;</code> or</p>
+<pre><code>&lt;component rino-path=&quot;/button&quot; rino-tag=&quot;button&quot; onclick=&quot;myFunction()&quot; /&gt;
 </code></pre>
 <h2>/mds</h2>
 <p><code>/mds</code> directory is for putting markdown files. Rino is going to load all of them and parse Markdown to HTML on request.</p>
-<pre><code>&lt;script @type=&quot;md&quot; @path=&quot;&quot; @tag=&quot;&quot; type=&quot;text/markdowns&quot;&gt;&lt;/script&gt;
+<pre><code>&lt;script rino-type=&quot;md&quot; rino-path=&quot;&quot; rino-tag=&quot;&quot; type=&quot;text/markdowns&quot;&gt;&lt;/script&gt;
 </code></pre>
-<p><code>@type</code>: This attribute is required for using a markdown. You need to place <code>md</code> or <code>markdown</code>.</p>
-<p><code>@path</code>: This attribute is required for importing a markdown. You need to place a path of markdown.</p>
-<p><code>@tag</code>: This attribute is optional. However if you want to use HTML attribute on component tag, then you need to place a name of html element.</p>
+<p><code>rino-type</code>: This attribute is required for using a markdown. You need to place <code>md</code> or <code>markdown</code>.</p>
+<p><code>rino-path</code>: This attribute is required for importing a markdown. You need to place a path of markdown.</p>
+<p><code>rino-tag</code>: This attribute is optional. However if you want to use HTML attribute on component tag, then you need to place a name of html element.</p>
 <h2>/public</h2>
 <p><code>/public</code> directory is for putting any static files. Images, external css, javascript library and any other assets can be placed here.</p>
 <h2>/scripts</h2>
@@ -122,9 +150,9 @@
 <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/styles/example.css&quot; /&gt;
 </code></pre>
 <p>Example of importing local css files:</p>
-<pre><code>@import &quot;../header.css&quot;;
-@import &quot;../sidebar.css&quot;;
-@import &quot;../footer.css&quot;;            
+<pre><code>rino-import &quot;../header.css&quot;;
+rino-import &quot;../sidebar.css&quot;;
+rino-import &quot;../footer.css&quot;;
 </code></pre>
 <h2>rino-config.js</h2>
 <p><code>rino-config.js</code> is for confiuration of Rino. You can change distribution directory, change port number for development server, set site url for sitemap and adding sitemap.</p>
@@ -150,7 +178,7 @@
 &lt;html&gt;
 
 &lt;head&gt;
-  &lt;component @path=&quot;/en/head&quot;&gt;&lt;/component&gt;
+  &lt;component rino-path=&quot;/en/head&quot;&gt;&lt;/component&gt;
   &lt;meta name=&quot;description&quot; content=&quot;{{content.description}}&quot; /&gt;
   &lt;meta property=&quot;og:title&quot; content=&quot;{{ content.title }}&quot; /&gt;
   &lt;meta property=&quot;og:description&quot; content=&quot;{{ content.description }}&quot; /&gt;
@@ -163,9 +191,9 @@
 
 &lt;body&gt;
   &lt;div class=&quot;top&quot;&gt;
-    &lt;component @path=&quot;/en/sidebar&quot;&gt;&lt;/component&gt;
+    &lt;component rino-path=&quot;/en/sidebar&quot;&gt;&lt;/component&gt;
     &lt;div class=&quot;top-right&quot;&gt;
-      &lt;component @path=&quot;/en/header&quot;&gt;&lt;/component&gt;
+      &lt;component rino-path=&quot;/en/header&quot;&gt;&lt;/component&gt;
       &lt;main&gt;
         &lt;div class=&quot;content-container&quot;&gt;
           &lt;div class=&quot;content&quot; id=&quot;content&quot;&gt;
@@ -181,7 +209,7 @@
             &lt;hr /&gt;
             &lt;h3&gt;Content Navigation:&lt;/h3&gt;
             &lt;nav class=&quot;content-navigation&quot;&gt;
-              &lt;script @type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
+              &lt;script rino-type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
                 const args = process.argv;
                 const contentDataString = args[args.length - 1];
                 const contentData = JSON.parse(contentDataString);
@@ -235,13 +263,13 @@
             &lt;/nav&gt;
           &lt;/div&gt;
           &lt;div class=&quot;tab2-content tab2-content--invisible&quot; id=&quot;tab2-content&quot;&gt;
-            &lt;component @path=&quot;/en/tab2-content&quot;&gt;&lt;/component&gt;
+            &lt;component rino-path=&quot;/en/tab2-content&quot;&gt;&lt;/component&gt;
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/main&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-  &lt;component @path=&quot;/en/footer&quot;&gt;&lt;/component&gt;
+  &lt;component rino-path=&quot;/en/footer&quot;&gt;&lt;/component&gt;
 &lt;/body&gt;
 
 &lt;/html&gt;
@@ -253,7 +281,7 @@
 &lt;html&gt;
 
 &lt;head&gt;
-  &lt;component @path=&quot;/en/head&quot;&gt;&lt;/component&gt;
+  &lt;component rino-path=&quot;/en/head&quot;&gt;&lt;/component&gt;
   &lt;meta name=&quot;description&quot; content=&quot;This is a page for navigating contents.&quot; /&gt;
   &lt;meta property=&quot;og:title&quot; content=&quot;Content List&quot; /&gt;
   &lt;meta property=&quot;og:description&quot; content=&quot;This is a page for navigating contents.&quot; /&gt;
@@ -264,15 +292,15 @@
 
 &lt;body&gt;
   &lt;div class=&quot;top&quot;&gt;
-    &lt;component @path=&quot;/en/sidebar&quot;&gt;&lt;/component&gt;
+    &lt;component rino-path=&quot;/en/sidebar&quot;&gt;&lt;/component&gt;
     &lt;div class=&quot;top-right&quot;&gt;
-      &lt;component @path=&quot;/en/header&quot;&gt;&lt;/component&gt;
+      &lt;component rino-path=&quot;/en/header&quot;&gt;&lt;/component&gt;
       &lt;main&gt;
         &lt;div class=&quot;content-container&quot;&gt;
           &lt;div class=&quot;content&quot; id=&quot;content&quot;&gt;
             &lt;article&gt;
               &lt;ol&gt;
-                &lt;script @type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
+                &lt;script rino-type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
                   var args = process.argv;
                   var contentListDataString = args[args.length - 1];
                   var contentListData = JSON.parse(contentListDataString);
@@ -291,11 +319,11 @@
             &lt;/article&gt;
           &lt;/div&gt;
           &lt;div class=&quot;tab2-content tab2-content--invisible&quot; id=&quot;tab2-content&quot;&gt;
-            &lt;component @path=&quot;/en/tab2-content&quot;&gt;&lt;/component&gt;
+            &lt;component rino-path=&quot;/en/tab2-content&quot;&gt;&lt;/component&gt;
           &lt;/div&gt;
           &lt;hr /&gt;
           &lt;nav class=&quot;content-list-navigation&quot;&gt;
-            &lt;script @type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
+            &lt;script rino-type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
               var args = process.argv;
               var contentListDataString = args[args.length - 1];
               var contentListData = JSON.parse(contentListDataString);
@@ -323,7 +351,7 @@
       &lt;/main&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-  &lt;component @path=&quot;/en/footer&quot;&gt;&lt;/component&gt;
+  &lt;component rino-path=&quot;/en/footer&quot;&gt;&lt;/component&gt;
 &lt;/body&gt;
 
 &lt;/html&gt;
@@ -331,33 +359,24 @@
 <h2>backoffice.bat&amp;backoffice .sh</h2>
 <p><code>backoffice.bat</code> and <code>backoffice.sh</code> is for running a backoffice server for content management and image compression. This is built to help a website maintainer to maintain their website. They let you run <code>npm run backoffice</code> by double click on the file.</p>
 
-            </article>
-            <hr />
-            <h3>Content Navigation:</h3>
-            <nav class="content-navigation">
-              <ul>
-<li><a href="/contents/en/learn-rino/3-Installation-and-Commands">Installation and Commands</a></li>
-<li><span>Project Structure</span></li>
-<li><a href="/contents/en/learn-rino/1-Extra-syntax">Extra syntax</a></li>
-</ul>
-            </nav>
-          </div>
-          <div class="tab2-content tab2-content--invisible" id="tab2-content">
-            <div>
-    <div type="text/markdown"><ul>
+              </article>
+            </div>
+            <div class="tab2-content tab2-content--invisible" id="tab2-content">
+              <div>
+  <div type="text/markdown"><ul>
 <li><a href="/">English</a></li>
 <li><a href="/ko/">한국어</a></li>
 </ul>
 </div>
 </div>
+
+            </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
-  </div>
-  <footer>
+    <footer>
     (c) <span id="year">2025</span> opdev1004. All rights reserved.
 </footer>
-</body>
-
+  </body>
 </html>
