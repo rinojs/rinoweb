@@ -68,17 +68,19 @@ Localized pages will be generated under `/dist/<locale>/` automatically.
 
 #### Input:
 
+```
 \<lang>head.title\</lang>
-
 <p><lang>head.title</lang></p>
 <p><lang>missing.value</lang></p>
+```
 
 #### Output:
 
+```
 <lang>head.title</lang>
-
 <p>Translated Title Here</p>
 <p><lang>missing.value</lang></p>
+```
 
 ### Other things to note for i18n feature:
 
