@@ -1,14 +1,15 @@
 <!--
 {
-  "title": "프로젝트 구조",
-  "time": "2025-04-15T01:21:00.000Z",
-  "description": "프로젝트 구조 Rino는 프로젝트 디렉토리와 파일 구조를 기반으로 웹사이트를 빌드합니다. 이는 표준 HTML, CSS, Javascript, Node.js를 사용하여 웹사이트 제작을 쉽게 학습하고 구축할 수 있다는 의미입니다. pages components mds public scripts export styles export rinoconfig.js contents contenttheme backoffice.bat&backoffice.sh /pages /pages 디렉토리는 기본 HTML 파일을 넣는 공간입니다. Rino는 이 디렉토리를 기준으로 웹..."
+  "title": "Project Structure",
+  "time": "2025-04-14T01:21:00.000Z",
+  "description": "Project Structure Rino build website based on project directory and file structure. Which means it is easy to learn and build a website with standard HTML, CSS, Javascript and Node.js. pages components mds public scripts export styles export rinoconfig.js contents contenttheme backoffice.bat&backoffice.sh /pages /pages directory is for putting base HTML..."
 }
 -->
 
-# 프로젝트 구조
+# Project Structure
 
-Rino는 프로젝트 디렉토리와 파일 구조를 기반으로 웹사이트를 빌드합니다. 이는 표준 HTML, CSS, Javascript, Node.js를 사용하여 웹사이트 제작을 쉽게 학습하고 구축할 수 있다는 의미입니다.
+Rino build website based on project directory and file structure. Which means it is easy to learn and build a website with standard HTML, CSS, Javascript and Node.js.
+
 ```
 - pages
 - components
@@ -25,59 +26,79 @@ Rino는 프로젝트 디렉토리와 파일 구조를 기반으로 웹사이트�
 ```
 
 ## /pages
-`/pages` 디렉토리는 기본 HTML 파일을 넣는 공간입니다. Rino는 이 디렉토리를 기준으로 웹 페이지를 빌드합니다. 파일 및 디렉토리 구조는 그대로 유지됩니다.
+
+`/pages` directory is for putting base HTML files. So Rino is going to build your web pages based on this directory. File and directory structure is going to be exactly same.
 
 ## /components
-`/components` 디렉토리는 컴포넌트 HTML 파일을 넣는 공간입니다. 컴포넌트는 다른 컴포넌트를 포함할 수 있습니다. 그러나 동일한 컴포넌트를 순환 호출하여 무한 루프 오류를 발생시키지 않도록 주의하세요. 컴포넌트는 아래와 같은 문법으로 사용할 수 있습니다:
-```
-<component @path="" @tag="" />
-```
-- `@path`: 컴포넌트를 불러오기 위해 필요한 속성입니다. 예: `@path="/header"` 또는 `@path="/ko/footer"`
 
-- `@tag`: 선택 속성입니다. 컴포넌트 태그에 HTML 속성을 사용하려면 HTML 태그 이름을 지정해야 합니다. 예: `@tag="div"` 또는
+`/components` directory is for putting component HTML files. Component can contain other components. But don't try to cause infinite error by looping with the same component. You can use component by syntax like this:
+
 ```
-<component @path="/button" @tag="button" onclick="myFunction()" />
+<component rino-path="" rino-tag="" />
 ```
+
+`rino-path`: This attribute is required for importing a component. You need to place a path of component. For example, `rino-path="/header"` or `rino-path="/ko/footer"`.
+
+`rino-tag`: This attribute is optional. However if you want to use HTML attribute on component tag, then you need to place a name of html element. For example, `rino-tag="div"` or
+
+```
+<component rino-path="/button" rino-tag="button" onclick="myFunction()" />
+```
+
 ## /mds
-`/mds` 디렉토리는 마크다운 파일을 넣는 공간입니다. Rino는 이 디렉토리의 모든 마크다운을 로드하고 요청 시 HTML로 변환합니다.
+
+`/mds` directory is for putting markdown files. Rino is going to load all of them and parse Markdown to HTML on request.
 
 ```
-<script @type="md" @path="" @tag="" type="text/markdowns"></script>
+<script rino-type="md" rino-path="" rino-tag="" type="text/markdowns"></script>
 ```
 
-- `@type`: 마크다운을 사용하려면 이 속성에 `md` 또는 `markdown`을 지정해야 합니다.
-- `@path`: 마크다운을 불러오기 위한 경로를 지정합니다.
-- `@tag`: 선택 속성입니다. HTML 속성을 사용하려면 HTML 태그 이름을 지정해야 합니다.
+`rino-type`: This attribute is required for using a markdown. You need to place `md` or `markdown`.
+
+`rino-path`: This attribute is required for importing a markdown. You need to place a path of markdown.
+
+`rino-tag`: This attribute is optional. However if you want to use HTML attribute on component tag, then you need to place a name of html element.
 
 ## /public
-`/public` 디렉토리는 이미지, 외부 CSS, 자바스크립트 라이브러리 등 정적 파일을 넣는 공간입니다.
+
+`/public` directory is for putting any static files. Images, external css, javascript library and any other assets can be placed here.
 
 ## /scripts
-`/scripts` 디렉토리는 자바스크립트 라이브러리를 작성하는 공간입니다. npm 패키지를 사용할 수 있으며, `/scripts/export/` 디렉토리에 자바스크립트 파일을 넣으면 Rino가 빌드하여 `/scripts` 디렉토리에 출력합니다. HTML에서 일반적으로 사용하는 방식으로 사용할 수 있습니다. 타입스크립트도 지원됩니다.
 
-스크립트는 `import/export` 모듈 방식으로 처리됩니다. 파일 이름이 스크립트 인스턴스 이름이 되며, 예를 들어 `hello.js` 또는 `hello.ts`인 경우, 외부에서는 `hello.FunctionName()`으로 호출합니다.
+`/scripts` directory is for building your javascript library. You can use npm packages. And you can choose which one to be exported by placing javascript files in `/scripts/export/` directory. Rino is going to build your javascript and export to `/scripts` directory. So you can use the exported javascript file like how you normally would do in HTML. You can use typescript as well.
+
+We are handling script with `import/export`, the module type. So the file name will be the name of script instance. So if it is `hello.js` or `hello.ts`. Then you got to call the function from outside like `hello.FunctionName()`. You can import them and do anything that is `javascript/typescript` browser development standard.
 
 ```
 <script src="/scripts/example.js" />
 ```
 
 ## /styles
- `/styles` 디렉토리는 CSS 라이브러리를 작성하는 공간입니다. `/styles/export/` 디렉토리에 CSS 파일을 넣으면 Rino가 빌드하여 `/styles` 디렉토리에 출력합니다. HTML에서 일반적으로 사용하는 방식으로 사용할 수 있습니다.
+
+`/styles` directory is for building your css library. And you can choose which one to be exported by placing css files in `/styles/export/` directory. Rino is going to import local css files and build your css library and export to `/styles` directory. So you can use the exported css file like how you normally would do in HTML.
+
 ```
 <link rel="stylesheet" href="/styles/example.css" />
 ```
-로컬 CSS 파일을 불러오는 예시:
+
+Example of importing local css files:
+
 ```
-@import "../header.css";
-@import "../sidebar.css";
-@import "../footer.css";            
+rino-import "../header.css";
+rino-import "../sidebar.css";
+rino-import "../footer.css";
 ```
 
 ## rino-config.js
-`rino-config.js`는 Rino의 설정 파일입니다. 배포 디렉토리 변경, 개발 서버 포트 변경, 사이트 URL 설정 및 사이트맵 추가 등을 설정할 수 있습니다.
+
+`rino-config.js` is for confiuration of Rino. You can change distribution directory, change port number for development server, set site url for sitemap and adding sitemap.
 
 ## contents
-`/contents`는 블로그용 마크다운 콘텐츠를 저장하는 디렉토리입니다. 파일 경로 및 URL 구조는 `/contents/theme/category/markdownfile.md` 형식을 따릅니다. 마크다운 파일 상단에는 아래와 같이 HTML 주석 형태로 JSON 데이터를 작성할 수 있습니다:
+
+`/contents` is for storing markdown contents for blogging. The file path/url structure is based on `/contents/theme/category/markdownfile.md`. So you have to place markdown files and directory based on that.
+
+At the top of markdown file you can pass data of content in JSON text format with html commented like this:
+
 ```
 <!--
 {
@@ -87,19 +108,23 @@ Rino는 프로젝트 디렉토리와 파일 구조를 기반으로 웹사이트�
 }
 -->
 ```
-이 데이터는 콘텐츠 테마 페이지에서 `{{ content.title }}` 등의 문법으로 사용할 수 있습니다.
+
+These data is available with syntax like `{{ content.tiitle }}` within content theme pages.
 
 ## content-theme
-`/content-theme`는 콘텐츠 템플릿 페이지를 저장하는 디렉토리입니다. 파일 경로 및 URL 구조는 `/content-theme/theme/content.html` 및 `/content-theme/theme/content-list.html`을 따릅니다. `/contents` 디렉토리 안의 같은 테마 이름의 콘텐츠 파일들과 매칭됩니다.
 
-예: 아래는 해당 웹사이트에서 사용하는 템플릿 페이지입니다:
+`/content-theme` is for storing content template pages. The file path/url structure is based on `/contents-theme/theme/content.html` and `/contents-theme/theme/content-list.html`. The markdown contents is collected from same theme directory name from `/contents`.
+
+For example, this website is using template page like this:
+
 - `/content-theme/en/content.html`:
+
 ```
 <!DOCTYPE html>
 <html>
 
 <head>
-  <component @path="/en/head"></component>
+  <component rino-path="/en/head"></component>
   <meta name="description" content="{{content.description}}" />
   <meta property="og:title" content="{{ content.title }}" />
   <meta property="og:description" content="{{ content.description }}" />
@@ -112,9 +137,9 @@ Rino는 프로젝트 디렉토리와 파일 구조를 기반으로 웹사이트�
 
 <body>
   <div class="top">
-    <component @path="/en/sidebar"></component>
+    <component rino-path="/en/sidebar"></component>
     <div class="top-right">
-      <component @path="/en/header"></component>
+      <component rino-path="/en/header"></component>
       <main>
         <div class="content-container">
           <div class="content" id="content">
@@ -130,7 +155,7 @@ Rino는 프로젝트 디렉토리와 파일 구조를 기반으로 웹사이트�
             <hr />
             <h3>Content Navigation:</h3>
             <nav class="content-navigation">
-              <script @type="js" type="text/javascript">
+              <script rino-type="js" type="text/javascript">
                 const args = process.argv;
                 const contentDataString = args[args.length - 1];
                 const contentData = JSON.parse(contentDataString);
@@ -184,17 +209,18 @@ Rino는 프로젝트 디렉토리와 파일 구조를 기반으로 웹사이트�
             </nav>
           </div>
           <div class="tab2-content tab2-content--invisible" id="tab2-content">
-            <component @path="/en/tab2-content"></component>
+            <component rino-path="/en/tab2-content"></component>
           </div>
         </div>
       </main>
     </div>
   </div>
-  <component @path="/en/footer"></component>
+  <component rino-path="/en/footer"></component>
 </body>
 
 </html>
 ```
+
 - `/content-theme/en/content-list.html`:
 
 ```
@@ -202,7 +228,7 @@ Rino는 프로젝트 디렉토리와 파일 구조를 기반으로 웹사이트�
 <html>
 
 <head>
-  <component @path="/en/head"></component>
+  <component rino-path="/en/head"></component>
   <meta name="description" content="This is a page for navigating contents." />
   <meta property="og:title" content="Content List" />
   <meta property="og:description" content="This is a page for navigating contents." />
@@ -213,15 +239,15 @@ Rino는 프로젝트 디렉토리와 파일 구조를 기반으로 웹사이트�
 
 <body>
   <div class="top">
-    <component @path="/en/sidebar"></component>
+    <component rino-path="/en/sidebar"></component>
     <div class="top-right">
-      <component @path="/en/header"></component>
+      <component rino-path="/en/header"></component>
       <main>
         <div class="content-container">
           <div class="content" id="content">
             <article>
               <ol>
-                <script @type="js" type="text/javascript">
+                <script rino-type="js" type="text/javascript">
                   var args = process.argv;
                   var contentListDataString = args[args.length - 1];
                   var contentListData = JSON.parse(contentListDataString);
@@ -240,11 +266,11 @@ Rino는 프로젝트 디렉토리와 파일 구조를 기반으로 웹사이트�
             </article>
           </div>
           <div class="tab2-content tab2-content--invisible" id="tab2-content">
-            <component @path="/en/tab2-content"></component>
+            <component rino-path="/en/tab2-content"></component>
           </div>
           <hr />
           <nav class="content-list-navigation">
-            <script @type="js" type="text/javascript">
+            <script rino-type="js" type="text/javascript">
               var args = process.argv;
               var contentListDataString = args[args.length - 1];
               var contentListData = JSON.parse(contentListDataString);
@@ -272,11 +298,12 @@ Rino는 프로젝트 디렉토리와 파일 구조를 기반으로 웹사이트�
       </main>
     </div>
   </div>
-  <component @path="/en/footer"></component>
+  <component rino-path="/en/footer"></component>
 </body>
 
 </html>
 ```
 
-## backoffice.bat & backoffice .sh 
-`backoffice.bat`과 `backoffice.sh`는 콘텐츠 관리 및 이미지 압축을 위한 백오피스 서버를 실행하는 스크립트입니다. 이 파일을 더블 클릭하면 `npm run backoffice` 명령을 실행하게 되어 웹사이트 관리자가 편리하게 웹사이트를 유지 관리할 수 있도록 돕습니다. 
+## backoffice.bat&backoffice .sh
+
+`backoffice.bat` and `backoffice.sh` is for running a backoffice server for content management and image compression. This is built to help a website maintainer to maintain their website. They let you run `npm run backoffice` by double click on the file.

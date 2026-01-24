@@ -14,7 +14,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "rinojs": "^2.17.0"
+    "rinojs": "^2.19.0"
   },
   "devDependencies": {
     "husky": "^9.1.7",
