@@ -10,9 +10,9 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <meta property="og:image" content="https://rinojs.org/images/rino512.png" />
 <meta property="og:site_name" content="Rino.js website" />
-    <meta name="description" content="Installation and Commands Installation You need the latest Node.js installed. Then from terminal, enter the following: npm create rino@latest This will setup your project for building website. Then you can start your development by: npm run dev You can also npm i rinojs@latest for manual use. Command Development server: npm..." />
+    <meta name="description" content="Install Rino.js v3, configure an ESM project, create build scripts, and run development, generation, sitemap, feed, and backoffice commands." />
     <meta property="og:title" content="Installation and Commands" />
-    <meta property="og:description" content="Installation and Commands Installation You need the latest Node.js installed. Then from terminal, enter the following: npm create rino@latest This will setup your project for building website. Then you can start your development by: npm run dev You can also npm i rinojs@latest for manual use. Command Development server: npm..." />
+    <meta property="og:description" content="Install Rino.js v3, configure an ESM project, create build scripts, and run development, generation, sitemap, feed, and backoffice commands." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://rinojs.org/contents/en/learn-rino/4-Installation-and-Commands" />
     <link
@@ -94,7 +94,7 @@
                 <ul>
 <li><span>Installation and Commands</span></li>
 <li><a href="/contents/en/learn-rino/3-Project-Structure">Project Structure</a></li>
-<li><a href="/contents/en/learn-rino/2-Extra-syntax">Extra syntax</a></li>
+<li><a href="/contents/en/learn-rino/2-Extra-syntax">Extra Syntax</a></li>
 <li><a href="/contents/en/learn-rino/1-Internationalization">Internationalization</a></li>
 </ul>
               </nav>
@@ -108,28 +108,38 @@
                 </p>
                 <h1>Installation and Commands</h1>
 <h2>Installation</h2>
-<p>You need the latest Node.js installed.</p>
-<p>Then from terminal, enter the following:</p>
-<pre><code>npm create rino@latest
+<p>Install a current Node.js release, then create a starter project:</p>
+<pre><code class="language-bash">npm create rino@latest
 </code></pre>
-<p>This will setup your project for building website.</p>
-<p>Then you can start your development by:</p>
-<pre><code>npm run dev
+<p>To add Rino.js manually to an ESM project:</p>
+<pre><code class="language-bash">npm install rinojs
 </code></pre>
-<p>You can also</p>
-<pre><code>npm i rinojs@latest
+<p>Your <code>package.json</code> should contain <code>&quot;type&quot;: &quot;module&quot;</code> and scripts such as:</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;module&quot;,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;node dev.js&quot;,
+    &quot;generate&quot;: &quot;node generate.js&quot;,
+    &quot;generate-all&quot;: &quot;node generate.js &amp;&amp; node sitemap.js &amp;&amp; node feed.js&quot;,
+    &quot;generate-sitemap&quot;: &quot;node generate.js &amp;&amp; node sitemap.js&quot;,
+    &quot;sitemap&quot;: &quot;node sitemap.js&quot;,
+    &quot;feed&quot;: &quot;node feed.js&quot;,
+    &quot;backoffice&quot;: &quot;node backoffice.js&quot;
+  },
+  &quot;dependencies&quot;: { &quot;rinojs&quot;: &quot;^3.0.0&quot; }
+}
 </code></pre>
-<p>for manual use.</p>
-<h2>Command</h2>
+<h2>Commands</h2>
 <ul>
 <li>Development server: <code>npm run dev</code></li>
-<li>Building website with sitemap and feed: <code>npm run generate-all</code></li>
-<li>Building website: <code>npm run generate</code></li>
-<li>Building website with sitemap: <code>npm run generate-sitemap</code></li>
-<li>Building sitemap: <code>npm run sitemap</code></li>
-<li>Building feed: <code>npm run feed</code></li>
-<li>Running backoffice server: <code>npm run backoffice</code></li>
+<li>Build the website: <code>npm run generate</code></li>
+<li>Build the website and sitemap: <code>npm run generate-sitemap</code></li>
+<li>Build the website, sitemap, and feeds: <code>npm run generate-all</code></li>
+<li>Build only the sitemap: <code>npm run sitemap</code></li>
+<li>Build only RSS and Atom feeds: <code>npm run feed</code></li>
+<li>Run the backoffice server: <code>npm run backoffice</code></li>
 </ul>
+<p>The development server builds into memory and watches project files. A static build writes to <code>dist</code> by default; change it with <code>dist</code> in <code>rino-config.js</code>.</p>
 
               </article>
             </div>

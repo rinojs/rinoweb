@@ -14,10 +14,10 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "rinojs": "^2.19.0"
+    "rinojs": "^3.0.0"
   },
   "devDependencies": {
     "husky": "^9.1.7",
-    "typescript": "^5.8.2"
+    "typescript": "^7.0.2"
   }
 }

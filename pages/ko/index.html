@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <component rino-path="/ko/head"></component>
+    <component rino-import="/ko/head"></component>
     <meta
       name="description"
       content="Rino.js, 빠르게 배울 수 있는 사전 처리, 직관적인 웹 프레임워크."
@@ -18,25 +18,25 @@
 
   <body>
     <div class="top">
-      <component rino-path="/ko/sidebar"></component>
+      <component rino-import="/ko/sidebar"></component>
       <div class="top-right">
-        <component rino-path="/ko/header"></component>
+        <component rino-import="/ko/header"></component>
         <main>
           <div class="content-container">
             <div class="content" id="content">
               <script
-                rino-path="/ko/index"
+                rino-import="/ko/index"
                 rino-type="md"
                 rino-tag="article"
               ></script>
             </div>
             <div class="tab2-content tab2-content--invisible" id="tab2-content">
-              <component rino-path="/ko/tab2-content"></component>
+              <component rino-import="/ko/tab2-content"></component>
             </div>
           </div>
         </main>
       </div>
     </div>
-    <component rino-path="/ko/footer"></component>
+    <component rino-import="/ko/footer"></component>
   </body>
 </html>

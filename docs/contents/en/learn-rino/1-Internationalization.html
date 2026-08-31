@@ -10,9 +10,9 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <meta property="og:image" content="https://rinojs.org/images/rino512.png" />
 <meta property="og:site_name" content="Rino.js website" />
-    <meta name="description" content="Rino.js has a fully-featured, flexible, and developer-friendly JSON-based internationalization system for both dev server and static generation...." />
+    <meta name="description" content="Translate Rino.js pages with locale-specific JSON, nested keys, arrays, fallback values, and localized output paths." />
     <meta property="og:title" content="Internationalization" />
-    <meta property="og:description" content="Rino.js has a fully-featured, flexible, and developer-friendly JSON-based internationalization system for both dev server and static generation...." />
+    <meta property="og:description" content="Translate Rino.js pages with locale-specific JSON, nested keys, arrays, fallback values, and localized output paths." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://rinojs.org/contents/en/learn-rino/1-Internationalization" />
     <link
@@ -94,7 +94,7 @@
                 <ul>
 <li><a href="/contents/en/learn-rino/4-Installation-and-Commands">Installation and Commands</a></li>
 <li><a href="/contents/en/learn-rino/3-Project-Structure">Project Structure</a></li>
-<li><a href="/contents/en/learn-rino/2-Extra-syntax">Extra syntax</a></li>
+<li><a href="/contents/en/learn-rino/2-Extra-syntax">Extra Syntax</a></li>
 <li><span>Internationalization</span></li>
 </ul>
               </nav>
@@ -107,63 +107,46 @@
                   </span>
                 </p>
                 <h1>Internationalization (i18n)</h1>
-<p>Rino.js has a fully-featured, flexible, and developer-friendly JSON-based internationalization system for both dev server and static generation.
-Localization is now deeply integrated into the compiler pipeline while staying simple and intuitive to use.</p>
-<h2>Example:</h2>
-<h3>Structure:</h3>
-<pre><code>pages/
-  index.html
-  about.html
-
-i18n/
-  en/
-    index.json
-    about.json
-  ko/
-    index.json
-    about.json
-</code></pre>
-<p>Each <code>&lt;lang&gt;...&lt;/lang&gt;</code> tag in your HTML will map to a key inside the corresponding JSON file:</p>
-<h3>index.html:</h3>
-<pre><code>&lt;h1&gt;&lt;lang&gt;header.title&lt;/lang&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;lang&gt;body.content.top[0]&lt;/lang&gt;&lt;/p&gt;
-</code></pre>
-<h3>i18n/en/index.json:</h3>
-<pre><code>{
-  &quot;header&quot;: { &quot;title&quot;: &quot;Welcome&quot; },
-  &quot;body&quot;: {
-    &quot;content&quot;: { &quot;top&quot;: [&quot;First content block&quot;] }
-  }
-}
-</code></pre>
-<h3>rino-config:</h3>
-<p>You can explicitly define which locales should be built and served.
-Only “en” and “ko” directories under <code>/i18n/</code> are used.
-All other locale folders are ignored (safe, predictable output).
-defaultLocale is applied to root pages (e.g. <code>/index.html</code>).
-Localized pages will be generated under <code>/dist/&lt;locale&gt;/</code> automatically.</p>
-<pre><code>i18n: {
+<p>Rino.js provides JSON-based internationalization for both the development server and static generation. Use <code>&lt;lang&gt;key&lt;/lang&gt;</code> in pages or components, then define the value in a JSON file that matches the page path.</p>
+<h2>Configuration</h2>
+<p>Add the locales to <code>rino-config.js</code>:</p>
+<pre><code class="language-js">export default {
+  i18n: {
     defaultLocale: &quot;en&quot;,
-    locales: [&quot;en&quot;, &quot;ko&quot;]
+    locales: [&quot;en&quot;, &quot;ko&quot;],
+  },
+};
+</code></pre>
+<p>The default locale is generated at the normal page path. Other locales are generated under their locale prefix:</p>
+<pre><code class="language-text">pages/index.html -&gt; dist/index.html     (English)
+                 -&gt; dist/ko/index.html  (Korean)
+</code></pre>
+<p>Only locales listed in <code>i18n.locales</code> are generated.</p>
+<h2>Translation files</h2>
+<p>Locale files under <code>i18n/{locale}/</code> must follow the same path as the corresponding page:</p>
+<pre><code class="language-text">pages/index.html       i18n/en/index.json       i18n/ko/index.json
+pages/about.html       i18n/en/about.json       i18n/ko/about.json
+pages/docs/start.html  i18n/en/docs/start.json  i18n/ko/docs/start.json
+</code></pre>
+<p>In <code>pages/index.html</code>:</p>
+<pre><code class="language-html">&lt;h1&gt;&lt;lang&gt;header.title&lt;/lang&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;lang&gt;body.content[0]&lt;/lang&gt;&lt;/p&gt;
+</code></pre>
+<p>In <code>i18n/en/index.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;header&quot;: { &quot;title&quot;: &quot;Welcome&quot; },
+  &quot;body&quot;: { &quot;content&quot;: [&quot;Build a static site with Rino.js.&quot;] }
 }
 </code></pre>
-<h3>Escape</h3>
-<h4>Input:</h4>
-<pre><code>\&lt;lang&gt;head.title\&lt;/lang&gt;
-&lt;p&gt;&lt;lang&gt;head.title&lt;/lang&gt;&lt;/p&gt;
-&lt;p&gt;&lt;lang&gt;missing.value&lt;/lang&gt;&lt;/p&gt;
+<p>Nested objects use dot paths, and arrays use bracket paths such as <code>items[0].label</code>.</p>
+<h2>Fallbacks and literal tags</h2>
+<p>For a non-default locale, Rino.js merges its JSON over the default-locale JSON. A missing Korean value therefore falls back to English when English is the default locale. If a key is unavailable in both files, the <code>&lt;lang&gt;</code> tag remains in the output instead of failing the build.</p>
+<p>Escape a language tag when you want to display it literally:</p>
+<pre><code class="language-html">\&lt;lang&gt;header.title\&lt;/lang&gt;
 </code></pre>
-<h4>Output:</h4>
-<pre><code>&lt;lang&gt;head.title&lt;/lang&gt;
-&lt;p&gt;Translated Title Here&lt;/p&gt;
-&lt;p&gt;&lt;lang&gt;missing.value&lt;/lang&gt;&lt;/p&gt;
+<p>This produces:</p>
+<pre><code class="language-html">&lt;lang&gt;header.title&lt;/lang&gt;
 </code></pre>
-<h3>Other things to note for i18n feature:</h3>
-<ul>
-<li>Supports nested objects</li>
-<li>Supports array indexing (e.g. <code>items[0].label</code>)</li>
-<li>Missing keys gracefully fallback to default locale if configured</li>
-</ul>
 
               </article>
             </div>

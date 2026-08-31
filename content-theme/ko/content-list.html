@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <component rino-path="/ko/head"></component>
+    <component rino-import="/ko/head"></component>
     <meta name="description" content="콘텐츠를 탐색하는 페이지 입니다." />
     <meta property="og:title" content="콘텐츠 리스트" />
     <meta
@@ -15,9 +15,9 @@
 
   <body>
     <div class="top">
-      <component rino-path="/ko/sidebar"></component>
+      <component rino-import="/ko/sidebar"></component>
       <div class="top-right">
-        <component rino-path="/ko/header"></component>
+        <component rino-import="/ko/header"></component>
         <main>
           <div class="content-container">
             <div class="content" id="content">
@@ -42,7 +42,7 @@
               </article>
             </div>
             <div class="tab2-content tab2-content--invisible" id="tab2-content">
-              <component rino-path="/ko/tab2-content"></component>
+              <component rino-import="/ko/tab2-content"></component>
             </div>
             <hr />
             <nav class="content-list-navigation">
@@ -72,6 +72,6 @@
         </main>
       </div>
     </div>
-    <component rino-path="/ko/footer"></component>
+    <component rino-import="/ko/footer"></component>
   </body>
 </html>

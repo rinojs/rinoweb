@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <component rino-path="/en/head"></component>
+    <component rino-import="/en/head"></component>
     <meta
       name="description"
       content="This is a page for navigating contents."
@@ -18,9 +18,9 @@
 
   <body>
     <div class="top">
-      <component rino-path="/en/sidebar"></component>
+      <component rino-import="/en/sidebar"></component>
       <div class="top-right">
-        <component rino-path="/en/header"></component>
+        <component rino-import="/en/header"></component>
         <main>
           <div class="content-container">
             <div class="content" id="content">
@@ -45,7 +45,7 @@
               </article>
             </div>
             <div class="tab2-content tab2-content--invisible" id="tab2-content">
-              <component rino-path="/en/tab2-content"></component>
+              <component rino-import="/en/tab2-content"></component>
             </div>
             <hr />
             <nav class="content-list-navigation">
@@ -75,6 +75,6 @@
         </main>
       </div>
     </div>
-    <component rino-path="/en/footer"></component>
+    <component rino-import="/en/footer"></component>
   </body>
 </html>

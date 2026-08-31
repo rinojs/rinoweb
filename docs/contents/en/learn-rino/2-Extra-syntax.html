@@ -10,9 +10,9 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <meta property="og:image" content="https://rinojs.org/images/rino512.png" />
 <meta property="og:site_name" content="Rino.js website" />
-    <meta name="description" content="Extra syntax Javascript / Typescript Templating Rino.js supports powerful templating capabilities using JavaScript or TypeScript. This feature allows dynamic creation of HTML content, such as integrating npm packages, reading files, or programmatically generating content. Only available for static site generation (SSG). Key Points: Use the rino-type attribute to specify the..." />
-    <meta property="og:title" content="Extra syntax" />
-    <meta property="og:description" content="Extra syntax Javascript / Typescript Templating Rino.js supports powerful templating capabilities using JavaScript or TypeScript. This feature allows dynamic creation of HTML content, such as integrating npm packages, reading files, or programmatically generating content. Only available for static site generation (SSG). Key Points: Use the rino-type attribute to specify the..." />
+    <meta name="description" content="Use Markdown, build-time JavaScript and TypeScript templates, and inline CSS or JavaScript exports in Rino.js v3." />
+    <meta property="og:title" content="Extra Syntax" />
+    <meta property="og:description" content="Use Markdown, build-time JavaScript and TypeScript templates, and inline CSS or JavaScript exports in Rino.js v3." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://rinojs.org/contents/en/learn-rino/2-Extra-syntax" />
     <link
@@ -27,7 +27,7 @@
       title="Atom"
       href="/atom-en.xml"
     />
-    <title>Extra syntax</title>
+    <title>Extra Syntax</title>
   </head>
 
   <body>
@@ -94,7 +94,7 @@
                 <ul>
 <li><a href="/contents/en/learn-rino/4-Installation-and-Commands">Installation and Commands</a></li>
 <li><a href="/contents/en/learn-rino/3-Project-Structure">Project Structure</a></li>
-<li><span>Extra syntax</span></li>
+<li><span>Extra Syntax</span></li>
 <li><a href="/contents/en/learn-rino/1-Internationalization">Internationalization</a></li>
 </ul>
               </nav>
@@ -106,48 +106,45 @@
                     2025-04-14T03:40:00.000Z
                   </span>
                 </p>
-                <h1>Extra syntax</h1>
-<h2>Javascript / Typescript Templating</h2>
-<p>Rino.js supports powerful templating capabilities using JavaScript or TypeScript. This feature allows dynamic creation of HTML content, such as integrating npm packages, reading files, or programmatically generating content. Only available for static site generation (SSG).</p>
-<h3>Key Points:</h3>
-<ul>
-<li>Use the rino-type attribute to specify the language (js, javascript, ts, typescript).</li>
-<li>Print any content through console.log().</li>
-<li>Javascript/Typescript packages can be used.</li>
-<li>Since the HTML page path is passed as a process argument, you can generate page templates based on the HTML page path in shared components.</li>
-</ul>
-<h3>Examples:</h3>
-<ul>
-<li>Using JavaScript:</li>
-</ul>
-<pre><code>&lt;script rino-type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
-import os from &quot;os&quot;;
-console.log(os.type());
-console.log(&quot;&lt;div&gt;Hello, Rino.js!&lt;/div&gt;&quot;);
-&lt;/script&gt;
-</code></pre>
-<ul>
-<li>Using TypeScript:</li>
-</ul>
-<pre><code>&lt;script rino-type=&quot;ts&quot; type=&quot;text/typescript&quot;&gt;
-import os from &quot;os&quot;;
-console.log(os.type());
-console.log(&quot;&lt;div&gt;Hello, Rino.js with TypeScript!&lt;/div&gt;&quot;);
-&lt;/script&gt;
-</code></pre>
+                <h1>Extra Syntax</h1>
+<p>Rino.js extends HTML with Markdown rendering, build-time template scripts, and inline asset exports.</p>
 <h2>Markdown</h2>
-<p>Rino.js allows embedding Markdown directly within an HTML file. This complements the option to load Markdown from an external file using the rino-path attribute.</p>
-<h3>Key Points:</h3>
-<ul>
-<li>Use the rino-type attribute with values md or markdown.</li>
-<li>Escape the closing &lt;/script&gt; tag by adding a backslash &lt;/.</li>
-</ul>
-<h3>Example:</h3>
-<pre><code>&lt;script rino-type=&quot;md&quot; type=&quot;text/markdown&quot;&gt;
-# Markdown Title
-This is Markdown content inside an HTML file.
+<p>Store reusable Markdown in <code>mds/</code>, then import it with <code>rino-import</code>:</p>
+<pre><code class="language-html">&lt;script rino-type=&quot;md&quot; rino-import=&quot;intro&quot; rino-tag=&quot;section&quot; class=&quot;intro&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>This reads <code>mds/intro.md</code>. The <code>.md</code> extension is omitted. <code>rino-type=&quot;markdown&quot;</code> is also supported, and the default wrapper is <code>div</code> when <code>rino-tag</code> is absent.</p>
+<p>Markdown can also be written inline:</p>
+<pre><code class="language-html">&lt;script rino-type=&quot;markdown&quot; rino-tag=&quot;section&quot; type=&quot;text/markdown&quot;&gt;
+  ## Hello
+
+  This is **Markdown** inside an HTML file.
 &lt;/script&gt;
 </code></pre>
+<h2>Build-time JavaScript and TypeScript</h2>
+<p>Template scripts run while Rino.js generates the page and insert their standard output into the HTML. They are not browser scripts.</p>
+<pre><code class="language-html">&lt;script rino-type=&quot;js&quot; type=&quot;text/javascript&quot;&gt;
+  import os from &quot;os&quot;;
+  console.log(`&lt;p&gt;Built on ${os.type()}&lt;/p&gt;`);
+&lt;/script&gt;
+</code></pre>
+<pre><code class="language-html">&lt;script rino-type=&quot;ts&quot; type=&quot;text/typescript&quot;&gt;
+  const message: string = &quot;Generated with TypeScript&quot;;
+  console.log(`&lt;p&gt;${message}&lt;/p&gt;`);
+&lt;/script&gt;
+</code></pre>
+<p>Supported values are <code>js</code>, <code>javascript</code>, <code>ts</code>, and <code>typescript</code>. Template scripts may import Node.js modules. Build data is JSON in <code>process.argv[1]</code>; content templates also receive content data as the last process argument.</p>
+<h2>Inline asset exports</h2>
+<p>Small styles or browser scripts owned by a page or component can be collected into output files:</p>
+<pre><code class="language-html">&lt;style rino-export=&quot;/site.css&quot;&gt;
+  .callout { padding: 1rem; }
+&lt;/style&gt;
+
+&lt;script rino-export=&quot;/site.js&quot;&gt;
+  window.showMessage = () =&gt; alert(&quot;Hello&quot;);
+&lt;/script&gt;
+</code></pre>
+<p>The tags are removed from the final HTML and written to <code>dist/styles/site.css</code> and <code>dist/scripts/site.js</code>. Reference them normally. Use a <code>.ts</code> export path or <code>rino-type=&quot;ts&quot;</code> to compile an export from TypeScript. Multiple tags may target one file: unique blocks are appended and exact duplicates are ignored. Export paths cannot contain <code>..</code>.</p>
+<p>Functions needed by HTML event handlers may be attached to <code>window</code>, because bundled top-level declarations are scoped to the bundle.</p>
 
               </article>
             </div>

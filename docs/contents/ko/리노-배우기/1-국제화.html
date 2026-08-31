@@ -10,9 +10,9 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <meta property="og:image" content="https://rinojs.org/images/rino512.png" />
 <meta property="og:site_name" content="Rino.js website" />
-    <meta name="description" content="Rino.js는 개발 서버와 정적 생성 모두에서 사용할 수 있는 완전한 기능을 갖춘 유연하고 개발자 친화적인 JSON 기반 국제화 시스템을 제공합니다..." />
+    <meta name="description" content="로케일별 JSON, 중첩 키, 배열, 폴백 값, 로컬라이즈된 출력 경로를 사용하여 Rino.js 페이지를 번역합니다." />
     <meta property="og:title" content="국제화" />
-    <meta property="og:description" content="Rino.js는 개발 서버와 정적 생성 모두에서 사용할 수 있는 완전한 기능을 갖춘 유연하고 개발자 친화적인 JSON 기반 국제화 시스템을 제공합니다..." />
+    <meta property="og:description" content="로케일별 JSON, 중첩 키, 배열, 폴백 값, 로컬라이즈된 출력 경로를 사용하여 Rino.js 페이지를 번역합니다." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://rinojs.org/contents/ko/리노-배우기/1-국제화" />
     <link
@@ -92,8 +92,8 @@
               <h3>콘텐츠 네비게이션:</h3>
               <nav class="content-navigation">
                 <ul>
-<li><a href="/contents/ko/리노-배우기/4-프로젝트-구조">프로젝트 구조</a></li>
-<li><a href="/contents/ko/리노-배우기/3-설치와-명령어">설치와 명령어</a></li>
+<li><a href="/contents/ko/리노-배우기/4-설치와-명령어">설치와 명령어</a></li>
+<li><a href="/contents/ko/리노-배우기/3-프로젝트-구조">프로젝트 구조</a></li>
 <li><a href="/contents/ko/리노-배우기/2-추가-구문">추가 구문</a></li>
 <li><span>국제화</span></li>
 </ul>
@@ -107,69 +107,43 @@
                   </span>
                 </p>
                 <h1>국제화 (i18n)</h1>
-<p>Rino.js는 개발 서버와 정적 생성 모두에서 사용할 수 있는 완전한 기능을 갖춘 유연하고 개발자 친화적인 JSON 기반 국제화 시스템을 제공합니다.
-로컬라이제이션은 컴파일러 파이프라인에 깊이 통합되어 있으면서도, 사용 방식은 단순하고 직관적으로 유지됩니다.</p>
-<h2>예시:</h2>
-<h3>구조:</h3>
-<pre><code>pages/
-  index.html
-  about.html
-
-i18n/
-  en/
-    index.json
-    about.json
-  ko/
-    index.json
-    about.json
-</code></pre>
-<p>HTML 안의 각 <lang>…</lang> 태그는 해당 페이지에 대응되는 JSON 파일의 키와 매핑됩니다.</p>
-<h3>index.html:</h3>
-<pre><code>&lt;h1&gt;&lt;lang&gt;header.title&lt;/lang&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;lang&gt;body.content.top[0]&lt;/lang&gt;&lt;/p&gt;
-</code></pre>
-<h3>i18n/en/index.json:</h3>
-<pre><code>{
-  &quot;header&quot;: { &quot;title&quot;: &quot;Welcome&quot; },
-  &quot;body&quot;: {
-    &quot;content&quot;: { &quot;top&quot;: [&quot;First content block&quot;] }
-  }
-}
-</code></pre>
-<h3>rino-config:</h3>
-<p>어떤 로케일을 빌드하고 서비스할지 명시적으로 정의할 수 있습니다.
-<code>/i18n/</code> 아래의 &quot;en&quot;과 “ko” 디렉터리만 사용되며,
-그 외의 로케일 폴더는 무시됩니다 (안전하고 예측 가능한 결과 보장).</p>
-<p>defaultLocale는 루트 페이지(예: <code>/index.html</code>)에 적용됩니다.
-로컬라이즈된 페이지는 자동으로 <code>/dist/&lt;locale&gt;/</code> 경로에 생성됩니다.</p>
-<pre><code>i18n: {
+<p>Rino.js는 개발 서버와 정적 생성에서 모두 사용할 수 있는 JSON 기반 국제화를 제공합니다. 페이지나 컴포넌트에 <code>&lt;lang&gt;key&lt;/lang&gt;</code>를 작성하고, 페이지 경로와 일치하는 JSON 파일에 값을 정의합니다.</p>
+<h2>설정</h2>
+<p><code>rino-config.js</code>에 사용할 로케일을 추가합니다.</p>
+<pre><code class="language-js">export default {
+  i18n: {
     defaultLocale: &quot;en&quot;,
-    locales: [&quot;en&quot;, &quot;ko&quot;]
+    locales: [&quot;en&quot;, &quot;ko&quot;],
+  },
+};
+</code></pre>
+<p>기본 로케일은 일반 페이지 경로에 생성되고, 나머지 로케일은 로케일 접두사가 붙은 경로에 생성됩니다.</p>
+<pre><code class="language-text">pages/index.html -&gt; dist/index.html     (영어)
+                 -&gt; dist/ko/index.html  (한국어)
+</code></pre>
+<p><code>i18n.locales</code>에 나열한 로케일만 생성됩니다.</p>
+<h2>번역 파일</h2>
+<p><code>i18n/{locale}/</code> 아래의 JSON 파일은 해당 페이지와 같은 경로를 따라야 합니다.</p>
+<pre><code class="language-text">pages/index.html       i18n/en/index.json       i18n/ko/index.json
+pages/about.html       i18n/en/about.json       i18n/ko/about.json
+pages/docs/start.html  i18n/en/docs/start.json  i18n/ko/docs/start.json
+</code></pre>
+<p><code>pages/index.html</code>:</p>
+<pre><code class="language-html">&lt;h1&gt;&lt;lang&gt;header.title&lt;/lang&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;lang&gt;body.content[0]&lt;/lang&gt;&lt;/p&gt;
+</code></pre>
+<p><code>i18n/ko/index.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;header&quot;: { &quot;title&quot;: &quot;환영합니다&quot; },
+  &quot;body&quot;: { &quot;content&quot;: [&quot;Rino.js로 정적 사이트를 만드세요.&quot;] }
 }
 </code></pre>
-<h3>예외 적용법</h3>
-<h4>입력:</h4>
-<pre><code>\&lt;lang&gt;head.title\&lt;/lang&gt;
-&lt;p&gt;&lt;lang&gt;head.title&lt;/lang&gt;&lt;/p&gt;
-&lt;p&gt;&lt;lang&gt;missing.value&lt;/lang&gt;&lt;/p&gt;
+<p>중첩 객체에는 점 경로를, 배열에는 <code>items[0].label</code>과 같은 대괄호 경로를 사용합니다.</p>
+<h2>폴백과 리터럴 태그</h2>
+<p>기본 로케일이 영어라면 Rino.js는 영어 JSON 위에 한국어 JSON을 병합합니다. 한국어 값이 없으면 영어 값을 사용합니다. 양쪽 모두에 키가 없으면 빌드가 실패하지 않고 <code>&lt;lang&gt;</code> 태그가 출력에 그대로 남습니다.</p>
+<p>태그 자체를 표시하려면 이스케이프합니다.</p>
+<pre><code class="language-html">\&lt;lang&gt;header.title\&lt;/lang&gt;
 </code></pre>
-<h4>출력:</h4>
-<pre><code>&lt;lang&gt;head.title&lt;/lang&gt;
-&lt;p&gt;Translated Title Here&lt;/p&gt;
-&lt;p&gt;&lt;lang&gt;missing.value&lt;/lang&gt;&lt;/p&gt;
-</code></pre>
-<h3>i18n 기능 관련 추가 사항:</h3>
-<ul>
-<li>
-<p>중첩된 객체 구조 지원</p>
-</li>
-<li>
-<p>배열 인덱싱 지원 (예: <code>items[0].label</code>)</p>
-</li>
-<li>
-<p>키가 누락된 경우, 설정되어 있다면 기본 로케일로 자연스럽게 폴백 처리됨</p>
-</li>
-</ul>
 
               </article>
             </div>

@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
     <feed xmlns="http://www.w3.org/2005/Atom">
-      <title>https://rinojs.org Atom Feed</title>
-      <link href="https://rinojs.org" />
-      <updated>2026-01-24T01:22:32.360Z</updated>
-      <id>https://rinojs.org/feed</id>
+      <title>https://rinojs.com Atom Feed</title>
+      <link href="https://rinojs.com" />
+      <updated>2026-08-31T04:51:13.589Z</updated>
+      <id>https://rinojs.com/feed</id>
       
       <entry>
         <title>Internationalization</title>
-        <link href="https://rinojs.org/contents/en/learn-rino/1-Internationalization" />
-        <id>https://rinojs.org/contents/en/learn-rino/1-Internationalization</id>
-        <updated>2026-01-24T01:22:32.360Z</updated>
+        <link href="https://rinojs.com/contents/en/learn-rino/1-Internationalization" />
+        <id>https://rinojs.com/contents/en/learn-rino/1-Internationalization</id>
+        <updated>2026-08-31T04:51:13.589Z</updated>
       </entry>
     
       <entry>
         <title>Extra syntax</title>
-        <link href="https://rinojs.org/contents/en/learn-rino/2-Extra-syntax" />
-        <id>https://rinojs.org/contents/en/learn-rino/2-Extra-syntax</id>
-        <updated>2026-01-24T01:22:32.360Z</updated>
+        <link href="https://rinojs.com/contents/en/learn-rino/2-Extra-syntax" />
+        <id>https://rinojs.com/contents/en/learn-rino/2-Extra-syntax</id>
+        <updated>2026-08-31T04:51:13.589Z</updated>
       </entry>
     
       <entry>
         <title>Project Structure</title>
-        <link href="https://rinojs.org/contents/en/learn-rino/3-Project-Structure" />
-        <id>https://rinojs.org/contents/en/learn-rino/3-Project-Structure</id>
-        <updated>2026-01-24T01:22:32.360Z</updated>
+        <link href="https://rinojs.com/contents/en/learn-rino/3-Project-Structure" />
+        <id>https://rinojs.com/contents/en/learn-rino/3-Project-Structure</id>
+        <updated>2026-08-31T04:51:13.589Z</updated>
       </entry>
     
       <entry>
         <title>Installation and Commands</title>
-        <link href="https://rinojs.org/contents/en/learn-rino/4-Installation-and-Commands" />
-        <id>https://rinojs.org/contents/en/learn-rino/4-Installation-and-Commands</id>
-        <updated>2026-01-24T01:22:32.360Z</updated>
+        <link href="https://rinojs.com/contents/en/learn-rino/4-Installation-and-Commands" />
+        <id>https://rinojs.com/contents/en/learn-rino/4-Installation-and-Commands</id>
+        <updated>2026-08-31T04:51:13.589Z</updated>
       </entry>
     
     </feed>

@@ -2,88 +2,76 @@
 {
   "title": "Internationalization",
   "time": "2026-01-24T10:30:00.000Z",
-  "description": "Rino.js has a fully-featured, flexible, and developer-friendly JSON-based internationalization system for both dev server and static generation...."
+  "description": "Translate Rino.js pages with locale-specific JSON, nested keys, arrays, fallback values, and localized output paths."
 }
 -->
 
 # Internationalization (i18n)
 
-Rino.js has a fully-featured, flexible, and developer-friendly JSON-based internationalization system for both dev server and static generation.
-Localization is now deeply integrated into the compiler pipeline while staying simple and intuitive to use.
+Rino.js provides JSON-based internationalization for both the development server and static generation. Use `<lang>key</lang>` in pages or components, then define the value in a JSON file that matches the page path.
 
-## Example:
+## Configuration
 
-### Structure:
+Add the locales to `rino-config.js`:
 
-```
-pages/
-  index.html
-  about.html
-
-i18n/
-  en/
-    index.json
-    about.json
-  ko/
-    index.json
-    about.json
+```js
+export default {
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "ko"],
+  },
+};
 ```
 
-Each `<lang>...</lang>` tag in your HTML will map to a key inside the corresponding JSON file:
+The default locale is generated at the normal page path. Other locales are generated under their locale prefix:
 
-### index.html:
-
+```text
+pages/index.html -> dist/index.html     (English)
+                 -> dist/ko/index.html  (Korean)
 ```
+
+Only locales listed in `i18n.locales` are generated.
+
+## Translation files
+
+Locale files under `i18n/{locale}/` must follow the same path as the corresponding page:
+
+```text
+pages/index.html       i18n/en/index.json       i18n/ko/index.json
+pages/about.html       i18n/en/about.json       i18n/ko/about.json
+pages/docs/start.html  i18n/en/docs/start.json  i18n/ko/docs/start.json
+```
+
+In `pages/index.html`:
+
+```html
 <h1><lang>header.title</lang></h1>
-<p><lang>body.content.top[0]</lang></p>
+<p><lang>body.content[0]</lang></p>
 ```
 
-### i18n/en/index.json:
+In `i18n/en/index.json`:
 
-```
+```json
 {
   "header": { "title": "Welcome" },
-  "body": {
-    "content": { "top": ["First content block"] }
-  }
+  "body": { "content": ["Build a static site with Rino.js."] }
 }
 ```
 
-### rino-config:
+Nested objects use dot paths, and arrays use bracket paths such as `items[0].label`.
 
-You can explicitly define which locales should be built and served.
-Only "en" and "ko" directories under `/i18n/` are used.
-All other locale folders are ignored (safe, predictable output).
-defaultLocale is applied to root pages (e.g. `/index.html`).
-Localized pages will be generated under `/dist/<locale>/` automatically.
+## Fallbacks and literal tags
 
-```
-    i18n: {
-        defaultLocale: "en",
-        locales: ["en", "ko"]
-    }
+For a non-default locale, Rino.js merges its JSON over the default-locale JSON. A missing Korean value therefore falls back to English when English is the default locale. If a key is unavailable in both files, the `<lang>` tag remains in the output instead of failing the build.
+
+Escape a language tag when you want to display it literally:
+
+```html
+\<lang>header.title\</lang>
 ```
 
-### Escape
+This produces:
 
-#### Input:
-
+```html
+<lang>header.title</lang>
 ```
-\<lang>head.title\</lang>
-<p><lang>head.title</lang></p>
-<p><lang>missing.value</lang></p>
-```
-
-#### Output:
-
-```
-<lang>head.title</lang>
-<p>Translated Title Here</p>
-<p><lang>missing.value</lang></p>
-```
-
-### Other things to note for i18n feature:
-
-- Supports nested objects
-- Supports array indexing (e.g. `items[0].label`)
-- Missing keys gracefully fallback to default locale if configured

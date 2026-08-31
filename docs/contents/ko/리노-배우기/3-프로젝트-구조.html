@@ -10,24 +10,24 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <meta property="og:image" content="https://rinojs.org/images/rino512.png" />
 <meta property="og:site_name" content="Rino.js website" />
-    <meta name="description" content="Understand the Rino.js v3 folders for pages, components, Markdown, content collections, assets, localization, and generated output." />
-    <meta property="og:title" content="Project Structure" />
-    <meta property="og:description" content="Understand the Rino.js v3 folders for pages, components, Markdown, content collections, assets, localization, and generated output." />
+    <meta name="description" content="페이지, 컴포넌트, 마크다운, 콘텐츠 컬렉션, 에셋, 국제화, 생성 결과를 위한 Rino.js v3 프로젝트 구조를 설명합니다." />
+    <meta property="og:title" content="프로젝트 구조" />
+    <meta property="og:description" content="페이지, 컴포넌트, 마크다운, 콘텐츠 컬렉션, 에셋, 국제화, 생성 결과를 위한 Rino.js v3 프로젝트 구조를 설명합니다." />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://rinojs.org/contents/en/learn-rino/3-Project-Structure" />
+    <meta property="og:url" content="https://rinojs.org/contents/ko/리노-배우기/3-프로젝트-구조" />
     <link
       rel="alternate"
       type="application/rss+xml"
       title="RSS"
-      href="/rss-en.xml"
+      href="/rss-ko.xml"
     />
     <link
       rel="alternate"
       type="application/atom+xml"
       title="Atom"
-      href="/atom-en.xml"
+      href="/atom-ko.xml"
     />
-    <title>Project Structure</title>
+    <title>프로젝트 구조</title>
   </head>
 
   <body>
@@ -42,27 +42,27 @@
     ></a>
   </div>
   <div class="sidebar-text-content">
-    <h4>Main</h4>
+    <h4>메인</h4>
     <nav>
       <ul>
         <li>
-          <a href="/">Home</a>
+          <a href="/ko/">홈</a>
         </li>
         <li>
-          <a href="/contact">Contact</a>
+          <a href="/ko/contact">연락처</a>
         </li>
         <li>
           <a href="https://github.com/sponsors/opdev1004" target="_blank"
-            >Support my project</a
+            >후원하기</a
           >
         </li>
       </ul>
     </nav>
-    <h4>Contents</h4><nav><ul>
-<li><a href="/contents-list/en/learn-rino/learn-rino-1">Learn Rino</a></li>
+    <h4>콘텐츠</h4><nav><ul>
+<li><a href="/contents-list/ko/리노-배우기/리노-배우기-1">리노 배우기</a></li>
 </ul></nav>
-    <h4>License</h4>
-    <p>Rino.js is Free, MIT licensed opensource project</p>
+    <h4>라이선스</h4>
+    <p>Rino.js는 무료, MIT 라이선스의 오픈소스 프로젝트 입니다.</p>
   </div>
   <div
     class="sidebar-empty-zone"
@@ -75,7 +75,7 @@
         <header>
     <div class="menu-tab tab" id="menu-tab" onclick="main.switchTab('sidebar')">
         <ion-icon name="menu-outline"></ion-icon>
-        <span>Menu</span>
+        <span>메뉴</span>
     </div>
     <div class="content-tab tab active" id="content-tab" onclick="main.switchTab('content')">
         <ion-icon name="code-outline"></ion-icon>
@@ -83,31 +83,31 @@
     </div>
     <div class="tab2 tab" id="tab2" onclick="main.switchTab('tab2-content')">
         <ion-icon name="language-outline"></ion-icon>
-        <span>Language</spans>
+        <span>언어</spans>
     </div>
 </header>
         <main>
           <div class="content-container">
             <div class="content" id="content">
-              <h3>Content Navigation:</h3>
+              <h3>콘텐츠 네비게이션:</h3>
               <nav class="content-navigation">
                 <ul>
-<li><a href="/contents/en/learn-rino/4-Installation-and-Commands">Installation and Commands</a></li>
-<li><span>Project Structure</span></li>
-<li><a href="/contents/en/learn-rino/2-Extra-syntax">Extra Syntax</a></li>
-<li><a href="/contents/en/learn-rino/1-Internationalization">Internationalization</a></li>
+<li><a href="/contents/ko/리노-배우기/4-설치와-명령어">설치와 명령어</a></li>
+<li><span>프로젝트 구조</span></li>
+<li><a href="/contents/ko/리노-배우기/2-추가-구문">추가 구문</a></li>
+<li><a href="/contents/ko/리노-배우기/1-국제화">국제화</a></li>
 </ul>
               </nav>
               <br />
               <article>
                 <p class="published-time">
-                  Published:
-                  <span id="published-time" data-raw-time="2025-04-14T01:21:00.000Z">
-                    2025-04-14T01:21:00.000Z
+                  발행 시간:
+                  <span id="published-time" data-raw-time="2025-04-15T01:21:00.000Z">
+                    2025-04-15T01:21:00.000Z
                   </span>
                 </p>
-                <h1>Project Structure</h1>
-<p>Rino.js turns HTML, Markdown, CSS, JavaScript, and TypeScript into a static website. Only the folders you use are required.</p>
+                <h1>프로젝트 구조</h1>
+<p>Rino.js는 HTML, 마크다운, CSS, JavaScript, TypeScript로 구성된 폴더를 정적 웹사이트로 변환합니다. 사용하는 폴더만 만들면 됩니다.</p>
 <pre><code class="language-text">my-site/
   rino-config.js
   dev.js
@@ -121,62 +121,62 @@
   public/
   scripts/export/
   styles/export/
-  contents/en/blog/
-  content-theme/en/
-  i18n/en/
+  contents/ko/blog/
+  content-theme/ko/
+  i18n/ko/
 </code></pre>
-<h2>Pages and components</h2>
-<p>Files in <code>pages/</code> keep their relative paths:</p>
+<h2>페이지와 컴포넌트</h2>
+<p><code>pages/</code>의 파일은 상대 경로를 유지합니다.</p>
 <pre><code class="language-text">pages/index.html      -&gt; dist/index.html
 pages/about.html      -&gt; dist/about.html
 pages/docs/index.html -&gt; dist/docs/index.html
 </code></pre>
-<p>Reusable HTML belongs in <code>components/</code>. Import a component without its <code>.html</code> extension:</p>
+<p>재사용할 HTML은 <code>components/</code>에 둡니다. <code>.html</code> 확장자 없이 불러옵니다.</p>
 <pre><code class="language-html">&lt;component rino-import=&quot;layout/header&quot;&gt;&lt;/component&gt;
 </code></pre>
-<p>This loads <code>components/layout/header.html</code>. Use <code>rino-tag</code> to wrap the result and copy other attributes to that wrapper:</p>
+<p>이 코드는 <code>components/layout/header.html</code>을 읽습니다. 결과를 HTML 요소로 감싸고 다른 속성을 래퍼에 복사하려면 <code>rino-tag</code>를 사용합니다.</p>
 <pre><code class="language-html">&lt;component rino-import=&quot;button&quot; rino-tag=&quot;button&quot; type=&quot;button&quot; class=&quot;primary&quot;&gt;&lt;/component&gt;
 </code></pre>
-<p>Use <code>rino-import</code>, not the old <code>rino-path</code>; <code>rino-path</code> is unsupported in v3. Avoid circular component imports.</p>
-<h2>Markdown files</h2>
-<p>Reusable Markdown goes in <code>mds/</code>:</p>
+<p>이전의 <code>rino-path</code>가 아니라 <code>rino-import</code>를 사용하세요. <code>rino-path</code>는 v3에서 지원하지 않습니다. 컴포넌트가 순환 참조하지 않도록 주의하세요.</p>
+<h2>마크다운</h2>
+<p>재사용할 마크다운은 <code>mds/</code>에 둡니다.</p>
 <pre><code class="language-html">&lt;script rino-type=&quot;md&quot; rino-import=&quot;intro&quot; rino-tag=&quot;section&quot;&gt;&lt;/script&gt;
 </code></pre>
-<h2>Public files</h2>
-<p>Files in <code>public/</code> are copied directly to the output root:</p>
+<h2>공개 파일 (public)</h2>
+<p><code>public/</code>의 파일은 출력 루트로 그대로 복사됩니다.</p>
 <pre><code class="language-text">public/favicon.ico       -&gt; dist/favicon.ico
 public/images/photo.webp -&gt; dist/images/photo.webp
 </code></pre>
-<h2>Browser scripts and styles</h2>
-<p>JavaScript and TypeScript in <code>scripts/export/</code> are bundled into <code>dist/scripts/</code>:</p>
+<h2>브라우저 스크립트와 스타일</h2>
+<p><code>scripts/export/</code>의 JavaScript와 TypeScript는 번들되어 <code>dist/scripts/</code>에 기록됩니다.</p>
 <pre><code class="language-text">scripts/export/app.js -&gt; dist/scripts/app.js
 scripts/export/app.ts -&gt; dist/scripts/app.js
 </code></pre>
-<p>CSS in <code>styles/export/</code> is resolved and minified into <code>dist/styles/</code>. Local dependencies use standard CSS syntax such as <code>@import &quot;../shared/tokens.css&quot;;</code>. Reference generated assets normally:</p>
+<p><code>styles/export/</code>의 CSS는 의존성을 해석한 뒤 최소화되어 <code>dist/styles/</code>에 기록됩니다. 로컬 파일은 <code>@import &quot;../shared/tokens.css&quot;;</code>처럼 표준 CSS 문법으로 가져옵니다.</p>
 <pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;/styles/app.css&quot; /&gt;
 &lt;script src=&quot;/scripts/app.js&quot;&gt;&lt;/script&gt;
 </code></pre>
-<h2>Content collections</h2>
-<p>Markdown collections follow <code>contents/{theme}/{category}/{number-title}.md</code>:</p>
-<pre><code class="language-text">contents/en/blog/1-first-post.md
+<h2>콘텐츠 컬렉션</h2>
+<p>마크다운 컬렉션 경로는 <code>contents/{theme}/{category}/{number-title}.md</code> 형식입니다.</p>
+<pre><code class="language-text">contents/ko/blog/1-first-post.md
 </code></pre>
-<p>A file starts with metadata in a JSON comment:</p>
+<p>파일 시작 부분에 HTML 주석으로 JSON 메타데이터를 작성할 수 있습니다.</p>
 <pre><code class="language-md">&lt;!--
 {
-  &quot;title&quot;: &quot;Welcome&quot;,
+  &quot;title&quot;: &quot;환영합니다&quot;,
   &quot;time&quot;: &quot;2026-08-31T10:00:00.000Z&quot;,
-  &quot;description&quot;: &quot;The first post.&quot;
+  &quot;description&quot;: &quot;첫 번째 글입니다.&quot;
 }
 --&gt;
 
-# Hello
+# 안녕하세요
 </code></pre>
-<p>Each theme needs <code>content-theme/{theme}/content.html</code> and <code>content-list.html</code>. Content templates can use <code>{{ content.title }}</code>, <code>{{ content.body }}</code>, <code>{{ content.urlPath }}</code>, and <code>{{ content.time }}</code>. Content list template receive content list data from argument. And we can create pagination system.</p>
-<pre><code class="language-text">dist/contents/en/blog/1-first-post.html
-dist/contents-list/en/blog/blog-1.html
+<p>각 테마에는 <code>content-theme/{theme}/content.html</code>과 <code>content-list.html</code>이 필요합니다. 콘텐츠 템플릿에서는 <code>{{ content.title }}</code>, <code>{{ content.body }}</code>, <code>{{ content.urlPath }}</code>, <code>{{ content.time }}</code>을 사용할 수 있습니다.</p>
+<pre><code class="language-text">dist/contents/ko/blog/1-first-post.html
+dist/contents-list/ko/blog/blog-1.html
 </code></pre>
-<h2>Configuration and generated metadata</h2>
-<p><code>rino-config.js</code> controls the output directory, development port, site URL, extra sitemap URLs, and locales:</p>
+<h2>설정과 메타데이터 생성</h2>
+<p><code>rino-config.js</code>는 출력 경로, 개발 서버 포트, 사이트 URL, 추가 사이트맵 URL, 로케일을 설정합니다.</p>
 <pre><code class="language-js">export default {
   dist: &quot;./dist&quot;,
   port: 3000,
@@ -185,7 +185,7 @@ dist/contents-list/en/blog/blog-1.html
   i18n: { defaultLocale: &quot;en&quot;, locales: [&quot;en&quot;, &quot;ko&quot;] },
 };
 </code></pre>
-<p>Rino.js can generate <code>sitemap.xml</code>, RSS and Atom feeds from content metadata, and theme-specific feed files. The optional backoffice server provides content and image tools and starts at the next available port from <code>3100</code>.</p>
+<p>Rino.js는 페이지와 콘텐츠에서 <code>sitemap.xml</code>, RSS 및 Atom 피드, 테마별 피드를 만들 수 있습니다. 선택 기능인 백오피스 서버는 콘텐츠와 이미지 도구를 제공하며 <code>3100</code>부터 사용 가능한 포트를 찾습니다.</p>
 
               </article>
             </div>

@@ -2,7 +2,7 @@
 {
   "title": "Installation and Commands",
   "time": "2025-04-12T01:21:00.000Z",
-  "description": "Installation and Commands Installation You need the latest Node.js installed. Then from terminal, enter the following: npm create rino@latest This will setup your project for building website. Then you can start your development by: npm run dev You can also npm i rinojs@latest for manual use. Command Development server: npm..."
+  "description": "Install Rino.js v3, configure an ESM project, create build scripts, and run development, generation, sitemap, feed, and backoffice commands."
 }
 -->
 
@@ -10,36 +10,43 @@
 
 ## Installation
 
-You need the latest Node.js installed.
+Install a current Node.js release, then create a starter project:
 
-Then from terminal, enter the following:
-
-```
+```bash
 npm create rino@latest
 ```
 
-This will setup your project for building website.
+To add Rino.js manually to an ESM project:
 
-Then you can start your development by:
-
-```
-npm run dev
+```bash
+npm install rinojs
 ```
 
-You can also
+Your `package.json` should contain `"type": "module"` and scripts such as:
 
+```json
+{
+  "type": "module",
+  "scripts": {
+    "dev": "node dev.js",
+    "generate": "node generate.js",
+    "generate-all": "node generate.js && node sitemap.js && node feed.js",
+    "generate-sitemap": "node generate.js && node sitemap.js",
+    "sitemap": "node sitemap.js",
+    "feed": "node feed.js",
+    "backoffice": "node backoffice.js"
+  },
+  "dependencies": { "rinojs": "^3.0.0" }
+}
 ```
-npm i rinojs@latest
-```
-
-for manual use.
-
-## Command
+## Commands
 
 - Development server: `npm run dev`
-- Building website with sitemap and feed: `npm run generate-all`
-- Building website: `npm run generate`
-- Building website with sitemap: `npm run generate-sitemap`
-- Building sitemap: `npm run sitemap`
-- Building feed: `npm run feed`
-- Running backoffice server: `npm run backoffice`
+- Build the website: `npm run generate`
+- Build the website and sitemap: `npm run generate-sitemap`
+- Build the website, sitemap, and feeds: `npm run generate-all`
+- Build only the sitemap: `npm run sitemap`
+- Build only RSS and Atom feeds: `npm run feed`
+- Run the backoffice server: `npm run backoffice`
+
+The development server builds into memory and watches project files. A static build writes to `dist` by default; change it with `dist` in `rino-config.js`.

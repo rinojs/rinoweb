@@ -10,11 +10,11 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <meta property="og:image" content="https://rinojs.org/images/rino512.png" />
 <meta property="og:site_name" content="Rino.js website" />
-    <meta name="description" content="설치와 명령어 설치 최신 버전의 Node.js가 설치되어 있어야 합니다. 그 다음 터미널에서 다음 명령어를 입력하세요: npm create rino@latest 이 명령어는 웹사이트 빌드를 위한 프로젝트를 설정합니다. 그 후, 개발 서버를 시작하려면 아래 명령어를 입력하세요: npm run dev 수동으로 사용하려는 경우에는 다음과 같이 설치할 수도 있습니다: npm i rinojs@latest 명령어 개발 서버..." />
+    <meta name="description" content="Rino.js v3를 설치하고 ESM 프로젝트와 빌드 스크립트를 설정한 뒤 개발, 생성, 사이트맵, 피드, 백오피스 명령을 실행합니다." />
     <meta property="og:title" content="설치와 명령어" />
-    <meta property="og:description" content="설치와 명령어 설치 최신 버전의 Node.js가 설치되어 있어야 합니다. 그 다음 터미널에서 다음 명령어를 입력하세요: npm create rino@latest 이 명령어는 웹사이트 빌드를 위한 프로젝트를 설정합니다. 그 후, 개발 서버를 시작하려면 아래 명령어를 입력하세요: npm run dev 수동으로 사용하려는 경우에는 다음과 같이 설치할 수도 있습니다: npm i rinojs@latest 명령어 개발 서버..." />
+    <meta property="og:description" content="Rino.js v3를 설치하고 ESM 프로젝트와 빌드 스크립트를 설정한 뒤 개발, 생성, 사이트맵, 피드, 백오피스 명령을 실행합니다." />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://rinojs.org/contents/ko/리노-배우기/3-설치와-명령어" />
+    <meta property="og:url" content="https://rinojs.org/contents/ko/리노-배우기/4-설치와-명령어" />
     <link
       rel="alternate"
       type="application/rss+xml"
@@ -92,8 +92,8 @@
               <h3>콘텐츠 네비게이션:</h3>
               <nav class="content-navigation">
                 <ul>
-<li><a href="/contents/ko/리노-배우기/4-프로젝트-구조">프로젝트 구조</a></li>
 <li><span>설치와 명령어</span></li>
+<li><a href="/contents/ko/리노-배우기/3-프로젝트-구조">프로젝트 구조</a></li>
 <li><a href="/contents/ko/리노-배우기/2-추가-구문">추가 구문</a></li>
 <li><a href="/contents/ko/리노-배우기/1-국제화">국제화</a></li>
 </ul>
@@ -108,27 +108,38 @@
                 </p>
                 <h1>설치와 명령어</h1>
 <h2>설치</h2>
-<p>최신 버전의 Node.js가 설치되어 있어야 합니다.</p>
-<p>그 다음 터미널에서 다음 명령어를 입력하세요:</p>
-<pre><code>npm create rino@latest
+<p>최신 Node.js를 설치한 뒤 스타터 프로젝트를 생성합니다.</p>
+<pre><code class="language-bash">npm create rino@latest
 </code></pre>
-<p>이 명령어는 웹사이트 빌드를 위한 프로젝트를 설정합니다.</p>
-<p>그 후, 개발 서버를 시작하려면 아래 명령어를 입력하세요:</p>
-<pre><code>npm run dev
+<p>기존 ESM 프로젝트에 직접 추가하려면 다음 명령을 사용합니다.</p>
+<pre><code class="language-bash">npm install rinojs
 </code></pre>
-<p>수동으로 사용하려는 경우에는 다음과 같이 설치할 수도 있습니다:</p>
-<pre><code>npm i rinojs@latest
+<p><code>package.json</code>에는 <code>&quot;type&quot;: &quot;module&quot;</code>과 다음과 같은 스크립트가 필요합니다.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;module&quot;,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;node dev.js&quot;,
+    &quot;generate&quot;: &quot;node generate.js&quot;,
+    &quot;generate-all&quot;: &quot;node generate.js &amp;&amp; node sitemap.js &amp;&amp; node feed.js&quot;,
+    &quot;generate-sitemap&quot;: &quot;node generate.js &amp;&amp; node sitemap.js&quot;,
+    &quot;sitemap&quot;: &quot;node sitemap.js&quot;,
+    &quot;feed&quot;: &quot;node feed.js&quot;,
+    &quot;backoffice&quot;: &quot;node backoffice.js&quot;
+  },
+  &quot;dependencies&quot;: { &quot;rinojs&quot;: &quot;^3.0.0&quot; }
+}
 </code></pre>
 <h2>명령어</h2>
 <ul>
-<li>개발 서버 실행: <code>npm run dev</code></li>
-<li>웹사이트, 사이트맵, 피드 빌드: <code>npm run generate-all</code></li>
+<li>개발 서버: <code>npm run dev</code></li>
 <li>웹사이트 빌드: <code>npm run generate</code></li>
-<li>웹사이트, 사이트맵 빌드: <code>npm run generate-sitemap</code></li>
-<li>사이트맵 빌드: <code>npm run sitemap</code></li>
-<li>피드 빌드: <code>npm run feed</code></li>
-<li>백오피스 서버 실행: <code>npm run backoffice</code></li>
+<li>웹사이트와 사이트맵 빌드: <code>npm run generate-sitemap</code></li>
+<li>웹사이트, 사이트맵, 피드 빌드: <code>npm run generate-all</code></li>
+<li>사이트맵만 빌드: <code>npm run sitemap</code></li>
+<li>RSS와 Atom 피드만 빌드: <code>npm run feed</code></li>
+<li>백오피스 서버: <code>npm run backoffice</code></li>
 </ul>
+<p>개발 서버는 결과를 메모리에 빌드하고 프로젝트 파일을 감시합니다. 정적 빌드는 기본적으로 <code>dist</code>에 기록하며, <code>rino-config.js</code>의 <code>dist</code>로 경로를 바꿀 수 있습니다.</p>
 
               </article>
             </div>
